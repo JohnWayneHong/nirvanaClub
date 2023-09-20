@@ -9,11 +9,14 @@ import androidx.annotation.NonNull;
 import com.ggb.common_library.base.ui.BaseActivity;
 import com.ggb.common_library.utils.CommonDialogUtil;
 import com.ggb.common_library.utils.DevicesUtils;
+import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.common_library.utils.ToastUtils;
 import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.common.viewmodel.SplashViewModel;
 import com.ggb.nirvanahappyclub.databinding.ActivitySplashBinding;
+import com.ggb.nirvanahappyclub.module.main.MainActivity;
+import com.ggb.nirvanahappyclub.utils.ConstantUtil;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -33,17 +36,18 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
     }
 
     private void checkLaw() {
-        if (checkTestDevice()) {
+        gotoLogin();
+//        if (checkTestDevice()) {
 //            gotoLogin();
-            return;
-        }
-        String serialNumber = DevicesUtils.getDevicesSerialNumber();
-        String oldDevicesSerialNumber = DevicesUtils.getOldDevicesSerialNumber();
-        if (TextUtils.isEmpty(serialNumber)) {
-            ToastUtils.showToast("未知设备!");
-            return;
-        }
-        mViewModel.getRegisterInfo(serialNumber, oldDevicesSerialNumber);
+//            return;
+//        }
+//        String serialNumber = DevicesUtils.getDevicesSerialNumber();
+//        String oldDevicesSerialNumber = DevicesUtils.getOldDevicesSerialNumber();
+//        if (TextUtils.isEmpty(serialNumber)) {
+//            ToastUtils.showToast("未知设备!");
+//            return;
+//        }
+//        mViewModel.getRegisterInfo(serialNumber, oldDevicesSerialNumber);
     }
 
     private boolean checkTestDevice() {
@@ -81,15 +85,15 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
 //        }
 //    }
 
-//    private void gotoLogin() {
-//        String string = MMKVUtils.getString(ConstantUtil.USER_TOKEN);
-//        if (TextUtils.isEmpty(string)) {
+    private void gotoLogin() {
+        String string = MMKVUtils.getString(ConstantUtil.USER_TOKEN);
+        if (!TextUtils.isEmpty(string)) {
 //            LoginActivity.start(this);
-//        } else {
-//            MainActivity.start(this, MMKVUtils.getInt("index"));
-//        }
-//        finish();
-//    }
+        } else {
+            MainActivity.Companion.start(this, MMKVUtils.getInt("index"));
+        }
+        finish();
+    }
 
 
     //-------------------------检查pda合法性--------------------------------------

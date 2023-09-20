@@ -1,11 +1,12 @@
-package com.ggb.nirvanahappyclub.module.index
+package com.ggb.nirvanahappyclub.module.community
 
 import android.view.View
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
-import com.ggb.nirvanahappyclub.databinding.FragmentIndexBinding
-class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),SwipeRefreshLayout.OnRefreshListener,OnItemSingleClickListener{
+import com.ggb.nirvanahappyclub.databinding.FragmentLoginBinding
+
+class CommunityFragment : BaseFragment<CommunityViewModel, FragmentLoginBinding>(),SwipeRefreshLayout.OnRefreshListener,OnItemSingleClickListener{
 
     //构造方法可补充
     init {
