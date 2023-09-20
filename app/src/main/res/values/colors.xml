@@ -49,4 +49,9 @@
     <color name="gray_d8">#D8D8D8</color>
     <color name="ear_tips">#FF732E</color>
 
+    <!--  Nirvana Colors  -->
+    <color name="light_gray">#F3F3F3</color>
+    <color name="title_main_color">#000000</color>
+    <color name="translucent">#80FFFFFF</color>
+
 </resources>
