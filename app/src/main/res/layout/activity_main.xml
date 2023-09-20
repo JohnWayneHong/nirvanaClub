@@ -4,7 +4,7 @@
 
         <variable
             name="data"
-            type="com.jgw.delingha.bean.MainMenuBean" />
+            type="com.ggb.nirvanahappyclub.bean.MainMenuBean" />
     </data>
 
     <LinearLayout

@@ -4,7 +4,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/icon_welcome">
+        android:background="@mipmap/splash_welcome">
 
     </FrameLayout>
 </layout>

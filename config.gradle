@@ -10,12 +10,12 @@ static def gitVersionCode() {
 
 ext {
     android = [
-            applicationId    : "com.jgw.delingha",
+            applicationId    : "com.ggb.nirvanahappyclub",
             compileSdkVersion: 31,
             minSdkVersion    : 21,
             targetSdkVersion : 26,
             versionCode      : gitVersionCode(),
-            versionName      : "1.0.0"
+            versionName      : "1.0.1"
     ]
 
     libsVersion = [

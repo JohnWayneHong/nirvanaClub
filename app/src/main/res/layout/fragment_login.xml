@@ -14,7 +14,7 @@
             android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
-            android:src="@mipmap/app_logo" />
+            android:src="@mipmap/logo" />
 
         <LinearLayout
             android:layout_width="match_parent"

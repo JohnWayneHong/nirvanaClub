@@ -5,16 +5,16 @@ android {
     flavorDimensions 'default'
     signingConfigs {
         release {
-            keyAlias 'jgw'
-            keyPassword '123456'
+            keyAlias 'ggxggt'
+            keyPassword 'hwjhwd123'
             storeFile file(jks_path)
-            storePassword '123456'
+            storePassword 'hwjhwd123'
         }
         debug {
-            keyAlias 'jgw'
-            keyPassword '123456'
+            keyAlias 'ggxggt'
+            keyPassword 'hwjhwd123'
             storeFile file(jks_path)
-            storePassword '123456'
+            storePassword 'hwjhwd123'
         }
     }
     defaultConfig {
@@ -34,26 +34,26 @@ android {
         release {
             minifyEnabled true
             zipAlignEnabled true
-            resValue "string", "app_name", "德令哈PDA"
+            resValue "string", "app_name", "牛蛙呐"
         }
         prerelease {
             matchingFallbacks = ['debug', 'release']
             minifyEnabled false
             zipAlignEnabled false
-            resValue "string", "app_name", "德令哈PDA预发布"
+            resValue "string", "app_name", "牛蛙呐预发布"
         }
         customtest {
             debuggable true
             matchingFallbacks = ['debug', 'release']
             minifyEnabled false
             zipAlignEnabled false
-            resValue "string", "app_name", "德令哈PDA测试"
+            resValue "string", "app_name", "牛蛙呐测试"
         }
         debug {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
-            resValue "string", "app_name", "德令哈PDA开发"
+            resValue "string", "app_name", "牛蛙呐开发"
         }
     }
 

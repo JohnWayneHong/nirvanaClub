@@ -65,7 +65,8 @@ android {
         }
         println names
     }
-    namespace 'com.jgw.delingha'
+//    namespace 'com.jgw.delingha'
+    namespace 'com.ggb.nirvanahappyclub'
     lint {
         abortOnError true
         checkOnly 'NewApi', 'InlinedApi'
