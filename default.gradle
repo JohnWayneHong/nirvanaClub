@@ -1,0 +1,67 @@
+
+android {
+    def android = rootProject.ext.android
+    compileSdkVersion android.compileSdkVersion
+    flavorDimensions 'default'
+    signingConfigs {
+        release {
+            keyAlias 'jgw'
+            keyPassword '123456'
+            storeFile file(jks_path)
+            storePassword '123456'
+        }
+        debug {
+            keyAlias 'jgw'
+            keyPassword '123456'
+            storeFile file(jks_path)
+            storePassword '123456'
+        }
+    }
+    defaultConfig {
+        minSdkVersion android.minSdkVersion
+        targetSdkVersion android.targetSdkVersion
+        versionCode android.versionCode
+        versionName android.versionName
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        signingConfig signingConfigs.release
+        ndk {
+            ndk {
+                abiFilters 'armeabi-v7a'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            resValue "string", "app_name", "德令哈PDA"
+        }
+        prerelease {
+            matchingFallbacks = ['debug', 'release']
+            minifyEnabled false
+            zipAlignEnabled false
+            resValue "string", "app_name", "德令哈PDA预发布"
+        }
+        customtest {
+            debuggable true
+            matchingFallbacks = ['debug', 'release']
+            minifyEnabled false
+            zipAlignEnabled false
+            resValue "string", "app_name", "德令哈PDA测试"
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            zipAlignEnabled false
+            resValue "string", "app_name", "德令哈PDA开发"
+        }
+    }
+
+    compileOptions {
+        targetCompatibility = '1.8'
+        sourceCompatibility = '1.8'
+    }
+    buildFeatures{
+        dataBinding = true
+    }
+}

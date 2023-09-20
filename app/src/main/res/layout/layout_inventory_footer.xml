@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/common_divider_background"
+        android:orientation="horizontal"
+        android:paddingTop="1dp"
+        tools:ignore="SpUsage">
+
+        <TextView
+            android:id="@+id/tv_inventory_pda_code_amount"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textSize="14sp"
+            tools:text="共88885条" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/common_divider_background" />
+
+        <TextView
+            android:id="@+id/tv_inventory_pda_input_code"
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_btn_white_background"
+            android:gravity="center"
+            android:text="@string/pda_scan_input_code"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/common_divider_background" />
+
+        <TextView
+            android:id="@+id/tv_inventory_pda_view"
+            android:layout_width="76dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_btn_white_background"
+            android:gravity="center"
+            android:text="@string/inventory_view"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_inventory_pda_sure"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_btn_blue_background"
+            android:gravity="center"
+            android:text="@string/pda_scan_in_sure"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>

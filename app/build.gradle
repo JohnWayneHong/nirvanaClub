@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+}
+apply from: "../default.gradle"
+android {
+    resourcePrefix "app_main"
+    def android = rootProject.ext.android
+
+    productFlavors {
+        nomal {
+            applicationId android.applicationId
+        }
+        coexist {
+            applicationId android.applicationId + ".test"
+            versionNameSuffix "-coexist"
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile.name.contains("prerelease")) {
+                outputFileName = "${variant.versionName}_${variant.versionCode}" + "_${variant.name}.apk"
+            } else if (outputFile.name.contains("release")) {
+                outputFileName = "${variant.versionName}_${variant.versionCode}" + "_${variant.name}.apk"
+            } else if (outputFile.name.contains("customtest")) {
+                outputFileName = "${variant.versionName}_${variant.versionCode}" + "_${variant.name}.apk"
+            } else if (outputFile.name.contains("debug")) {
+                outputFileName = "${variant.versionName}_${variant.versionCode}" + "_${variant.name}.apk"
+            }
+            def outputFileDir = "${project.rootDir}/apk"
+            // 打包完成后做的一些事,复制apk到指定文件夹
+            variant.assembleProvider.get().doLast {
+                File out = new File(outputFileDir)
+                copy {
+                    variant.outputs.forEach { file ->
+                        //复制到指定文件夹
+                        copy {
+                            from file.outputFile
+                            into out
+                        }
+                        if (!outputFile.name.contains("prerelease") && outputFile.name.contains("release")) {
+                            copy {
+                                from variant.mappingFileProvider.get()
+                                into out
+                                rename { String fileName ->
+                                    "mapping_${rootProject.ext.android.applicationId}_${rootProject.ext.android.versionName}_${rootProject.ext.android.versionCode}.txt"
+                                }
+                            }
+                        }
+                        //移动到指定文件夹
+//                        ant.move file: file.outputFile,
+//                                todir: "${project.rootDir}/apk"
+                    }
+
+                }
+            }
+        }
+
+    }
+    variantFilter { variant ->
+        def names = variant.flavors*.name + variant.name
+        if (names.contains("coexistRelease") || names.contains("nomalCustomtest")
+                || names.contains("nomalPrerelease") || names.contains("coexistPrerelease")) {
+            setIgnore(true)
+        }
+        println names
+    }
+    namespace 'com.jgw.delingha'
+    lint {
+        abortOnError true
+        checkOnly 'NewApi', 'InlinedApi'
+        checkReleaseBuilds true
+    }
+}
+
+dependencies {
+    def dep = rootProject.ext.dep
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dep.common_library
+    implementation dep.scan_code_library
+    implementation dep.scan_nfc_library
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'me.jessyan:autosize:1.2.1'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+//    releaseImplementation("io.objectbox:objectbox-android:"+rootProject.ext.objectbox_version)
+    releaseImplementation("io.objectbox:objectbox-android:"+rootProject.ext.objectbox_version)
+    coexistImplementation("io.objectbox:objectbox-android-objectbrowser:"+rootProject.ext.objectbox_version)
+    implementation 'top.zibin:Luban:1.1.8'
+
+}
+apply plugin: 'io.objectbox'

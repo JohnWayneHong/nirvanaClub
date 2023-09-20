@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.ExchangeGoodsPendingConfigurationBean" />
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fl_configuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        tools:ignore="SpUsage">
+
+        <ImageView
+            android:id="@+id/iv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="20dp"
+            android:scaleType="center"
+            android:src="@drawable/selector_all_select" />
+
+        <LinearLayout
+            android:id="@+id/ll_query_codes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_toStartOf="@+id/tv_select"
+            android:layout_toEndOf="@+id/iv_select"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.dataTime}"
+                android:textColor="@color/gray_32"
+                android:textSize="14sp"
+                tools:text="2020-03-04 8:00" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exchange_goods_heard_call_out_customer_title"
+                    android:textColor="#C2C2C2"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@{data.outCustomer}"
+                    android:textColor="#C2C2C2"
+                    android:textSize="14sp"
+                    tools:text="苹果" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exchange_warehouse_heard_call_in_title"
+                    android:textColor="#C2C2C2"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@{data.inCustomer}"
+                    android:textColor="#C2C2C2"
+                    android:textSize="14sp"
+                    tools:text="莉莉" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingStart="15dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="30dp"
+            android:scaleType="center"
+            android:text="@string/pending_task_view"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignBottom="@id/ll_query_codes"
+            android:layout_marginTop="6dp"
+            android:background="@color/gray_dd" />
+    </RelativeLayout>
+</layout>
+

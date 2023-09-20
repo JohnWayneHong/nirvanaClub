@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.CodeStatusQueryInfoItemBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:layout_marginLeft="14dp"
+            android:includeFontPadding="false"
+            android:text="@{data.key}"
+            android:textColor="@color/gray_c7"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="最近操作时间" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:layout_marginLeft="112dp"
+            android:includeFontPadding="false"
+            android:text="@{data.value}"
+            android:textColor="@color/gray_33"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2022-07-13 11:11:11" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

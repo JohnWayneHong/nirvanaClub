@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.OrderExchangeGoodsDetailsBean.ProductsBean" />
+    </data>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            tools:ignore="SpUsage,RtlHardcoded"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="45dp">
+                <ImageView
+                    android:background="@drawable/order_exchange_goods_scan_title_icon"
+                    android:layout_width="18dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/order_exchange_goods_info"
+                    android:textSize="15sp"
+                    android:textColor="@color/gray_33"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/gray_ee"
+                android:layout_height="0.5dp"/>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/product_name_input"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:text="@{data.productName}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/product_code_input"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:text="@{data.productCode}"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_exchange_goods_group_number"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:text="@{data.getGroupNumber}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:singleLine="true"
+                    android:textColor="@color/red_f1"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_exchange_goods_single_number"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:text="@{data.getSingleNumber}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:singleLine="true"
+                    android:textColor="@color/red_f1"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_exchange_goods_scan_number"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:text="@{data.getScanSingleNumber}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="130dp"
+                    android:singleLine="true"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/color_line_divider" />
+        </LinearLayout>
+       
+</layout>

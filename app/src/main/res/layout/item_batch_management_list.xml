@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.BatchManagementBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:ignore="SpUsage,RtlHardcoded">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="@color/gray_33"
+            android:textSize="15sp"
+            android:text="@{data.getBatchNameStr}"
+            tools:text="批次名称：2020092701"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="45dp"/>
+        <View
+            style="@style/style_divider_horizontal" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/batch_management_product_name"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.productName}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XX批次" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:text="@string/batch_management_market_time"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.marketDate}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XXX原因XXX原因" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:text="@string/batch_management_produce_time"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.produceDate}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XXX原因XXX原因" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/batch_management_remark"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.remark}"
+                android:textColor="@color/gray_33"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                tools:text="XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_semi_finished_product_inventory"
+            android:orientation="horizontal"
+            android:gravity="right|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_batch_management_delete"
+                android:background="@drawable/radius96_white_stoke"
+                android:textColor="@color/gray_66"
+                android:text="@string/batch_management_delete"
+                android:layout_width="96dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_marginRight="10dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:id="@+id/tv_batch_management_edit"
+                android:background="@drawable/radius96_blue"
+                android:textColor="@color/white"
+                android:text="@string/batch_management_edit"
+                android:layout_width="96dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

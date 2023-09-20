@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.sql.entity.ConfigurationEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/icon_stock_in_info"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/stock_in_header_info"
+            android:textColor="@color/gray_32"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/style_divider_horizontal"
+            android:layout_marginStart="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/style_stock_action_head_desc"
+                    android:text="@string/stock_in_header_ware_house_name" />
+
+                <TextView
+                    android:text="@{data.getWareHouseName}"
+                    android:id="@+id/tv_store_name"
+                    style="@style/style_stock_action_head_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_store_place_name"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/style_stock_action_head_desc"
+                    android:text="@string/stock_in_header_store_place_name" />
+
+                <TextView
+                    android:text="@{data.getStockHouseName}"
+                    android:id="@+id/tv_store_place_name"
+                    style="@style/style_stock_action_head_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/style_stock_action_head_desc"
+                    android:text="@string/stock_in_header_name" />
+
+                <TextView
+                    android:text="@{data.getProductName}"
+                    android:id="@+id/tv_product_name"
+                    style="@style/style_stock_action_head_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/color_line_divider" />
+    </LinearLayout>
+</layout>

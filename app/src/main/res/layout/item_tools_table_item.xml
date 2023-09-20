@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.ToolsOptionsBean.MobileFunsBean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/rv_tools_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="SpUsage">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:imageUrl="@{data.getIconUrl(60)}" />
+        <!--app:imageResId="@{data.iconResId}"-->
+
+        <TextView
+            android:layout_width="60dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{data.funName}"
+            android:textColor="@color/gray_33"
+            android:layout_marginTop="3dp"
+            android:textSize="14sp"
+            tools:text="入库" />
+
+    </LinearLayout>
+</layout>

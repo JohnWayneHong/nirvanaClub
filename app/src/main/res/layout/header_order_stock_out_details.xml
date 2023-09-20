@@ -1,0 +1,364 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.OrderStockOutListBean.ListBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        tools:ignore="SpUsage,RtlHardcoded">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_house_list"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.outHouseList}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_status"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.statusDesc}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/stock_out_type"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.outTypeName}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_warehouse_name"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.warehouse}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/logistics_company1"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.logisticsCompanyName}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/shipment_number1"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.logisticsNumber}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_dlh"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.orderNo}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/remark1"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.remark}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_customer_name"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.customerText}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/link_dlh"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.linkText}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/location_dlh"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.locationText}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/address_dlh"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{data.detailedAddress}"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/order_stock_out_product_info"
+            android:textColor="@color/gray_33"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</layout>

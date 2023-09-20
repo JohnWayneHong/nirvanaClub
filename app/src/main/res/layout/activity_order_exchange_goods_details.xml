@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="SpUsage">
+
+        <include layout="@layout/layout_toolbar" />
+
+        <com.jgw.common_library.base.view.CustomRecyclerViewContainer
+            android:id="@+id/rvc_order_stock_out"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/main_background"
+            android:layout_weight="1">
+
+            <com.jgw.common_library.base.view.CustomBaseRecyclerView
+                android:id="@+id/rv_order_stock_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingTop="10dp" />
+        </com.jgw.common_library.base.view.CustomRecyclerViewContainer>
+
+
+        <TextView
+            android:id="@+id/tv_order_exchange_goods_upload"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/main_color"
+            android:gravity="center"
+            android:text="@string/upload"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>

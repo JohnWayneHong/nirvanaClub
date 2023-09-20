@@ -1,0 +1,168 @@
+package com.jgw.delingha.custom_module.delingha.daily_management.energy.details;
+
+import android.app.Application;
+import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
+
+import com.jgw.common_library.base.viewmodel.BaseViewModel;
+import com.jgw.common_library.http.Resource;
+import com.jgw.common_library.livedata.ValueKeeperLiveData;
+import com.jgw.common_library.utils.FormatUtils;
+import com.jgw.common_library.utils.ToastUtils;
+import com.jgw.delingha.bean.FeedingListBean;
+import com.jgw.delingha.bean.InfoDetailsClickBean;
+import com.jgw.delingha.bean.InfoDetailsDemoBean;
+import com.jgw.delingha.module.options_details.adapter.InfoDetailsRecyclerAdapter;
+import com.jgw.delingha.module.options_details.utils.OptionsDetailsUtils;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @Author CJM
+ * @Date 2023/6/14 09:35
+ * @Description 肉猪屠宰进场ViewModel
+ */
+public class EnergyDetailsViewModel extends BaseViewModel {
+    private final EnergyDetailsModel model;
+
+    private final MutableLiveData<FeedingListBean> mContentListLiveData = new ValueKeeperLiveData<>();
+    private final MutableLiveData<Map<String, Object>> mUploadLiveData = new ValueKeeperLiveData<>();
+    private InfoDetailsClickBean mClickBean;
+
+    public EnergyDetailsViewModel(@NonNull Application application) {
+        super(application);
+        model = new EnergyDetailsModel();
+    }
+
+    //从model获取数据
+    public void loadList(FeedingListBean data) {
+        mContentListLiveData.setValue(data);
+    }
+
+    public LiveData<Resource<List<InfoDetailsDemoBean>>> getLoadListLiveData() {
+        return Transformations.switchMap(mContentListLiveData, model::getListData);
+    }
+
+//    public void selectImage(CustomRecyclerAdapter adapter, InfoDetailsDemoBean bean, @NonNull Uri uri) {
+//        File file = BitmapUtils.getRealPathFromUri(CustomApplication.getCustomApplicationContext(), uri);
+//        BitmapUtils.getBitmap(file, new OnCompressListener() {
+//            @Override
+//            public void onStart() {
+//
+//            }
+//
+//            @Override
+//            public void onSuccess(File file) {
+//                long length1 = file.length();
+//                LogUtils.xswShowLog("");
+//                if (length1 > 0) {
+//                    Uri uri = Uri.fromFile(file);
+//                    int i = adapter.getDataList().indexOf(bean);
+//                    if (i != -1) {
+//                        if (bean.value == null) {
+//                            bean.value = new InfoDetailsDemoBean.ValueBean("", "");
+//                        }
+//                        if (TextUtils.isEmpty(bean.value.valueStr)) {
+//                            bean.value.valueStr = uri.toString();
+//                        } else {
+//                            String[] split = bean.value.valueStr.split(",");
+//                            ArrayList<String> strings = new ArrayList<>(Arrays.asList(split));
+//                            strings.add(uri.toString());
+//                            StringBuilder sb = new StringBuilder();
+//                            for (int j = 0; j < strings.size(); j++) {
+//                                sb.append(strings.get(j));
+//                                if (j != strings.size() - 1) {
+//                                    sb.append(",");
+//                                }
+//                            }
+//                            bean.value.valueStr = sb.toString();
+//                        }
+//                        adapter.notifyItemChanged(i);
+//                    }
+//                } else {
+//                    ToastUtils.showToast("图片损坏,请重新拍摄");
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                ToastUtils.showToast("未知错误");
+//            }
+//        });
+//
+//
+//    }
+
+
+    public void submit(InfoDetailsRecyclerAdapter adapter) {
+        List<InfoDetailsDemoBean> dataList = adapter.getDataList();
+        if (OptionsDetailsUtils.checkItem(dataList)){
+            return;
+        }
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("rankName", adapter.searchValueStrByKey("栏舍号"));
+        map.put("rankId", adapter.searchValueIdByKey("栏舍号"));
+
+
+        String startTime = adapter.searchValueStrByKey("能耗开始");
+        String endTime = adapter.searchValueStrByKey("能耗结束");
+        if (!TextUtils.isEmpty(startTime) && !TextUtils.isEmpty(endTime)) {
+            Date startDate = FormatUtils.decodeDate(startTime, FormatUtils.DAY_TIME_PATTERN);
+            Date endDate = FormatUtils.decodeDate(endTime, FormatUtils.DAY_TIME_PATTERN);
+            if (startDate != null && endDate != null) {
+                if (startDate.getTime() > endDate.getTime()) {
+                    ToastUtils.showToast("能耗开始时间不得大于能耗结束时间!");
+                    return;
+                }
+            }
+        }
+        map.put("energyStartTime", startTime);
+        map.put("energyEndTime", endTime);
+
+
+        map.put("waterUsed", adapter.searchValueStrByKey("用水量"));
+
+        map.put("waterUsedFee", adapter.searchValueStrByKey("水费"));
+
+        map.put("energyUsed", adapter.searchValueStrByKey("用电量"));
+
+        map.put("energyUsedFee", adapter.searchValueStrByKey("电费"));
+
+        map.put("otherFee", adapter.searchValueStrByKey("其他费用"));
+        mUploadLiveData.setValue(map);
+    }
+
+    public LiveData<Resource<String>> getUploadLiveData() {
+        return Transformations.switchMap(mUploadLiveData, model::postUpload);
+    }
+
+//    public void removeImage(CustomRecyclerAdapter adapter, InfoDetailsDemoBean mBean, int mSubPosition) {
+//        String[] split = mBean.value.valueStr.split(",");
+//        ArrayList<String> strings = new ArrayList<>(Arrays.asList(split));
+//        strings.remove(mSubPosition);
+//        StringBuilder sb = new StringBuilder();
+//        for (int j = 0; j < strings.size(); j++) {
+//            sb.append(strings.get(j));
+//            if (j != strings.size() - 1) {
+//                sb.append(",");
+//            }
+//        }
+//        mBean.value.valueStr = sb.toString();
+//        adapter.notifyDataSetChanged();
+//    }
+
+    public void setClickBean(InfoDetailsClickBean clickBean) {
+        mClickBean = clickBean;
+    }
+
+    public InfoDetailsClickBean getClickBean() {
+        return mClickBean;
+    }
+}

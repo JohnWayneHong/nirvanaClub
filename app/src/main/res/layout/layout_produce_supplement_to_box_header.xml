@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.ProducePackageCodeInfoBean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_supplement_to_box_header"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:ignore="RtlHardcoded,RtlSymmetry,SpUsage">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/icon_packaging" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/package_info"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/gray_dd" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_supplement_to_box_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stb_product_name"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_supplement_to_box_product_name"
+                android:layout_marginLeft="80dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                android:text="@{data.productName}"
+                tools:text="啊实打实啊实打实啊实打实啊实打实啊实打实啊实打实大" />
+
+
+            <TextView
+                android:id="@+id/tv_supplement_to_box_product_batch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/stb_product_batch"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_supplement_to_box_product_batch"
+                android:layout_marginLeft="80dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                android:text="@{data.productBatchName}"
+                tools:text="啊实打实啊实打实啊实打实啊实打实啊实打实啊实打实大" />
+
+            <TextView
+                android:id="@+id/tv_supplement_to_box_packaging_specifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/stb_packaging_specifications"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_supplement_to_box_packaging_specifications_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_supplement_to_box_packaging_specifications"
+                android:layout_marginLeft="80dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                android:text="@{data.getPackageSpecification}"
+
+                tools:text="啊实打实啊实打实啊实打实啊实打实啊实打实啊实打实大" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:src="@drawable/color_line_divider" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,146 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.sql.entity.OrderStockOutEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        tools:ignore="SpUsage,RtlHardcoded"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_house_list"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:text="@{data.orderCode}"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_customer_name"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.receiveOrganizationName}"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_customer_code"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.receiveOrganizationCode}"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/order_stock_out_warehouse"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.warehouse}"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="110dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray_99"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    tools:text="244776740213121278" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:text="@string/order_stock_out_product_info"
+            android:textColor="@color/gray_33"
+            android:layout_marginLeft="15dp"
+            android:textSize="14sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

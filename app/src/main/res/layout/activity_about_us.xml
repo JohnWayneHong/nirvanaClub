@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.AboutUsBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:background="@color/white">
+
+            <include layout="@layout/layout_toolbar" />
+
+            <ImageView
+                android:layout_width="186dp"
+                android:layout_height="112dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:src="@mipmap/app_logo" />
+        </LinearLayout>
+
+        <RelativeLayout style="@style/Style_RL_Value">
+
+            <TextView
+                android:id="@+id/tv_about_us_debug"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/setting_black"
+                android:text="技术支持微信" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.weChat}"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/setting_text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="1px"
+            style="@style/Style_RL_Value">
+
+            <TextView
+                android:id="@+id/tv_about_us_switch_http"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="产品建议邮箱"
+                android:textColor="@color/setting_black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.mailBox}"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/setting_text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="1px"
+            style="@style/Style_RL_Value">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/setting_black"
+                android:text="客服电话" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.phone}"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/setting_text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="1px"
+            style="@style/Style_RL_Value">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/setting_black"
+                android:text="公司官网" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.offical}"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/setting_text" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

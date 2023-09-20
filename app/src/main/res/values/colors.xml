@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#26A2FF</color>
+    <color name="transparent_70">#b3000000</color>
+
+    <color name="main_color">#26A2FF</color>
+    <color name="main_background">#F5F5F5</color>
+
+    <color name="gray_f2">#F2F2F2</color>
+    <color name="gray_fa">#FAFAFA</color>
+    <color name="gray_33">#333333</color>
+    <color name="gray_32">#323232</color>
+    <color name="gray_aa">#AAAAAA</color>
+    <color name="gray_bb">#BBBBBB</color>
+    <color name="gray_cc">#CCCCCC</color>
+    <color name="gray_dd">#DDDDDD</color>
+    <color name="gray_ee">#EEEEEE</color>
+    <color name="gray_ed">#ededed</color>
+    <color name="gray_91">#919191</color>
+    <color name="gray_e6">#E6E6E6</color>
+    <color name="gray_66">#666666</color>
+    <color name="gray_ab">#ABABAB</color>
+    <color name="gray_99">#999999</color>
+    <color name="gray_87">#878787</color>
+    <color name="gray_c7">#C7C8C8</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_f5">#F5F5F5</color>
+    <color name="yellow_fe">#FEEFB8</color>
+    <color name="blue_26">#26A2FF</color>
+    <color name="blue_69">#69B3FD</color>
+    <color name="light_yellow">#fffeefb8</color>
+    <color name="dealing_color">#FE8D3A</color>
+    <color name="error_color">#FF4D4F</color>
+    <color name="success_color">#09BB07</color>
+    <color name="red_ff">#FF4D4F</color>
+    <color name="yellow_b8">#FEEFB8</color>
+    <color name="yellow_ff">#FF9C25</color>
+    <!-- Common -->
+    <color name="common_button_disable">#3d26a2ff</color>
+    <color name="common_button_pressed">#2496ED</color>
+    <color name="common_button_unpressed">@color/main_color</color>
+    <color name="common_divider_background">@color/gray_e6</color>
+
+    <color name="red_f1">#F10123</color>
+    <color name="gray_d9">#D9D9D9</color>
+    <color name="gray_d8">#D8D8D8</color>
+    <color name="ear_tips">#FF732E</color>
+
+</resources>

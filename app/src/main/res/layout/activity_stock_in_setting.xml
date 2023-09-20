@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.sql.entity.ConfigurationEntity" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        tools:ignore="RtlHardcoded,RtlSymmetry,SpUsage,ContentDescription,TextFields">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_toolbar" />
+
+            <FrameLayout style="@style/style_stock_action_list_layout">
+
+                <TextView
+                    style="@style/style_stock_action_list_key"
+                    android:text="@string/stock_in_product_name" />
+
+                <TextView
+                    android:id="@+id/tv_stock_in_setting_product"
+                    style="@style/style_stock_action_list_value"
+                    android:text="@{data.getProductName}"
+                    android:hint="@string/stock_in_product_name_hint" />
+
+                <ImageView style="@style/style_stock_action_list_icon" />
+            </FrameLayout>
+
+            <View style="@style/style_divider_horizontal" />
+
+            <FrameLayout style="@style/style_stock_action_list_layout">
+
+                <TextView
+                    style="@style/style_stock_action_list_key"
+                    android:text="@string/stock_in_product_batch" />
+
+                <TextView
+                    android:id="@+id/tv_stock_in_setting_product_batch"
+                    style="@style/style_stock_action_list_value"
+                    android:text="@{data.getBatchName}"
+                    android:hint="@string/stock_in_product_batch_hint" />
+
+                <ImageView style="@style/style_stock_action_list_icon" />
+            </FrameLayout>
+
+            <View style="@style/style_divider_horizontal" />
+
+            <FrameLayout style="@style/style_stock_action_list_layout">
+
+                <TextView
+                    style="@style/style_stock_action_list_key"
+                    android:text="@string/stock_in_store_name" />
+
+                <TextView
+                    android:id="@+id/tv_stock_in_setting_ware_house"
+                    style="@style/style_stock_action_list_value"
+                    android:text="@{data.getWareHouseName}"
+                    android:hint="@string/stock_in_store_name_hint" />
+
+                <ImageView style="@style/style_stock_action_list_icon" />
+            </FrameLayout>
+
+            <View style="@style/style_divider_horizontal" />
+
+            <FrameLayout
+                android:id="@+id/fl_store_place_name"
+                android:visibility="visible"
+                tools:visibility="visible"
+                style="@style/style_stock_action_list_layout">
+
+                <TextView
+                    style="@style/style_stock_action_list_key"
+                    android:text="@string/stock_in_store_place_name" />
+
+                <TextView
+                    android:id="@+id/tv_stock_in_setting_store_place"
+                    style="@style/style_stock_action_list_value"
+                    android:text="@{data.getStockHouseName}"
+                    android:hint="@string/stock_in_store_place_name_hint" />
+
+                <ImageView style="@style/style_stock_action_list_icon" />
+            </FrameLayout>
+
+            <View style="@style/style_divider_horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:minHeight="100dp"
+                android:paddingRight="16dp">
+
+                <TextView
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:maxLines="1"
+                    android:text="@string/stock_in_remark"
+                    android:textColor="@color/gray_66"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_stock_in_setting_remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="114dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@null"
+                    android:gravity="start"
+                    android:text="@={data.remark}"
+                    android:hint="@string/stock_in_remark_hint"
+                    android:maxLength="100"
+                    android:textColor="@color/gray_33"
+                    android:textColorHint="@color/gray_ab"
+                    android:textSize="14sp"
+                    tools:ignore="" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_stock_in_setting_next"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/selector_btn_common"
+            android:gravity="center"
+            android:text="@string/stock_in_next_step"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </FrameLayout>
+</layout>

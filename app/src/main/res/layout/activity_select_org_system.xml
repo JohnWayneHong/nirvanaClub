@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/rl_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_select_org_system_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_below="@+id/rl_toolbar"
+            android:text="@string/select_org_system_title"
+            android:textColor="@color/gray_33"
+            android:textSize="28sp" />
+
+        <View
+            android:id="@+id/divider_system"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/tv_select_org_system_title"
+            android:background="@color/common_divider_background" />
+
+        <LinearLayout
+            android:id="@+id/ll_org"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_system"
+            android:background="@drawable/selector_org_system_ll_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_org_system_org"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_org_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="8dp"
+                android:gravity="start"
+                android:hint="@string/select_org_system_org_hint"
+                android:maxLines="2"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_org"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@id/ll_org"
+            android:background="@color/common_divider_background" />
+
+        <LinearLayout
+            android:id="@+id/ll_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_org"
+            android:background="@drawable/selector_org_system_ll_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_org_system_system"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_system_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="8dp"
+                android:gravity="start"
+                android:hint="@string/select_org_system_system_hint"
+                android:maxLines="2"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/ll_system"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:enabled="false"
+            android:background="@drawable/selector_btn_common"
+            android:text="@string/select_org_system_confirm"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:text="@string/login_tip"
+            android:textAlignment="center"
+            android:textColor="@color/gray_dd"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+    </RelativeLayout>
+</layout>

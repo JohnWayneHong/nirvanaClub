@@ -1,0 +1,146 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.InventoryDetailsBean.ListBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        tools:ignore="SpUsage,RtlHardcoded"
+        android:background="@color/white"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inventory_product_name"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_99"
+                android:layout_marginLeft="110dp"
+                android:singleLine="true"
+                android:text="@{data.productName}"
+                tools:text="244776740213121278"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inventory_product_code"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.productCode}"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_99"
+                android:layout_marginLeft="110dp"
+                android:singleLine="true"
+                tools:text="244776740213121278"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inventory_system_number"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/red_ff"
+                android:layout_marginLeft="110dp"
+                android:text="@{data.getSystemNumber}"
+                android:singleLine="true"
+                tools:text="66666"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inventory_current_number"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/main_color"
+                android:layout_marginLeft="110dp"
+                android:text="@{data.getCurrentNumber}"
+                android:singleLine="true"
+                tools:text="66666"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:layout_marginTop="5dp"
+            android:layout_height="30dp">
+            <TextView
+                android:id="@+id/tv_inventory_details_view"
+                android:background="@drawable/radius96_white_stoke"
+                android:textColor="@color/gray_66"
+                android:text="@string/inventory_view"
+                android:layout_width="96dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_marginRight="10dp"
+                android:layout_height="30dp" />
+            <TextView
+                android:id="@+id/tv_inventory_details_scan_code"
+                android:background="@drawable/radius96_blue"
+                android:textColor="@color/white"
+                android:text="@string/inventory_scan"
+                android:layout_width="96dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:layout_height="30dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

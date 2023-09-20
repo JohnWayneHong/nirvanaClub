@@ -1,0 +1,625 @@
+<resources>
+    <string name="tools_table">工作台</string>
+    <string name="setting_center">设置中心</string>
+    <string name="statistical_analysis">统计分析</string>
+    <string name="cancel">取消</string>
+    <string name="update">升级</string>
+    <string name="input_required">请输入(必填)</string>
+    <string name="select_required">请选择(必填)</string>
+    <string name="input_normal">请输入</string>
+    <string name="select_normal">请选择</string>
+    <string name="confirm">确认</string>
+    <string name="setting">设置</string>
+    <string name="get_config_failed">获取配置信息失败</string>
+    <string name="scan_code_failed">新增扫码数据失败</string>
+    <string name="register_tips">为了保证设备的安全以及使用的程序的合法性,请进行备案注册登记</string>
+    <string name="register_select_org_title">企业名称</string>
+    <string name="register_select_org_system_tip">请选择品牌企业名称(必填)</string>
+    <string name="register_waited_review_tip1">当前设备已提交注册,待审核中……</string>
+    <string name="register_waited_review_tip2">如有问题请联系超级码售后处理.</string>
+    <string name="register_refresh">刷新</string>
+    <string name="register_register">注册</string>
+    <string name="register_re_register">重新注册</string>
+    <string name="register_failed">抱歉!当前设备注册不通过!</string>
+    <string name="strong_password_remind">&#160;&#160;&#160;&#160;您好！为响应国家网络安全政策，提高信息的安全性，给您带来持续的优质服务，您的登录密码需要修改为强密码，密码设置需符合以下设置规则：\n 1、密码由8-20位字符组成。\n 2、密码要包含：大写字母+小写字母+特殊符号+数字四种组合。</string>
+
+
+    <!-- login -->
+    <string name="login_phone_num_hint">请输入手机号</string>
+    <string name="login_password_hit">请输入密码</string>
+    <string name="login_remember_me">记住账号密码</string>
+    <string name="login_button_text">登录</string>
+    <string name="login_tip">技术支持：甲骨文科技股份\nCopyright 2005-2025 All Reserved</string>
+
+    <!-- select org and system -->
+    <string name="select_org_system_title">选择企业与系统</string>
+    <string name="select_org_system_org">企业</string>
+    <string name="select_org_system_org_hint">请选择企业</string>
+    <string name="select_org_system_system">系统</string>
+    <string name="select_org_system_system_hint">请选择系统</string>
+    <string name="select_org_system_confirm">确定</string>
+    <string name="select_org_system_tip">请选择企业</string>
+
+    <!-- select list -->
+    <string name="empty_data">暂无数据</string>
+    <string name="product_select_title">产品列表</string>
+    <string name="product_batch_select_title">产品批次列表</string>
+    <string name="ware_house_select_title">仓库列表</string>
+    <string name="customer_select_title">客户列表</string>
+    <string name="store_place_select_title">库位列表</string>
+
+    <!-- uuid -->
+    <string name="uuid_remark">为了保证设备的安全，请进行备案登记 \n 如有疑问请咨询超级码售后人员</string>
+    <string name="uuid_register">备案注册</string>
+    <string name="uuid_id">设备编号</string>
+
+    <!-- stock in -->
+    <string name="stock_in_setting_title">入库设置</string>
+    <string name="stock_in_product_name">产品名称</string>
+    <string name="stock_in_product_name_hint">请选择产品名称(必填）</string>
+    <string name="stock_in_product_batch">产品批次</string>
+    <string name="stock_in_product_batch_hint">请选择批次</string>
+    <string name="stock_in_store_name">仓库名称</string>
+    <string name="stock_in_store_name_hint">请选择仓库(必填）</string>
+    <string name="stock_in_store_place_name">库位名称</string>
+    <string name="stock_in_store_place_name_hint">请选择库位</string>
+    <string name="stock_in_remark">备注</string>
+    <string name="stock_in_remark_hint">请输入备注信息</string>
+    <string name="stock_in_next_step">下一步</string>
+    <string name="supercode">超级码</string>
+    <string name="stock_in_header_info">入库信息</string>
+    <string name="stock_in_header_name">产品名称：</string>
+    <string name="stock_in_header_batch">产品批次：</string>
+    <string name="plan_number1">计划数量：</string>
+    <string name="stock_in_header_ware_house_name">仓库名称：</string>
+    <string name="stock_in_header_store_place_name">库位名称：</string>
+    <string name="stock_in_PDA_title">入库</string>
+    <string name="stock_in_PDA_title_right">设置</string>
+    <string name="stock_action_no_data_tip1">请按扫描键扫码</string>
+    <string name="stock_action_no_data_tip2">( 或手动输入物流码 )</string>
+    <string name="pda_scan_checking">正在验证…</string>
+    <string name="pda_scan_error_code_toast">身份码不存在!</string>
+    <string name="pda_scan_input_code">手输</string>
+    <string name="pda_scan_scan_back">反扫</string>
+    <string name="pda_scan_scan_back_2">反扫删除</string>
+    <string name="pda_scan_scan_back_3">重置耳号状态</string>
+    <string name="pda_delete_watch">查看/删除</string>
+    <string name="pda_upload">上传</string>
+    <string name="pda_scan_in_sure">确定</string>
+    <string name="pda_scan_in_tip">请按扫描键连续扫码（或手动添加身份码）</string>
+    <string name="stock_in_pending_list_title">待执行入库列表</string>
+
+    <!-- scan back -->
+    <string name="scan_back_tip">扫码逐个删除 请直接按扫码键</string>
+    <string name="scan_back_return">返回</string>
+    <string name="scan_back_delete_all">全删除</string>
+    <string name="scan_back_title">删除</string>
+
+    <!-- stock return -->
+    <string name="stock_return_setting_title">退货设置</string>
+    <string name="stock_return_customer">退货客户：</string>
+    <string name="stock_return_customer_key">退货客户</string>
+    <string name="stock_return_customer_hint">请选择退货客户</string>
+    <string name="stock_return_receiving_warehouse">收货仓库：</string>
+    <string name="stock_return_receiving_warehouse_key">收货仓库</string>
+    <string name="stock_return_receiving_warehouse_hint">请选择收货仓库(必填)</string>
+    <string name="stock_return_header_info">退货信息</string>
+    <string name="stock_return_pda_title">退货</string>
+    <string name="stock_out_info">出库信息</string>
+    <string name="label_edit_info">纠错信息</string>
+    <string name="receiving_customer">收货客户</string>
+    <string name="receiving_customer1">收货客户：</string>
+    <string name="logistics_company">物流公司</string>
+    <string name="logistics_company1">物流公司：</string>
+    <string name="shipment_number">物流单号</string>
+    <string name="plan_number">计划数量</string>
+    <string name="plan_number_hint">请输入最小单位数量(必填）</string>
+    <string name="shipment_number1">物流单号：</string>
+    <string name="remark">备注</string>
+    <string name="remark1">备注：</string>
+    <string name="setting_receiver_hint">请选择收货客户(必填）</string>
+
+    <string name="setting_logistics_company_hint">请选择物流公司</string>
+    <string name="setting_code_hint">请扫描或输入物流单号</string>
+    <string name="setting_remark_hint">请输入备注信息</string>
+    <string name="next">下一步</string>
+    <string name="previous">上一步</string>
+    <string name="confirm_stock_out">确认出库</string>
+
+    <!-- task list -->
+    <string name="task_list_filter_type">类型</string>
+    <string name="task_list_filter_type_item">类型：</string>
+    <string name="task_list_filter_type_hint">请选择任务类型</string>
+    <string name="task_list_filter_start_time">起始时间</string>
+    <string name="task_list_filter_start_time_hint">请选择起始时间</string>
+    <string name="task_list_filter_end_time">结束时间</string>
+    <string name="task_list_filter_end_time_hint">请选择结束时间</string>
+    <string name="task_list_item_upload_time">上传时间：</string>
+    <string name="task_list_item_upload_count">上传数量：</string>
+    <string name="task_list_item_success_count">执行成功：</string>
+    <string name="task_list_item_operator">操作人：</string>
+    <string name="task_list_title">任务状态</string>
+    <string name="task_item_fail_info">失败详情</string>
+    <string name="task_item_try_again">再次提交</string>
+
+    <!-- fail list -->
+    <string name="update_fail_list_tip">以下为上传失败数据,请核对原因并重新处理</string>
+    <string name="upload_fail_scan_hint">请按扫描键扫码或手动输入</string>
+    <string name="upload_fail_choose_time">请选择时间</string>
+    <string name="upload_fail_item_product">产品：</string>
+    <string name="upload_fail_item_warehouse">仓库：</string>
+    <string name="upload_fail_item_customer">客户：</string>
+    <string name="upload_fail_item_upload_time">上传时间：</string>
+    <string name="upload_fail_item_reason">失败原因：</string>
+    <string name="upload_fail_item_related_level">关联级别：</string>
+    <string name="upload_fail_item_parent">上级码：</string>
+    <string name="upload_fail_item_out_warehouse">调出仓库：</string>
+    <string name="upload_fail_item_in_warehouse">收货仓库：</string>
+    <string name="upload_fail_item_out_customer">调出客户：</string>
+    <string name="upload_fail_item_in_customer">收货客户：</string>
+    <string name="upload_fail_title">上传失败日志</string>
+    <string name="upload_fail_list_stock_in_title">入库失败日志</string>
+    <string name="upload_fail_list_stock_out_title">出库失败日志</string>
+    <string name="upload_fail_list_stock_return_title">退货失败日志</string>
+    <string name="upload_fail_list_group_split_title">整组拆解失败日志</string>
+    <string name="upload_fail_list_single_split_title">单个拆解失败日志</string>
+    <string name="upload_fail_list_supplement_to_box_title">补码入箱失败日志</string>
+    <string name="upload_fail_list_packaging_association_title">包装关联失败日志</string>
+    <string name="upload_fail_list_exchange_warehouse_title">调仓失败日志</string>
+    <string name="upload_fail_list_exchange_goods_title">调货失败日志</string>
+    <string name="upload_fail_list_package_stock_in_title">包装入库失败日志</string>
+    <string name="upload_fail_list_label_edit_title">标识纠错失败日志</string>
+    <string name="upload_fail_list_in_warehouse_package_title">在库关联失败日志</string>
+    <string name="upload_fail_list_relate_to_nfc_title">关联NFC失败日志</string>
+    <string name="fail_log_stock_in">入库</string>
+    <string name="fail_log_stock_in_packaged">生产入库</string>
+    <string name="fail_log_stock_out">出库</string>
+    <string name="fail_log_stock_out_fast">直接出库</string>
+    <string name="fail_log_stock_return">退货</string>
+    <string name="fail_log_group_split">整组拆解</string>
+    <string name="fail_log_single_split">单个拆解</string>
+    <string name="fail_log_supplement_to_box">补码入箱</string>
+    <string name="fail_log_packaging_association">包装关联</string>
+    <string name="fail_log_package_stock_in">包装入库</string>
+    <string name="fail_log_exchange_warehouse">调仓</string>
+    <string name="fail_log_exchange_goods">调货</string>
+    <string name="fail_log_label_edit">标识纠错</string>
+    <string name="fail_log_relate_to_nfc_id_code">身份码：</string>
+    <string name="fail_log_relate_to_nfc_nfc_code">NFC：</string>
+    <string name="fail_log_relate_to_nfc">关联NFC</string>
+    <string name="fail_log_in_warehouse_package">在库关联</string>
+
+    <!-- flow query -->
+    <string name="flow_query_setting_title">流向查询</string>
+    <string name="flow_query_belongs">当前机构：</string>
+    <string name="flow_query_identification_card">物&#160;&#160;流&#160;&#160;码：&#160;&#160;</string>
+    <string name="productCount">数&#160;&#160;&#160;&#160;&#160;&#160;量&#160;&#160;&#160;&#160;：&#160;&#160;</string>
+    <string name="packaging_today">今日包装</string>
+    <string name="stock_in_today">今日入库</string>
+    <string name="stock_out_today">今日出库</string>
+
+    <!-- packaging association setting-->
+    <string name="pas_product_name">产品名称</string>
+    <string name="pas_product_name_hint">请选择产品名称(必填)</string>
+    <string name="pas_product_batch">产品批次</string>
+    <string name="pas_product_batch_hint">请选择产品批次</string>
+    <string name="pas_association_level">关联级别</string>
+    <string name="pas_association_level_hint">请选择关联级别(必填)</string>
+    <string name="pas_packaging_specifications_number">1：</string>
+    <string name="pas_packaging_specifications_text">零箱包装</string>
+
+    <!-- packaging association-->
+    <string name="pa_product_name">产品名称：</string>
+    <string name="pa_product_batch">产品批次：</string>
+    <string name="pa_packaging_specifications">包装规格：</string>
+    <string name="pa_packaging_specifications_header_info">包装信息</string>
+    <string name="pa_association_level">关联层级：</string>
+    <string name="pa_box_code">盒码</string>
+    <string name="pa_code">个码</string>
+
+    <!-- disassemble -->
+    <string name="single_disassemble_tip">仅支持输入下级码进行单个拆解</string>
+    <string name="whole_group_disassemble_tip">仅支持输入上级码进行整组拆解</string>
+    <string name="single_disassemble_title">单个拆解</string>
+    <string name="whole_group_disassemble_title">整组拆解</string>
+    <string name="single_disassemble_pending_title">待执行单个拆解</string>
+    <string name="whole_group_disassemble_pending_title">待执行整组拆解</string>
+
+    <!-- related query -->
+    <string name="related_query_title">关联查询</string>
+    <string name="related_query_input">手动输入</string>
+    <string name="related_query_list_product">产品名称：</string>
+    <string name="related_query_list_code">产品编码：</string>
+    <string name="related_query_list_batch">产品批次：</string>
+    <string name="related_query_list_spec">包装规格：</string>
+    <string name="related_query_list_work_order">工单号：</string>
+    <string name="related_query_list_production_line">产线：</string>
+    <string name="related_query_list_create_time">操作时间：</string>
+    <string name="related_query_upper_code">上级码</string>
+    <string name="related_query_lower_code">下级码</string>
+    <string name="related_query_list_code_count">共0条</string>
+    <string name="related_query_list_empty">当前码无关联上下级码！</string>
+
+    <!-- packaging association-->
+    <string name="package_info">包装信息</string>
+    <string name="stb_product_name">产品名称：</string>
+    <string name="stb_product_batch">产品批次：</string>
+    <string name="stb_packaging_specifications">包装规格：</string>
+
+    <!-- supplement to box -->
+    <string name="supplement_pda_scan_in_tip">上级码须为已入库的状态</string>
+
+    <!-- pending task -->
+    <string name="pending_task_title">待执行</string>
+    <string name="stock_out_wait_upload_des">以下为未上传数据，请及时上传。</string>
+    <string name="all_delete">全删除</string>
+    <string name="upload">上传</string>
+    <string name="pending_task_view">查看</string>
+    <string name="pending_task_hint">以下为未上传数据，请及时上传。逐个删除  请直接按扫码键</string>
+    <string name="pending_order_task_hint">以下为未上传数据，请进入订单详情及时上传。</string>
+    <string name="pending_task_stock_in_product">产品名称：</string>
+    <string name="pending_task_stock_in_warehouse">仓库名称：</string>
+
+    <!-- stock in packaged -->
+    <string name="stock_in_packaged_product_name_hint">请选择产品名称</string>
+    <string name="stock_in_packaged_setting_title">生产入库设置</string>
+    <string name="stock_in_packaged_PDA_title">生产入库</string>
+    <string name="stock_in_packaged_pending_list_title">待执行生产入库列表</string>
+
+    <!-- exchange warehouse 调仓-->
+    <string name="exchange_warehouse_heard">调仓信息</string>
+    <string name="exchange_warehouse_heard_call_out_title">调出仓库：</string>
+    <string name="exchange_warehouse_call_out_title">调出仓库</string>
+    <string name="exchange_warehouse_call_out_content">请选择调出仓库(必填)</string>
+    <string name="exchange_warehouse_heard_call_in_title">收货仓库：</string>
+    <string name="exchange_warehouse_call_in_title">收货仓库</string>
+    <string name="exchange_warehouse_call_in_content">请选择收货仓库(必填)</string>
+    <string name="exchange_warehouse_heard_save_title">存放库位：</string>
+    <string name="exchange_warehouse_save_title">存放库位</string>
+    <string name="exchange_warehouse_save_content">请选择存放库位</string>
+
+    <!-- exchange goods 调货-->
+    <string name="exchange_goods_heard">调货信息</string>
+    <string name="exchange_goods_heard_call_out_customer_title">调出客户：</string>
+    <string name="exchange_goods_call_out_customer_title">调出客户</string>
+    <string name="exchange_goods_call_out_customer_content">请选择调出客户(必填)</string>
+    <string name="exchange_goods_heard_call_in_customer_title">收货客户：</string>
+    <string name="exchange_goods_call_in_customer_title">收货客户</string>
+    <string name="exchange_goods_call_in_customer_content">请选择收货客户(必填)</string>
+
+    <string name="update_offline_data">更新数据</string>
+    <string name="receiving_customer_contacts">联系人</string>
+    <string name="see_details">查看</string>
+    <string name="delete">删除</string>
+    <string name="back">返回</string>
+    <string name="clear_data">清空数据</string>
+
+    <!--包装自动入库-->
+    <string name="package_stock_in_warehouse">仓库名称</string>
+    <string name="package_stock_in_store_house">库&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;位</string>
+    <string name="package_stock_in_warehouse_hint">请选择仓库(必填)</string>
+    <string name="package_stock_in_store_house_hint">请选择库位</string>
+    <string name="package_stock_in_product_name">产品名称</string>
+    <string name="package_stock_in_product_name_hint">请选择产品名称(必填)</string>
+    <string name="package_stock_in_product_batch">产品批次</string>
+    <string name="package_stock_in_product_batch_hint">请选择产品批次</string>
+    <string name="package_stock_in_association_level">关联级别</string>
+    <string name="package_stock_in_association_level_hint">请选择关联级别(必填)</string>
+    <string name="package_stock_in_specifications">包装规格</string>
+    <!--标识纠错-->
+    <string name="label_edit_header_product_name">产品名称：</string>
+    <string name="label_edit_header_product_batch_name">产品批次：</string>
+
+    <!--盘点-->
+    <string name="inventory_house_list">盘点单号：</string>
+    <string name="inventory_warehouse_name">仓库名称：</string>
+    <string name="inventory_warehouse_code">仓库编码：</string>
+    <string name="inventory_create_time">创建时间：</string>
+    <string name="inventory_reason">盘点原因：</string>
+    <string name="inventory_remark">备注：</string>
+    <string name="inventory_execute">盘点</string>
+    <string name="inventory_product_info">产品信息</string>
+    <string name="inventory_upload">上传</string>
+    <string name="inventory_product_name">产品名称：</string>
+    <string name="inventory_product_code">产品编码：</string>
+    <string name="inventory_system_number">系统库存：</string>
+    <string name="inventory_current_number">实盘库存：</string>
+    <string name="inventory_view">查看</string>
+    <string name="inventory_scan">扫码</string>
+    <string name="inventory_info">盘点信息</string>
+
+    <!--单据入库-->
+    <string name="order_stock_in_warehouse_name">仓库名称：</string>
+    <string name="order_stock_in_warehouse_code">仓库编码：</string>
+    <string name="order_stock_in_supper_name">供应商名称：</string>
+    <string name="order_stock_in_supper_code">供应商编码：</string>
+    <string name="order_stock_in_create_time">创建时间：</string>
+    <string name="order_stock_in_execute">入库</string>
+    <string name="order_stock_in_upload">上传</string>
+    <string name="order_stock_in_product_name">产品名称：</string>
+    <string name="order_stock_in_product_code">产品编码：</string>
+    <string name="order_stock_in_product_batch">产品批次：</string>
+    <string name="order_stock_in_plan_number">计划数量：</string>
+    <string name="order_stock_in_scan_number">扫码数量：</string>
+    <string name="order_stock_in_input_number">手输数量：</string>
+    <string name="upload_number">已上传数量：</string>
+    <string name="wait_stock_out_number">可出库数量：</string>
+    <string name="wait_upload_number">待上传数量：</string>
+    <string name="order_stock_in_plan_single_number">计划数量\n(最小单位)：</string>
+    <string name="order_stock_in_scan_single_number">扫码数量\n(最小单位)：</string>
+
+    <string name="order_stock_in_edit">查看/删除</string>
+    <string name="order_stock_in_scan">扫码</string>
+    <string name="order_stock_in_house_list">单据号：</string>
+    <string name="order_stock_in_product_info">产品信息</string>
+    <string name="order_stock_in_info">入库信息</string>
+
+    <!--单据出库-->
+    <string name="order_stock_out_customer_name">客户名称：</string>
+    <string name="order_stock_out_customer_code">客户编码：</string>
+    <string name="order_stock_out_warehouse_name">仓库名称：</string>
+    <string name="order_stock_out_warehouse_code">仓库编码：</string>
+    <string name="order_stock_out_warehouse">仓库：</string>
+    <string name="order_stock_out_create_time">创建时间：</string>
+    <string name="order_stock_out_operating_time">操作时间：</string>
+    <string name="order_stock_out_execute">发货</string>
+    <string name="order_stock_out_house_list">单据号：</string>
+    <string name="order_stock_out_product_info">产品信息</string>
+    <string name="order_stock_out_info">出库信息</string>
+    <string name="order_stock_out_wait_single_number">待发数量\n(最小单位)：</string>
+    <string name="order_stock_out_plan_single_number">计划数量\n(最小单位)：</string>
+    <string name="order_stock_out_scan_single_number">扫码数量\n(最小单位)：</string>
+    <string name="order_stock_out_input_single_number">手输数量\n(最小单位)：</string>
+    <string name="order_stock_out_re_picking">重新拣货</string>
+    <string name="order_stock_out_picking">确认拣货</string>
+    <string name="order_stock_out_picked">已拣货</string>
+    <string name="order_stock_out_picking_execute">拣货</string>
+    <string name="order_stock_out_review_execute">复核</string>
+    <string name="order_stock_out_review_execute_all">确认全部复核</string>
+    <string name="order_stock_out_review_return">打回重新扫码</string>
+    <string name="order_stock_out_review_confirm">确认通过</string>
+    <string name="order_stock_out_input">手工录入数量</string>
+    <!--单据调仓 (调出调入)-->
+    <string name="order_exchange_warehouse_out_house_list">调出单号：</string>
+    <string name="order_exchange_warehouse_out_product_info">产品信息</string>
+    <string name="order_exchange_warehouse_out_warehouse_name">调出仓库：</string>
+    <string name="order_exchange_warehouse_in_warehouse_name">调入仓库：</string>
+    <string name="order_exchange_warehouse_out_warehouse_code">仓库编码：</string>
+    <string name="order_exchange_warehouse_in_warehouse_code">仓库编码：</string>
+    <string name="order_exchange_warehouse_out_product_name">产品名称：</string>
+    <string name="order_exchange_warehouse_out_product_code">产品编码：</string>
+    <string name="order_exchange_warehouse_out_plan_single_number">计划数量\n(最小单位)：</string>
+    <string name="order_exchange_warehouse_out_scan_single_number">扫码数量\n(最小单位)：</string>
+    <string name="order_exchange_warehouse_out_execute">进入扫码</string>
+
+    <!--单据退货-->
+    <string name="order_stock_return_list">退货单号：</string>
+    <string name="order_stock_return_warehouse_name">退货仓库：</string>
+    <string name="order_stock_return_warehouse_code">仓库编码：</string>
+    <string name="order_stock_return_customer_name">退货客户：</string>
+    <string name="order_stock_return_customer_code">客户编码：</string>
+    <string name="order_stock_return_create_time">创建时间：</string>
+    <string name="order_stock_return_scan">退货扫码：</string>
+    <!--批次管理-->
+    <string name="batch_management_batch_name">批次名称：</string>
+    <string name="batch_management_product_name">所属产品：</string>
+    <string name="batch_management_market_time">上市时间:</string>
+    <string name="batch_management_produce_time">生产时间:</string>
+    <string name="batch_management_remark">备注:</string>
+    <string name="batch_management_delete">删除</string>
+    <string name="batch_management_edit">编辑</string>
+
+    <!--打散套标-->
+    <string name="disassemble_all_tip">该功能仅用在套标未与产品名称关联的情况下使用。\n可输入某组套标中的任何一个码进行整组打散。</string>
+    <!--包装统计-->
+    <string name="todayPackageNumber">今日包装产品数</string>
+    <string name="todayThirdNumber">今日生产大箱数</string>
+    <string name="todaySecondNumber">今日生产中包数</string>
+    <string name="todayFirstNumber">今日生产单标数</string>
+    <string name="yesterdayPackageNumber">昨日包装产品数</string>
+    <string name="yesterdayThirdNumber">昨日生产大箱数</string>
+    <string name="yesterdaySecondNumber">昨日生产中包数</string>
+    <string name="yesterdayFirstNumber">昨日生产单标数</string>
+    <string name="today_package_details">今日产品生产包装情况</string>
+    <string name="month_package_details">过去一个月生产包装情况</string>
+    <string name="click_view">点击查看</string>
+    <string name="firstUnit">单标</string>
+    <string name="secondUnit">中盒</string>
+    <string name="thirdUnit">箱</string>
+    <string name="product_package_date">产品生产包装日期</string>
+    <string name="date_package_date">生产日期</string>
+    <string name="filter_by_day">按天</string>
+    <string name="filter_by_month">按月</string>
+    <string name="filter_by_year">按年</string>
+    <string name="filter_start_date">开始日期</string>
+    <string name="filter_end_date">结束日期</string>
+    <string name="filter_select_month">选择月份</string>
+    <string name="filter_select_product">产品名称</string>
+    <string name="filter_select_year">选择年份</string>
+    <!--order exchange goods-->
+    <string name="order_code_input">订单号：</string>
+    <string name="exchange_out_customer_name_input">调出客户：</string>
+    <string name="exchange_in_customer_name_input">收货客户：</string>
+    <string name="remark_input">备注：</string>
+    <string name="create_time_input">创建时间：</string>
+    <string name="order_exchange_goods">调货</string>
+    <string name="order_upload">上传</string>
+
+    <!--order exchange goods details-->
+    <string name="product_name_input">产品名称：</string>
+    <string name="product_code_input">产品编码：</string>
+    <string name="order_exchange_goods_group_number">应发数量：</string>
+    <string name="order_exchange_goods_single_number">应发最小单位数量：</string>
+    <string name="order_exchange_goods_send_number">已发数量：</string>
+    <string name="order_exchange_goods_scan_number">扫码数量：</string>
+    <string name="order_exchange_goods_details_check_or_delete">查看/删除</string>
+    <string name="order_scan_code">扫码</string>
+    <string name="order_exchange_goods_product_info">调货产品信息</string>
+
+    <!--order exchange goods scan-->
+    <string name="order_exchange_goods_info">调货信息</string>
+
+    <string name="stock_header_product_name">产品名称：</string>
+    <string name="stock_header_batch_name">产品批次：</string>
+    <string name="stock_header_receiving_customer">收货客户：</string>
+    <string name="stock_header_remark">备注：</string>
+
+    <string name="statistical_dimension">统计维度</string>
+    <string name="statistical_dimension_required_hint">请选择统计维度(必填）</string>
+    <string name="product_name">产品名称</string>
+    <string name="product_name_hint">请选择产品名称</string>
+    <string name="batch_name">产品批次</string>
+    <string name="batch_name_hint">请选择产品批次</string>
+    <string name="warehouse_name">仓库名称</string>
+    <string name="warehouse_name_hint">请选择仓库名称</string>
+    <string name="warehouse_in_name">调入仓库</string>
+    <string name="warehouse_in_name_hint">请选择调入仓库</string>
+    <string name="warehouse_out_name">调出仓库</string>
+    <string name="warehouse_out_name_hint">请选择调出仓库</string>
+    <string name="start_time">起始时间</string>
+    <string name="start_time_required_hint">请选择起始时间(必填）</string>
+    <string name="end_time">结束时间</string>
+    <string name="end_time_required_hint">请选择结束时间(必填）</string>
+    <string name="time_range">时间范围</string>
+    <string name="single_code_number">最小单位数量</string>
+    <string name="customer_name">客户名称</string>
+    <string name="customer_name_hint">请选择客户名称</string>
+    <string name="customer_in_name">收货客户</string>
+    <string name="customer_in_name_hint">请选择收货客户</string>
+    <string name="customer_out_name">调出客户</string>
+    <string name="customer_out_name_hint">请选择调出客户</string>
+    <string name="reset">重置</string>
+    <string name="query">查询</string>
+
+    <!--关联二维码-->
+    <string name="relate_to_nfc_qrcode">二维码:</string>
+    <string name="relate_to_nfc_record">NFC芯片:</string>
+    <string name="relate_to_nfc_read_nfc">请感应NFC</string>
+
+
+    <!--码状态查询-->
+    <string name="code_status_query_id_code">身份码</string>
+    <string name="code_status_query_input_id_code">请输入身份码</string>
+    <string name="code_status_query">码状态查询</string>
+    <string name="code_status_query_stock_in_info">入库信息</string>
+    <string name="code_status_query_stock_out_info">出库信息</string>
+    <string name="code_status_query_exchange_warehouse_info">调仓信息</string>
+    <string name="code_status_query_exchange_goods_info">调货信息</string>
+    <string name="code_status_query_stock_return_info">退货信息</string>
+
+    <string name="code_status_query_details">扫码状态查询</string>
+    <string name="code_status_query_details_null_tips">请点击上面按钮查看相关信息</string>
+
+
+    <!--标识替换-->
+    <string name="identification_replace_source_code_title">(原)身份码</string>
+    <string name="identification_replace_source_code_hint">请先扫描原物流码</string>
+    <string name="identification_replace_target_code_title">(新)身份码</string>
+    <string name="identification_replace_target_code_hint">扫描新的物流码</string>
+
+
+    <string name="details">详情</string>
+
+    <!--    养殖-->
+    <string name="breed_in_batch">养殖批次：</string>
+    <string name="in_type">进场类型：</string>
+    <string name="in_count">进场数量：</string>
+    <string name="in_weight">进场重量：</string>
+    <string name="breed_out_batch">离场批次：</string>
+    <string name="processing_approach_in_batch">加工批次：</string>
+    <string name="out_type">离场类型：</string>
+    <string name="out_count">离场数量：</string>
+    <string name="out_weight">离场重量：</string>
+    <string name="out_price">离场单价：</string>
+    <string name="out_fence">离场栏舍：</string>
+    <string name="slaughter_in_batch">屠宰批次：</string>
+    <string name="breed_in_batch_scan_tips">请识别耳号或手动选择</string>
+    <string name="slaughter_in_upload_pic">上传动检证</string>
+    <string name="slaughter_count">屠宰数量：</string>
+    <string name="slaughter_after_count">宰后总重：</string>
+
+
+    <!-- 栏舍入栏-->
+    <string name="pigsty_code">栏舍号：</string>
+    <string name="number_of_entries">入栏数量：</string>
+    <string name="entry_weight">入栏重量：</string>
+
+    <string name="creator">创建人：</string>
+    <string name="create_time">创建时间：</string>
+    <string name="associate_ear_number">关联耳号</string>
+    <string name="breed_in_batch_details">进场信息</string>
+    <string name="breed_out_batch_details">离场信息</string>
+    <string name="scan_ear_code_tips">请扫描耳号或手动输入进行关联</string>
+    <string name="scan_ear_code_tips_2">请扫描耳号或手动输入模糊搜索</string>
+    <string name="scan_ear_code_tips_3">请扫描耳号或手动输入</string>
+
+    <string name="feeding_weight">饲料总重：</string>
+    <string name="feeding_price">饲料总价：</string>
+    <string name="feeding_period_of_time">饲料时段：</string>
+
+    <string name="weight_type">称重类型：</string>
+    <string name="weight_object">称重对象：</string>
+    <string name="weight_number">称重数量：</string>
+    <string name="weight_total_weight">称重总重：</string>
+
+    <string name="energy_period_of_time">能耗时段：</string>
+    <string name="energy_water_used">用水量：</string>
+    <string name="energy_water_used_fee">水费：</string>
+    <string name="energy_energy_used">用电量：</string>
+    <string name="energy_energy_used_fee">电费：</string>
+    <string name="energy_other_fee">其他费用：</string>
+
+    <string name="exchange_out_pigsty">转出栏舍：</string>
+    <string name="exchange_in_pigsty">转入栏舍：</string>
+    <string name="exchange_in_number">转入数量：</string>
+    <string name="exchange_in_weight">转入重量：</string>
+
+    <string name="health_care_date">保健日期：</string>
+    <string name="health_care_num">保健数量：</string>
+    <string name="health_care_object">保健对象：</string>
+
+    <string name="immunity_date">免疫日期：</string>
+    <string name="immunity_num">免疫数量：</string>
+    <string name="immunity_object">免疫对象：</string>
+
+    <string name="treatment_date">诊疗日期：</string>
+    <string name="treatment_num">诊疗数量：</string>
+    <string name="treatment_object">诊疗对象：</string>
+
+    <string name="disinfect_date">消毒日期：</string>
+
+    <string name="harmless_num">处理数量：</string>
+    <string name="harmless_object">处理对象：</string>
+    <string name="harmless_time">处理日期：</string>
+
+    <string name="breed_task_filter_type">任务类型：</string>
+    <string name="breed_task_filter_status">执行状态：</string>
+    <string name="breed_task_filter_status_tips">请选择执行状态</string>
+    <string name="breed_task">任务：</string>
+    <string name="operate_tips">操作说明：</string>
+    <string name="apply_fence">应用栏舍：</string>
+    <string name="status">状态：</string>
+
+    <string name="complete">完成</string>
+    <string name="complete_person">完成人：</string>
+    <string name="complete_time">完成时间：</string>
+    <string name="select_all">全部</string>
+    <string name="no_do">未完成</string>
+
+    <string name="stock_in_type">入库类型：</string>
+    <string name="stock_out_type">出库类型：</string>
+    <string name="order_status">单据状态：</string>
+    <string name="input_number">手输数据：</string>
+    <string name="check_number">点货数据：</string>
+    <string name="plan_number_dlh">计划数据：</string>
+    <string name="upload_number_dlh">已上传数据：</string>
+    <string name="scan_number_dlh">扫码数据：</string>
+    <string name="scan_check_number_dlh">扫码点货</string>
+    <string name="input_check_number_dlh">手输点货</string>
+    <string name="link_dlh">收货人：</string>
+    <string name="location_dlh">所在地：</string>
+    <string name="address_dlh">详细地址：</string>
+    <string name="order_dlh">订单号：</string>
+
+
+</resources>

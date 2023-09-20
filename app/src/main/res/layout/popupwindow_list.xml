@@ -1,0 +1,85 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="SpUsage,RtlHardcoded">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_70">
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="500dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/radius4_white"
+                android:orientation="vertical"
+                android:elevation="10dp">
+
+                <TextView
+                    android:id="@+id/tv_popupwindow_list_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="@color/gray_33"
+                    android:textSize="20sp"
+                    tools:text="提示" />
+
+                <com.jgw.common_library.base.view.CustomRecyclerViewContainer
+                    android:id="@+id/rvc_popupwindow_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+                    <com.jgw.common_library.base.view.CustomBaseRecyclerView
+                        android:id="@+id/rv_popupwindow_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </com.jgw.common_library.base.view.CustomRecyclerViewContainer>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_e6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true">
+
+                    <TextView
+                        android:id="@+id/tv_popupwindow_list_left"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="@string/cancel"
+                        android:textColor="@color/gray_66"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/tv_popupwindow_list_right"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:background="@color/blue"
+                        android:gravity="center"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>

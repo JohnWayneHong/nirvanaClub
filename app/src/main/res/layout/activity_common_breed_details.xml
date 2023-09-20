@@ -1,0 +1,89 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<data>-->
+
+    <!--<variable-->
+    <!--name="something"-->
+    <!--type="com.jgw.delingha.bean.SomethingBean" />-->
+    <!--</data>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_toolbar" />
+
+        <LinearLayout
+            android:id="@+id/ll_breed_details_menu"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_breed_details_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_breed_details_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/breed_in_batch_details"
+                    android:textColor="@color/gray_33"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/v_breed_details_list"
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/tv_breed_details_list"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/main_color" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_breed_details_ear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_breed_details_ear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/associate_ear_number"
+                    android:textColor="@color/gray_33" />
+
+                <View
+                    android:id="@+id/v_breed_details_ear"
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/tv_breed_details_ear"
+                    android:background="@color/main_color"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_breed_details_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+    </LinearLayout>
+</layout>

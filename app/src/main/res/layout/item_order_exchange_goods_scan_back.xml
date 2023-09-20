@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.OrderExchangeGoodsCodeBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:ignore="SpUsage">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/gray_32"
+                android:textSize="16sp"
+                android:text="@{data.outerCodeId}"
+                tools:text="123456789" />
+
+            <TextView
+                android:id="@+id/tv_scan_back_product_name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/product_name_input"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_scan_back_product_name_input"
+                android:layout_toRightOf="@+id/tv_scan_back_product_name_input"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp"
+                android:text="@{data.productName}"
+                tools:text="张三" />
+
+            <TextView
+                android:id="@+id/tv_scan_back_product_code_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/product_code_input"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_scan_back_product_code_input"
+                android:layout_toRightOf="@+id/tv_scan_back_product_code_input"
+                android:textColor="@color/gray_66"
+                android:text="@{data.productCode}"
+                android:textSize="14sp"
+                tools:text="张三" />
+
+            <RelativeLayout
+                android:id="@+id/rl_scan_back_delete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/icon_scan_delete" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_ee" />
+    </LinearLayout>
+</layout>

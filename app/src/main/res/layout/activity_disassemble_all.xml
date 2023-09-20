@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="SpUsage">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_yellow"
+            android:gravity="center"
+            android:lines="2"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/disassemble_all_tip"
+            android:textColor="@color/gray_32"
+            android:textSize="14sp" />
+
+        <com.jgw.common_library.base.view.CustomRecyclerViewContainer
+            android:id="@+id/rvc_whole_group_disassemble"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white">
+
+            <com.jgw.common_library.base.view.CustomBaseRecyclerView
+                android:id="@+id/rv_whole_group_disassemble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.jgw.common_library.base.view.CustomRecyclerViewContainer>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/common_divider_background"
+            android:orientation="horizontal"
+            android:paddingTop="1dp"
+            tools:ignore="SpUsage">
+
+            <TextView
+                android:id="@+id/tv_code_amount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="14sp"
+                tools:text="共88885条" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/common_divider_background" />
+
+            <TextView
+                android:id="@+id/tv_scan_back"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_btn_white_background"
+                android:gravity="center"
+                android:text="@string/pda_delete_watch"
+                android:textColor="@color/main_color"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_sure"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_btn_blue_background"
+                android:gravity="center"
+                android:text="@string/pda_upload"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

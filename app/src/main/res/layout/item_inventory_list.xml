@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.jgw.delingha.bean.InventoryListBean.ListBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/radius4_white"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        tools:ignore="SpUsage,RtlHardcoded">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="@{data.houseList}"
+                android:textColor="@color/gray_99"
+                android:textSize="16sp"
+                tools:text="盘点单号" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@{data.statusDesc}"
+                android:textColor="@{data.statusTextColor}"
+                android:textSize="16sp"
+                tools:text="处理中" />
+        </RelativeLayout>
+
+        <View style="@style/style_divider_horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                 
+                android:text="@string/inventory_warehouse_name"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.wareHouseName}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XXX仓库" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                 
+                android:text="@string/inventory_warehouse_code"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.wareHouseCode}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XXX编码" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                 
+                android:text="@string/inventory_create_time"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.createTime}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="2020年11月5日16:08:56" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                 
+                android:text="@string/inventory_reason"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.inventoryReason}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因XXX原因" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                 
+                android:text="@string/inventory_remark"
+                android:textColor="@color/gray_66"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:text="@{data.remarks}"
+                android:textColor="@color/gray_33"
+                android:textSize="14sp"
+                tools:text="张三" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="right|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/tv_inventory_list_execute"
+                android:layout_width="68dp"
+                android:layout_height="30dp"
+                android:background="@drawable/radius96_blue"
+                android:gravity="center"
+                android:text="@string/inventory_execute"
+                android:textColor="@color/white"
+                android:layout_marginRight="10dp"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

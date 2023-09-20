@@ -1,0 +1,32 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imgBean"
+            type="com.jgw.delingha.bean.ImageBean" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_info_details_img"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            app:imageResId="@{imgBean.resId}"
+            app:imageUri="@{imgBean.imgUri}"
+            app:imageUrl="@{imgBean.finalImgUrl}"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+
+</layout>
