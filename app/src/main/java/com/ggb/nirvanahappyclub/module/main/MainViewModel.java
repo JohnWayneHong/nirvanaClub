@@ -4,8 +4,9 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
-import com.jgw.common_library.base.viewmodel.BaseViewModel;
-import com.jgw.common_library.livedata.ValueKeeperLiveData;
+
+import com.ggb.common_library.base.viewmodel.BaseViewModel;
+import com.ggb.common_library.livedata.ValueKeeperLiveData;
 
 import org.jetbrains.annotations.NotNull;
 

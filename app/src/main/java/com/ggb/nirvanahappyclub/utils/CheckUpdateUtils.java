@@ -17,6 +17,15 @@ import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.ggb.common_library.base.ui.BaseActivity;
+import com.ggb.common_library.http.rxjava.CustomObserver;
+import com.ggb.common_library.provider.CameraFileProvider;
+import com.ggb.common_library.utils.BuildConfigUtils;
+import com.ggb.common_library.utils.CommonDialogUtil;
+import com.ggb.common_library.utils.MMKVUtils;
+import com.ggb.common_library.utils.NetUtils;
+import com.ggb.common_library.utils.ToastUtils;
+import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.R;
 import com.ggb.nirvanahappyclub.bean.SaveFileBean;
 import com.ggb.nirvanahappyclub.bean.VersionBean;
@@ -26,15 +35,6 @@ import com.ggb.nirvanahappyclub.network.api.ApiService;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.jgw.common_library.base.ui.BaseActivity;
-import com.jgw.common_library.http.rxjava.CustomObserver;
-import com.jgw.common_library.provider.CameraFileProvider;
-import com.jgw.common_library.utils.BuildConfigUtils;
-import com.jgw.common_library.utils.CommonDialogUtil;
-import com.jgw.common_library.utils.MMKVUtils;
-import com.jgw.common_library.utils.NetUtils;
-import com.jgw.common_library.utils.ToastUtils;
-import com.jgw.common_library.widget.commonDialog.CommonDialog;
 
 import java.io.File;
 import java.util.List;

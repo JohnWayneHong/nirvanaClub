@@ -10,8 +10,9 @@ import androidx.annotation.Nullable;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
 import com.bigkoo.pickerview.listener.OnDismissListener;
-import com.jgw.common_library.utils.ResourcesUtils;
-import com.jgw.common_library.utils.ToastUtils;
+import com.ggb.common_library.utils.ResourcesUtils;
+import com.ggb.common_library.utils.ToastUtils;
+import com.ggb.nirvanahappyclub.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,11 +48,11 @@ public static final  String PATTERN_SECOND="yyyy-MM-dd HH:mm:ss";
                 .setType(new boolean[]{true, true, true, false, false, false})
                 .setLabel("年", "月", "日", "时", "分", "秒")
                 .isCenterLabel(false)
-                .setDividerColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_ee))
+                .setDividerColor(ResourcesUtils.getColor(R.color.gray_ee))
                 .setTitleBgColor(Color.WHITE)
-                .setCancelColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setSubmitColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setTextColorCenter(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_33))
+                .setCancelColor(ResourcesUtils.getColor(R.color.main_color))
+                .setSubmitColor(ResourcesUtils.getColor(R.color.main_color))
+                .setTextColorCenter(ResourcesUtils.getColor(R.color.gray_33))
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
                 .setLineSpacingMultiplier(1.8f)
@@ -113,11 +114,11 @@ public static final  String PATTERN_SECOND="yyyy-MM-dd HH:mm:ss";
                 .setType(new boolean[]{true, true, true, false, false, false})
                 .setLabel("年", "月", "日", "时", "分", "秒")
                 .isCenterLabel(false)
-                .setDividerColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_ee))
+                .setDividerColor(ResourcesUtils.getColor(R.color.gray_ee))
                 .setTitleBgColor(Color.WHITE)
-                .setCancelColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setSubmitColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setTextColorCenter(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_33))
+                .setCancelColor(ResourcesUtils.getColor(R.color.main_color))
+                .setSubmitColor(ResourcesUtils.getColor(R.color.main_color))
+                .setTextColorCenter(ResourcesUtils.getColor(R.color.gray_33))
                 .setDate(selectedDate)
                 .setRangDate(startDate, endDate)
                 .setLineSpacingMultiplier(1.8f)
@@ -139,9 +140,9 @@ public static final  String PATTERN_SECOND="yyyy-MM-dd HH:mm:ss";
         })
                 .setLineSpacingMultiplier(1.8f)
                 .setTitleBgColor(Color.WHITE)
-                .setCancelColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setSubmitColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setDividerColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_ee))
+                .setCancelColor(ResourcesUtils.getColor(R.color.main_color))
+                .setSubmitColor(ResourcesUtils.getColor(R.color.main_color))
+                .setDividerColor(ResourcesUtils.getColor(R.color.gray_ee))
                 .setSelectOptions(0)
                 .build();
         pickerView.setPicker(list);
@@ -212,11 +213,11 @@ public static final  String PATTERN_SECOND="yyyy-MM-dd HH:mm:ss";
                 .setType(booleans)
                 .setLabel("年", "月", "日", "时", "分", "秒")
                 .isCenterLabel(false)
-                .setDividerColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_ee))
+                .setDividerColor(ResourcesUtils.getColor(R.color.gray_ee))
                 .setTitleBgColor(Color.WHITE)
-                .setCancelColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setSubmitColor(ResourcesUtils.getColor(com.jgw.common_library.R.color.main_color))
-                .setTextColorCenter(ResourcesUtils.getColor(com.jgw.common_library.R.color.gray_33))
+                .setCancelColor(ResourcesUtils.getColor(R.color.main_color))
+                .setSubmitColor(ResourcesUtils.getColor(R.color.main_color))
+                .setTextColorCenter(ResourcesUtils.getColor(R.color.gray_33))
                 .setDate(selectDate)
                 .setRangDate(startDate, endDate)
                 .setLineSpacingMultiplier(1.8f)

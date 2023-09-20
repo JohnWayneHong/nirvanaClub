@@ -31,17 +31,17 @@
                     android:textSize="20sp"
                     tools:text="提示" />
 
-                <com.jgw.common_library.base.view.CustomRecyclerViewContainer
+                <com.ggb.common_library.base.view.CustomRecyclerViewContainer
                     android:id="@+id/rvc_popupwindow_list"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1">
-                    <com.jgw.common_library.base.view.CustomBaseRecyclerView
+                    <com.ggb.common_library.base.view.CustomBaseRecyclerView
                         android:id="@+id/rv_popupwindow_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                </com.jgw.common_library.base.view.CustomRecyclerViewContainer>
+                </com.ggb.common_library.base.view.CustomRecyclerViewContainer>
 
                 <View
                     android:layout_width="match_parent"

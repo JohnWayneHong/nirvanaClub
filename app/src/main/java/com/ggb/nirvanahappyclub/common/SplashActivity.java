@@ -6,17 +6,17 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 
+import com.ggb.common_library.base.ui.BaseActivity;
+import com.ggb.common_library.utils.CommonDialogUtil;
+import com.ggb.common_library.utils.DevicesUtils;
+import com.ggb.common_library.utils.ToastUtils;
+import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.common.viewmodel.SplashViewModel;
 import com.ggb.nirvanahappyclub.databinding.ActivitySplashBinding;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
-import com.jgw.common_library.base.ui.BaseActivity;
-import com.jgw.common_library.utils.CommonDialogUtil;
-import com.jgw.common_library.utils.DevicesUtils;
-import com.jgw.common_library.utils.ToastUtils;
-import com.jgw.common_library.widget.commonDialog.CommonDialog;
 
 import java.util.List;
 

@@ -1,6 +1,7 @@
 package com.ggb.nirvanahappyclub.network.result;
 
-import com.jgw.common_library.http.CustomHttpApiException;
+
+import com.ggb.common_library.http.CustomHttpApiException;
 
 import io.reactivex.functions.Function;
 

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 
-import com.jgw.common_library.provider.CameraFileProvider;
+import com.ggb.common_library.provider.CameraFileProvider;
 
 import java.io.File;
 import java.io.IOException;

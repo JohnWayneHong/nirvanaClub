@@ -1,6 +1,7 @@
 package com.ggb.nirvanahappyclub.view.popupwindow_common;
 
-import static com.jgw.common_library.base.CustomApplication.context;
+
+import static com.ggb.common_library.base.CustomApplication.context;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -14,11 +15,11 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import com.ggb.common_library.base.adapter.CustomRecyclerAdapter;
+import com.ggb.common_library.base.ui.BaseActivity;
 import com.ggb.nirvanahappyclub.R;
 import com.ggb.nirvanahappyclub.databinding.PopupwindowListBinding;
 import com.ggb.nirvanahappyclub.module.main.MainActivity;
-import com.jgw.common_library.base.adapter.CustomRecyclerAdapter;
-import com.jgw.common_library.base.ui.BaseActivity;
 
 /**
  * 商品编辑(商品管理时点击弹出)

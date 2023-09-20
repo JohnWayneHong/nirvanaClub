@@ -9,8 +9,8 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.jgw.common_library.event.CommonEvent;
-import com.jgw.common_library.http.rxjava.CustomObserver;
+import com.ggb.common_library.event.CommonEvent;
+import com.ggb.common_library.http.rxjava.CustomObserver;
 import com.jgw.scan_code_library.VoiceHelp;
 
 import org.greenrobot.eventbus.EventBus;

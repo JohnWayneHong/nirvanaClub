@@ -1,13 +1,13 @@
 package com.ggb.nirvanahappyclub.network;
 
+import com.ggb.common_library.http.HttpClient;
+import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.network.okhttp.OkHttpUtils;
 import com.ggb.nirvanahappyclub.network.result.HttpResult;
 import com.ggb.nirvanahappyclub.network.result.HttpResultFunc;
 import com.ggb.nirvanahappyclub.network.result.HttpResultNullableFunc;
 import com.ggb.nirvanahappyclub.utils.ConstantUtil;
-import com.jgw.common_library.http.HttpClient;
-import com.jgw.common_library.utils.MMKVUtils;
 
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

@@ -1,7 +1,8 @@
 package com.ggb.nirvanahappyclub.network.okhttp;
 
 
-import com.jgw.common_library.http.okhttp.CommonInterceptor;
+
+import com.ggb.common_library.http.okhttp.CommonInterceptor;
 
 import java.util.concurrent.TimeUnit;
 

@@ -2,14 +2,14 @@ package com.ggb.nirvanahappyclub.utils;
 
 import android.text.TextUtils;
 
+import com.ggb.common_library.base.CustomApplication;
+import com.ggb.common_library.http.rxjava.CustomObserver;
+import com.ggb.common_library.utils.MMKVUtils;
+import com.ggb.common_library.utils.ToastUtils;
 import com.ggb.nirvanahappyclub.bean.SaveFileBean;
 import com.ggb.nirvanahappyclub.common.AppConfig;
 import com.ggb.nirvanahappyclub.network.HttpUtils;
 import com.ggb.nirvanahappyclub.network.api.ApiService;
-import com.jgw.common_library.base.CustomApplication;
-import com.jgw.common_library.http.rxjava.CustomObserver;
-import com.jgw.common_library.utils.MMKVUtils;
-import com.jgw.common_library.utils.ToastUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;

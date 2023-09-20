@@ -12,7 +12,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 
-import com.jgw.common_library.base.CustomApplication;
+import com.ggb.common_library.base.CustomApplication;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,12 +1,12 @@
 package com.ggb.nirvanahappyclub.common;
 
+import com.ggb.common_library.base.CustomApplication;
+import com.ggb.common_library.base.view.CustomDialog;
+import com.ggb.common_library.utils.LogUtils;
+import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.sql.ObjectBoxUtils;
 import com.ggb.nirvanahappyclub.utils.ScanCodeService;
-import com.jgw.common_library.base.CustomApplication;
-import com.jgw.common_library.base.view.CustomDialog;
-import com.jgw.common_library.utils.LogUtils;
-import com.jgw.common_library.utils.json.JsonUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 

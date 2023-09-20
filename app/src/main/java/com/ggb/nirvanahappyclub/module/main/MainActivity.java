@@ -13,17 +13,18 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.ggb.common_library.base.ui.BaseActivity;
+import com.ggb.common_library.utils.CommonDialogUtil;
+import com.ggb.common_library.utils.FormatUtils;
+import com.ggb.common_library.utils.MMKVUtils;
+import com.ggb.common_library.utils.ToastUtils;
+import com.ggb.common_library.utils.click_utils.ClickUtils;
+import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.R;
 import com.ggb.nirvanahappyclub.databinding.ActivityMainBinding;
 import com.ggb.nirvanahappyclub.utils.CheckUpdateUtils;
 import com.ggb.nirvanahappyclub.utils.ConstantUtil;
-import com.jgw.common_library.base.ui.BaseActivity;
-import com.jgw.common_library.utils.CommonDialogUtil;
-import com.jgw.common_library.utils.FormatUtils;
-import com.jgw.common_library.utils.MMKVUtils;
-import com.jgw.common_library.utils.ToastUtils;
-import com.jgw.common_library.utils.click_utils.ClickUtils;
-import com.jgw.common_library.widget.commonDialog.CommonDialog;
+
 
 
 import java.util.ArrayList;

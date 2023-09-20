@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
+import com.ggb.common_library.base.viewmodel.BaseViewModel;
 import com.ggb.nirvanahappyclub.common.model.SplashModel;
-import com.jgw.common_library.base.viewmodel.BaseViewModel;
 
 /**
  * @author : J-T

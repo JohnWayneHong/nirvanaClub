@@ -3,8 +3,8 @@ package com.ggb.nirvanahappyclub.bean;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import com.ggb.common_library.utils.ResourcesUtils;
 import com.ggb.nirvanahappyclub.R;
-import com.jgw.common_library.utils.ResourcesUtils;
 
 public class MainMenuBean extends BaseObservable {
     private int index = 0;

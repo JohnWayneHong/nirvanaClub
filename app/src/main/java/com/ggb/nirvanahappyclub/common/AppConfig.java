@@ -2,7 +2,8 @@ package com.ggb.nirvanahappyclub.common;
 
 import android.os.Environment;
 
-import com.jgw.common_library.base.ui.BaseActivity;
+import com.ggb.common_library.base.ui.BaseActivity;
+
 
 /**
  * app相关配置

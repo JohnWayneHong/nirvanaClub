@@ -4,8 +4,8 @@ import android.view.KeyEvent;
 
 import androidx.databinding.ViewDataBinding;
 
-import com.jgw.common_library.base.ui.BaseActivity;
-import com.jgw.common_library.base.viewmodel.BaseViewModel;
+import com.ggb.common_library.base.ui.BaseActivity;
+import com.ggb.common_library.base.viewmodel.BaseViewModel;
 
 /**
  * @author : J-T
