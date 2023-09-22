@@ -1,0 +1,29 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/main_background">
+
+        <com.tamsiree.rxui.view.tablayout.TGlideTabLayout
+            android:id="@+id/rxTool_community_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_48"
+            android:background="@color/main_color"
+            app:indicator_corner_radius="@dimen/dimen_2"
+            app:indicator_height="@dimen/dimen_4"
+            app:indicator_width="@dimen/dimen_4" />
+
+        <com.ggb.nirvanahappyclub.view.viewpager.YesScrollViewPager
+            android:id="@+id/vp_community"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</layout>
+

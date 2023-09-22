@@ -22,7 +22,9 @@ import com.ggb.nirvanahappyclub.bean.MainMenuBean
 import com.ggb.nirvanahappyclub.databinding.ActivityMainBinding
 import com.ggb.nirvanahappyclub.module.community.CommunityFragment
 import com.ggb.nirvanahappyclub.module.index.IndexFragment
-import com.ggb.nirvanahappyclub.utils.CheckUpdateUtils
+import com.ggb.nirvanahappyclub.module.message.MessageFragment
+import com.ggb.nirvanahappyclub.module.mine.MineFragment
+import com.ggb.nirvanahappyclub.module.subscribe.SubscribeFragment
 import com.ggb.nirvanahappyclub.utils.ConstantUtil
 import java.util.Date
 
@@ -34,6 +36,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     private var mIndexFragment: IndexFragment = IndexFragment()
     private var mCommunityFragment: CommunityFragment = CommunityFragment()
+    private var mSubscribeFragment: SubscribeFragment = SubscribeFragment()
+    private var mMessageFragment: MessageFragment = MessageFragment()
+    private var mMineFragment: MineFragment = MineFragment()
 
     private var exitTime: Long = 0
 
@@ -67,17 +72,17 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onNewIntent(intent: Intent) {
-        super.onNewIntent(intent)
-        val index = intent.getIntExtra("index", -1)
-        if (index != -1) {
-            jumpToFragment(index)
-        }
-        val exit = intent.getBooleanExtra("exit", false)
-        if (exit) {
-            finish()
-        }
-    }
+//    override fun onNewIntent(intent: Intent) {
+//        super.onNewIntent(intent)
+//        val index = intent.getIntExtra("index", -1)
+//        if (index != -1) {
+//            jumpToFragment(index)
+//        }
+//        val exit = intent.getBooleanExtra("exit", false)
+//        if (exit) {
+//            finish()
+//        }
+//    }
 
     override fun initView() {}
     override fun initData() {
@@ -87,14 +92,17 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         if (exit) {
             finish()
         }
-        val HOME_FRAGMENT_KEY = "mIndexFragment"
-        tags.add(HOME_FRAGMENT_KEY)
-        val SETTING_FRAGMENT_KEY = "mCommunityFragment"
-        tags.add(SETTING_FRAGMENT_KEY)
+        tags.add("mIndexFragment")
+        tags.add("mCommunityFragment")
+        tags.add("mSubscribeFragment")
+        tags.add("mMessageFragment")
+        tags.add("mMineFragment")
 
         fragments.add(mIndexFragment)
-
         fragments.add(mCommunityFragment)
+        fragments.add(mSubscribeFragment)
+        fragments.add(mMessageFragment)
+        fragments.add(mMineFragment)
 
 
         val index = intent.getIntExtra("index", -1)
@@ -112,8 +120,11 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.initListener()
         ClickUtils.register(this)
             .addOnClickListener()
-            .addView(findViewById(R.id.ll_tool_table))
-            .addView(findViewById(R.id.ll_setting_center))
+            .addView(findViewById(R.id.ll_tools_home))
+            .addView(findViewById(R.id.ll_tools_community))
+            .addView(findViewById(R.id.ll_tools_subscribe))
+            .addView(findViewById(R.id.ll_tools_message))
+            .addView(findViewById(R.id.ll_tools_mine))
             .submit()
     }
 
@@ -156,11 +167,22 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
     override fun onClick(view: View) {
         super.onClick(view)
-        val id = view.id
-        if (id == R.id.ll_tool_table) {
-            jumpToFragment(0)
-        } else if (id == R.id.ll_setting_center) {
-            jumpToFragment(1)
+        when (view.id) {
+            R.id.ll_tools_home -> {
+                jumpToFragment(0)
+            }
+            R.id.ll_tools_community -> {
+                jumpToFragment(1)
+            }
+            R.id.ll_tools_subscribe -> {
+                jumpToFragment(2)
+            }
+            R.id.ll_tools_message -> {
+                jumpToFragment(3)
+            }
+            R.id.ll_tools_mine -> {
+                jumpToFragment(4)
+            }
         }
     }
 

@@ -20,11 +20,11 @@
 # hide the original source file name.
 #noinspection ShrinkerUnresolvedReference
 -keep public class * implements java.io.Serializable {*;}
--keep class com.jgw.delingha.bean.**{*;}
--keep class com.jgw.delingha.sql.entity.**{*;}
--keep class com.jgw.delingha.sql.converter_bean.**{*;}
--keep class com.jgw.delingha.network.**{*;}
--keep class com.jgw.delingha.module.select_list.common.SelectItemSupport.**{*;}
+-keep class com.ggb.nirvanahappyclub.bean.**{*;}
+-keep class com.ggb.nirvanahappyclub.sql.entity.**{*;}
+-keep class com.ggb.nirvanahappyclub.sql.converter_bean.**{*;}
+-keep class com.ggb.nirvanahappyclub.network.**{*;}
+-keep class com.ggb.nirvanahappyclub.module.select_list.common.SelectItemSupport.**{*;}
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
 -keep public class * extends androidx.lifecycle.AndroidViewModel
@@ -33,7 +33,7 @@
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
 
--keep public class * extends com.jgw.delingha.sql.operator.BaseOperator
+-keep public class * extends com.ggb.nirvanahappyclub.sql.operator.BaseOperator
 
 #忽略R8警告
 -dontwarn android.content.**
@@ -41,6 +41,12 @@
 -dontwarn org.bouncycastle.**
 -dontwarn org.conscrypt.**
 -dontwarn org.openjsse.**
+-dontwarn org.joda.convert.FromString
+-dontwarn org.joda.convert.ToString
+
+-keep public class com.ggb.nirvanahappyclub.R$*{
+public static final int *;
+}
 #
 #
 #-if interface * { @retrofit2.http.* *** *(...); }

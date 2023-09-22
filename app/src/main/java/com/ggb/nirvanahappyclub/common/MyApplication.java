@@ -7,6 +7,7 @@ import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.sql.ObjectBoxUtils;
 import com.ggb.nirvanahappyclub.utils.ScanCodeService;
+import com.tamsiree.rxkit.RxTool;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
@@ -28,6 +29,7 @@ public class MyApplication extends CustomApplication {
         checkDatabaseVersion();
         ObjectBoxUtils.init(this);
         initUMeng();
+        RxTool.init(this);
         CustomDialog.globalShowStatusBar = true;
         RxJavaPlugins.setErrorHandler(e -> {
         });

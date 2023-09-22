@@ -28,6 +28,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
 
     @Override
     protected void initView() {
+
     }
 
     @Override

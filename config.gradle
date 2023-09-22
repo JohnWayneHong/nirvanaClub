@@ -20,7 +20,7 @@ ext {
 
     libsVersion = [
             objectbox_version = "3.6.0",
-            common_library = "1.0.8",
+            common_library = "1.0.9",
             scan_code_library = "1.0.0",
             scan_nfc_library = "1.0.0"
     ]

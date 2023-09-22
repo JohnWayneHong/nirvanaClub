@@ -32,7 +32,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/ll_tool_table"
+                android:id="@+id/ll_tools_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -40,23 +40,24 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/iv_tools_table"
-                    imageResId="@{data.getToolsTableImageResId}"
+                    android:id="@+id/iv_tools_home"
+                    imageResId="@{data.toolsHomeImageResId}"
                     android:layout_width="22dp"
                     android:layout_height="22dp" />
 
                 <TextView
-                    android:id="@+id/tv_tools_table"
+                    android:id="@+id/tv_tools_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@string/tools_table"
-                    android:textColor="@{data.toolsTableTextColor}"
+                    android:text="@string/activity_main_index_string"
+                    android:textColor="@{data.toolsHomeTextColor}"
                     android:textSize="14sp" />
+
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_setting_center"
+                android:id="@+id/ll_tools_community"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -64,21 +65,99 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/iv_setting_center"
+                    android:id="@+id/iv_tools_community"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
-                    imageResId="@{data.settingCenterImageResId}"/>
+                    imageResId="@{data.toolsCommunityImageResId}"/>
 
                 <TextView
-                    android:id="@+id/tv_setting_center"
+                    android:id="@+id/tv_tools_community"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="@string/setting_center"
-                    android:textColor="@{data.settingCenterTextColor}"
+                    android:text="@string/activity_main_community_string"
+                    android:textColor="@{data.toolsCommunityTextColor}"
                     android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tools_subscribe"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_tools_subscribe"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    imageResId="@{data.toolsSubscribeImageResId}"/>
+
+                <TextView
+                    android:id="@+id/tv_tools_subscribe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/activity_main_subscription_string"
+                    android:textColor="@{data.toolsSubscribeTextColor}"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tools_message"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_tools_message"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    imageResId="@{data.toolsMessageImageResId}"/>
+
+                <TextView
+                    android:id="@+id/tv_tools_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/activity_main_message_string"
+                    android:textColor="@{data.toolsMessageTextColor}"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_tools_mine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_tools_mine"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    imageResId="@{data.toolsMineImageResId}"/>
+
+                <TextView
+                    android:id="@+id/tv_tools_mine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/activity_main_me_string"
+                    android:textColor="@{data.toolsMineTextColor}"
+                    android:textSize="14sp" />
+
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
+
 </layout>

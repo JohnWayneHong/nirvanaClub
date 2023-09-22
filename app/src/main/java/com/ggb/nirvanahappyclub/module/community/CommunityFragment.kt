@@ -1,12 +1,12 @@
 package com.ggb.nirvanahappyclub.module.community
 
 import android.view.View
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.nirvanahappyclub.databinding.FragmentCommunityBinding
 import com.ggb.nirvanahappyclub.databinding.FragmentLoginBinding
 
-class CommunityFragment : BaseFragment<CommunityViewModel, FragmentLoginBinding>(),SwipeRefreshLayout.OnRefreshListener,OnItemSingleClickListener{
+class CommunityFragment : BaseFragment<CommunityViewModel, FragmentCommunityBinding>(),OnItemSingleClickListener{
 
     //构造方法可补充
     init {
@@ -37,7 +37,4 @@ class CommunityFragment : BaseFragment<CommunityViewModel, FragmentLoginBinding>
 
     }
 
-    override fun onRefresh() {
-
-    }
 }

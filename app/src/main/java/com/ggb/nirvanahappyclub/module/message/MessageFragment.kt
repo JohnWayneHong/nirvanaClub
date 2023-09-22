@@ -1,10 +1,11 @@
-package com.ggb.nirvanahappyclub.module.index
+package com.ggb.nirvanahappyclub.module.message
 
 import android.view.View
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
-import com.ggb.nirvanahappyclub.databinding.FragmentIndexBinding
-class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnItemSingleClickListener{
+import com.ggb.nirvanahappyclub.databinding.FragmentMessageBinding
+
+class MessageFragment : BaseFragment<MessageViewModel, FragmentMessageBinding>(),OnItemSingleClickListener{
 
     //构造方法可补充
     init {
@@ -34,4 +35,5 @@ class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnIte
         super.onItemClick(view, groupPosition, subPosition)
 
     }
+
 }
