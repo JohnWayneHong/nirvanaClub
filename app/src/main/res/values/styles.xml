@@ -117,4 +117,27 @@
         <item name="android:paddingRight">15dp</item>
     </style>
 
+
+
+    <!--  Nirvana 自定义属性  -->
+
+    <!--  下载进度的自定义属性  -->
+    <declare-styleable name="CustomHorizontalProgresStyle">
+        <attr name="HorizontalProgresUnReachColor" />
+        <attr name="HorizontalProgresUnReachHeight" />
+        <attr name="HorizontalProgresReachColor" />
+        <attr name="HorizontalProgresReachHeight" />
+        <attr name="HorizontalProgresTextColor" />
+        <attr name="HorizontalProgresTextSize" />
+        <attr name="HorizontalProgresTextOffset" />
+    </declare-styleable>
+
+    <attr name="HorizontalProgresUnReachColor" format="color" />
+    <attr name="HorizontalProgresUnReachHeight" format="dimension" />
+    <attr name="HorizontalProgresReachColor" format="color" />
+    <attr name="HorizontalProgresReachHeight" format="dimension" />
+    <attr name="HorizontalProgresTextColor" format="color" />
+    <attr name="HorizontalProgresTextSize" format="dimension" />
+    <attr name="HorizontalProgresTextOffset" format="dimension" />
+
 </resources>

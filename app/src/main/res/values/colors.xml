@@ -53,5 +53,18 @@
     <color name="light_gray">#F3F3F3</color>
     <color name="title_main_color">#000000</color>
     <color name="translucent">#80FFFFFF</color>
+    <!-- 首页标签按钮 -->
+    <color name="index_tags_btn_unchecked_text_color">#555555</color>
+    <color name="index_tags_btn_unchecked_background">#F3F3F3</color>
+    <color name="index_tags_btn_checked_text_color">#E86E5A</color>
+    <color name="index_tags_btn_checked_background">#FEF6F4</color>
+    <!--  更新对话框颜色  -->
+    <color name="color_E1E2E7">#E1E2E7</color>
+    <color name="text_main_color">#1A1A1A</color>
+    <color name="color_BCBDC2">#BCBDC2</color>
+    <color name="text_second_color">#666666</color>
+    <color name="color_E1E3E9">#E1E3E9</color>
+    <color name="main_color">#FFEC6F5A</color>
+    <color name="main_color_1">#F8B9A6</color>
 
 </resources>
