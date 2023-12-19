@@ -56,7 +56,10 @@ public class ConstantUtil {
 
     public static final String DATABASE_VERSION = "database_version";
 
-    //暂存合格证
-    public static final String SAVA_TEMP_IMAGE = "sava_temp_image";
+
+
+
+    public static final String HTTP_COOKIE = "http_cookie";
+
 
 }

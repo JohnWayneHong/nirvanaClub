@@ -26,7 +26,7 @@ android {
         signingConfig signingConfigs.release
         ndk {
             ndk {
-                abiFilters 'armeabi-v7a'
+                abiFilters 'armeabi-v7a','x86_64','arm64-v8a'
             }
         }
     }

@@ -6,8 +6,9 @@ package com.ggb.nirvanahappyclub.network.result;
 public class HttpResult<T> {
 
     public int state;
-    public String msg;
-    public String internalErrorCode;
+    public String message;
+    public int code;
     //data泛型
-    public T results;
+    public T data;
+    public boolean success;
 }

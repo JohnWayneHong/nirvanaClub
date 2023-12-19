@@ -20,9 +20,9 @@ public class HttpUtils {
     private static final String FILE_URL_TEST = "http://filetest.jgwcjm.com/";
 
     // 网关正式域名  预发布使用正式域名 通过拦截器添加Cookie链接预发布服务
-    private static final String BASE_GATEWAY_URL_RELEASE = "https://api-gateway.jgwcjm.com/";
+    private static final String BASE_GATEWAY_URL_RELEASE = "https://nirvana1234.xyz/";
     // 网关测试域名
-    private static final String BASE_GATEWAY_URL_TEST = "https://api-gateway.cjm3.kf315.net/";
+    private static final String BASE_GATEWAY_URL_TEST = "https://nirvana1234.xyz/";
     //开发环境域名(不稳定,和后台联调处理后再使用)
     private static final String BASE_GATEWAY_URL_DEBUG = "https://dev-api-gateway.cjm3.kf315.net/";
 

@@ -5,7 +5,7 @@ ext {
 buildscript {
     apply from: "config.gradle"
     repositories {
-        maven { url 'https://www.xionghaoyue.xyz:8082/repository/android-xhy-group/' }
+        maven { url 'https://www.xionghaoyue.cn:8082/repository/android-xhy-group/' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
@@ -26,7 +26,7 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
-        maven { url 'https://www.xionghaoyue.xyz:8082/repository/android-xhy-group/' }
+        maven { url 'https://www.xionghaoyue.cn:8082/repository/android-xhy-group/' }
         maven {
             allowInsecureProtocol = true
             url 'http://192.168.2.222:8081/nexus/content/repositories/releases/'

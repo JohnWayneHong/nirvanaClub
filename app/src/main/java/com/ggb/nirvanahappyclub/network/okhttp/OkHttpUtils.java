@@ -2,10 +2,21 @@ package com.ggb.nirvanahappyclub.network.okhttp;
 
 
 
-import com.ggb.common_library.http.okhttp.CommonInterceptor;
+import androidx.annotation.NonNull;
 
+import com.ggb.common_library.http.okhttp.CommonInterceptor;
+import com.ggb.common_library.utils.LogUtils;
+import com.ggb.common_library.utils.MMKVUtils;
+import com.ggb.nirvanahappyclub.bean.CookieBean;
+import com.ggb.nirvanahappyclub.utils.ConstantUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
 /**
@@ -30,6 +41,41 @@ public class OkHttpUtils {
                 .connectTimeout(TIMEOUT, TimeUnit.SECONDS)//设置连接超时时间
                 .addInterceptor(new CustomInterceptor())
                 .addInterceptor(new CommonInterceptor())
+                .cookieJar(new CookieJar() {
+                    @Override
+                    public void saveFromResponse(@NonNull HttpUrl httpUrl, @NonNull List<Cookie> list) {
+                        List<CookieBean> cookieBeanList = new ArrayList<>();
+
+                        for (int i = 0; i < list.size(); i++) {
+                            LogUtils.xswShowLog("响应的cookie是"+ list.get(i));
+                            CookieBean cookieBean = new CookieBean();
+                            cookieBean.setCookie(list.get(i).toString());
+                            cookieBean.setCookieName(list.get(i).name());
+                            cookieBeanList.add(cookieBean);
+                        }
+                        MMKVUtils.saveTempData(cookieBeanList);
+                    }
+
+                    @NonNull
+                    @Override
+                    public List<Cookie> loadForRequest(@NonNull HttpUrl httpUrl) {
+                        List<CookieBean> cookieBeanList = MMKVUtils.getTempDataList(CookieBean.class);
+                        List<Cookie> cookieList = new ArrayList<>();
+                        if (cookieBeanList != null && !cookieBeanList.isEmpty()) {
+                            for (int i = 0; i < cookieBeanList.size(); i++) {
+                                Cookie cookie = Cookie.parse(httpUrl,cookieBeanList.get(i).toString());
+                                if (cookie.expiresAt() > System.currentTimeMillis()) {
+                                    cookieList.add(cookie);
+                                }else {
+                                    cookieBeanList.remove(cookieBeanList.get(i));
+                                    MMKVUtils.saveTempData(cookieBeanList);
+                                }
+                            }
+                        }
+
+                        return cookieList;
+                    }
+                })
                 .build();
     }
 

@@ -28,9 +28,9 @@ ext {
     //noinspection GroovyConstructorNamedArguments
     dep = [
             dependencies = [
-                    common_library   : "com.github.JohnWayneHong:nirvana_common_library:$rootProject.common_library",
-                    scan_code_library: "com.github.acer-xhy:scan-code-library:$rootProject.scan_code_library",
-                    scan_nfc_library: "com.github.acer-xhy:scan-nfc-library:$rootProject.scan_nfc_library"
+                    common_library   : "com.github.JohnWayneHong:nirvana_common_library:$rootProject.common_library"
+//                    scan_code_library: "com.github.acer-xhy:scan-code-library:$rootProject.scan_code_library",
+//                    scan_nfc_library: "com.github.acer-xhy:scan-nfc-library:$rootProject.scan_nfc_library"
             ]
     ]
 }

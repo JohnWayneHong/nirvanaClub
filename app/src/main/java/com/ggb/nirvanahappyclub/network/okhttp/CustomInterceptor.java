@@ -43,7 +43,8 @@ public class CustomInterceptor implements Interceptor {
         if (httpType == 3) {
             builder.addHeader("Cookie", "__cjm3_release__=adv");
         }
-        request = builder.addHeader("from", "pda").build();
+//        request = builder.addHeader("from", "pda").build();
+        request = builder.addHeader("BEAR_ID", "581ce16d-ba89-45c0-9e15-073397d7a0b9").build();
         LogUtils.xswShowLog("token=" + token);
         Response response = chain.proceed(request);
         return response;

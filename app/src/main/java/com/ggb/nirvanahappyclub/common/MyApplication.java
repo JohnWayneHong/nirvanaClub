@@ -6,7 +6,6 @@ import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.sql.ObjectBoxUtils;
-import com.ggb.nirvanahappyclub.utils.ScanCodeService;
 import com.tamsiree.rxkit.RxTool;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -25,7 +24,6 @@ public class MyApplication extends CustomApplication {
     public void onCreate() {
         super.onCreate();
 
-        ScanCodeService.init(this);
         checkDatabaseVersion();
         ObjectBoxUtils.init(this);
         initUMeng();

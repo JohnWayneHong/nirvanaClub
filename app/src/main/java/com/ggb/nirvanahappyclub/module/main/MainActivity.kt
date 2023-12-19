@@ -120,11 +120,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.initListener()
         ClickUtils.register(this)
             .addOnClickListener()
-            .addView(findViewById(R.id.ll_tools_home))
-            .addView(findViewById(R.id.ll_tools_community))
-            .addView(findViewById(R.id.ll_tools_subscribe))
-            .addView(findViewById(R.id.ll_tools_message))
-            .addView(findViewById(R.id.ll_tools_mine))
+            .addView(mBindingView.llToolsHome,mBindingView.llToolsCommunity,mBindingView.llToolsSubscribe,mBindingView.llToolsMessage,mBindingView.llToolsMine)
             .submit()
     }
 
