@@ -1,5 +1,6 @@
 package com.ggb.nirvanahappyclub.network.api;
 
+import com.ggb.nirvanahappyclub.bean.ArticleContentBean;
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean;
 import com.ggb.nirvanahappyclub.bean.IndexTagBean;
 import com.ggb.nirvanahappyclub.bean.VersionBean;
@@ -15,6 +16,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
@@ -37,6 +39,10 @@ public interface ApiService {
 
     //分页查询某个标签的文章
     @GET("v2/api/tag/blog/list")
-    Observable<HttpResult<List<IndexArticleInfoBean>>> searchArticleByTag(@QueryMap Map<String, Object> map);;
+    Observable<HttpResult<List<IndexArticleInfoBean>>> searchArticleByTag(@QueryMap Map<String, Object> map);
+
+    //获取文章的内容
+    @GET("/v2/api/blog/details/{id}")
+    Observable<HttpResult<ArticleContentBean>> getArticleContentById(@Path("id") String id);
 
 }

@@ -36,6 +36,7 @@ class IndexArticleInfoPagingAdapter : CustomRecyclerAdapter<IndexArticleInfoBean
             ClickUtils.register(this)
                 .addItemClickListener()
                 .addView(binding.root)
+                .addView(binding.llArticleInfo)
                 .submit()
         }
 

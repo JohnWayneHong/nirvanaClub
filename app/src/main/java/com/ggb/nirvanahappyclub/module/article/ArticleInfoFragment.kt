@@ -1,10 +1,13 @@
 package com.ggb.nirvanahappyclub.module.article
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
+import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.FragmentArticleInfoBinding
 import com.ggb.nirvanahappyclub.module.article.adapter.IndexArticleInfoPagingAdapter
 
@@ -25,6 +28,27 @@ class ArticleInfoFragment : BaseFragment<ArticleInfoViewModel, FragmentArticleIn
 
         mViewModel.tagId = tagId
         mViewModel.searchArticleByIndexTag()
+    }
+
+    override fun initListener() {
+        super.initListener()
+        ClickUtils.register(this)
+            .addOnClickListener()
+            .submit()
+        mAdapter?.setOnItemClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        super.onClick(view)
+
+    }
+
+    override fun onItemClick(view: View, position: Int) {
+        val articleInfoBean = mAdapter!!.dataList[position]
+        val id = view.id
+        if (id == R.id.ll_article_info) {
+            ArticleActivity.start(context,articleInfoBean.id)
+        }
     }
 
     override fun initLiveData() {

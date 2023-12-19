@@ -6,6 +6,7 @@ import com.ggb.common_library.base.adapter.CustomRecyclerAdapter
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.http.rxjava.CustomObserver
 import com.ggb.common_library.livedata.ValueKeeperLiveData
+import com.ggb.nirvanahappyclub.bean.ArticleContentBean
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean
 import com.ggb.nirvanahappyclub.network.HttpUtils
 import com.ggb.nirvanahappyclub.network.api.ApiService
@@ -45,6 +46,30 @@ class ArticleInfoModel {
         return indexTagLiveData
     }
 
+    private val articleContentLiveData: MutableLiveData<Resource<ArticleContentBean>> = ValueKeeperLiveData()
 
+    fun getArticleContentByIdLiveData(articleId:String): LiveData<Resource<ArticleContentBean>> {
+
+        HttpUtils.getGatewayApi(ApiService::class.java)
+            .getArticleContentById(articleId)
+            .compose(HttpUtils.applyMainSchedulers())
+            .subscribe(object : CustomObserver<ArticleContentBean>() {
+
+                override fun onSubscribe(d: Disposable) {
+                    super.onSubscribe(d)
+                    articleContentLiveData.value = Resource(Resource.LOADING, null, "")
+                }
+
+                override fun onNext(s: ArticleContentBean) {
+                    articleContentLiveData.value = Resource(Resource.SUCCESS, s, "")
+                }
+
+                override fun onError(e: Throwable) {
+                    super.onError(e)
+                    articleContentLiveData.value = Resource(Resource.ERROR, null, e.message)
+                }
+            })
+        return articleContentLiveData
+    }
 
 }
