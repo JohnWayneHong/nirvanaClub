@@ -3,9 +3,9 @@ package com.ggb.nirvanahappyclub.module.subscribe
 import android.view.View
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
-import com.ggb.nirvanahappyclub.databinding.FragmentSubscriptionBinding
+import com.ggb.nirvanahappyclub.databinding.TestRoundImageViewBinding
 
-class SubscribeFragment : BaseFragment<SubscribeViewModel, FragmentSubscriptionBinding>(),OnItemSingleClickListener{
+class SubscribeFragment : BaseFragment<SubscribeViewModel, TestRoundImageViewBinding>(),OnItemSingleClickListener{
 
     //构造方法可补充
     init {

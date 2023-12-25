@@ -1,17 +1,12 @@
-package com.ggb.nirvanahappyclub.module.community
+package com.ggb.nirvanahappyclub.module.community.text
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ggb.common_library.base.adapter.CustomRecyclerAdapter
 import com.ggb.common_library.http.Resource
-import com.ggb.common_library.http.rxjava.CustomObserver
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.CommunityTitleBean
-import com.ggb.nirvanahappyclub.network.HttpUtils
-import com.ggb.nirvanahappyclub.network.api.ApiService
-import io.reactivex.disposables.Disposable
 
-class CommunityModel {
+class CommunityTextModel {
 
     private val getCommunityTitleLiveData: MutableLiveData<Resource<List<CommunityTitleBean>>> = ValueKeeperLiveData()
 

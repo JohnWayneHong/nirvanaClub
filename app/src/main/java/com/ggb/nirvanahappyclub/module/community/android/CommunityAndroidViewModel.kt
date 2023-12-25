@@ -1,4 +1,4 @@
-package com.ggb.nirvanahappyclub.module.community
+package com.ggb.nirvanahappyclub.module.community.android
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -9,9 +9,9 @@ import com.ggb.common_library.http.Resource
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.CommunityTitleBean
 
-class CommunityViewModel(application: Application) : BaseViewModel(application) {
+class CommunityAndroidViewModel(application: Application) : BaseViewModel(application) {
 
-    private var model: CommunityModel = CommunityModel()
+    private var model: CommunityAndroidModel = CommunityAndroidModel()
 
     var titleList = arrayListOf<String>()
 
