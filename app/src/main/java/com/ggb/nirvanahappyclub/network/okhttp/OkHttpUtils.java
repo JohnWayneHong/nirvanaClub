@@ -46,6 +46,9 @@ public class OkHttpUtils {
                     public void saveFromResponse(@NonNull HttpUrl httpUrl, @NonNull List<Cookie> list) {
                         List<CookieBean> cookieBeanList = new ArrayList<>();
 
+                        if (list.isEmpty()) {
+                            return;
+                        }
                         for (int i = 0; i < list.size(); i++) {
                             LogUtils.xswShowLog("响应的cookie是"+ list.get(i));
                             CookieBean cookieBean = new CookieBean();
@@ -64,12 +67,15 @@ public class OkHttpUtils {
                         if (cookieBeanList != null && !cookieBeanList.isEmpty()) {
                             for (int i = 0; i < cookieBeanList.size(); i++) {
                                 Cookie cookie = Cookie.parse(httpUrl,cookieBeanList.get(i).toString());
-                                if (cookie.expiresAt() > System.currentTimeMillis()) {
-                                    cookieList.add(cookie);
-                                }else {
-                                    cookieBeanList.remove(cookieBeanList.get(i));
-                                    MMKVUtils.saveTempData(cookieBeanList);
+                                if (cookie != null) {
+                                    if (cookie.expiresAt() > System.currentTimeMillis()) {
+                                        cookieList.add(cookie);
+                                    }else {
+                                        cookieBeanList.remove(cookieBeanList.get(i));
+                                        MMKVUtils.saveTempData(cookieBeanList);
+                                    }
                                 }
+
                             }
                         }
 

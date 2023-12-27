@@ -2,21 +2,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/main_background">
+        android:orientation="vertical">
 
-
-        <TextView
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Android"
-            android:textSize="@dimen/sp_32"/>
+            app:srlPrimaryColor="@color/white"
+            app:srlAccentColor="@color/text_main_color"
+            app:srlEnablePreviewInEditMode="true"
+            android:paddingBottom="@dimen/dimen_15">
 
+            <com.scwang.smart.refresh.header.MaterialHeader
+                android:id="@+id/mh_community_android_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_community_android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/light_gray"
+                    tools:listitem="@layout/item_community_android" />
+
+            </RelativeLayout>
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 
     </LinearLayout>
 

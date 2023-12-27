@@ -6,32 +6,42 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
+import com.ggb.common_library.utils.LogUtils
+import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
 import com.ggb.nirvanahappyclub.databinding.FragmentCommunityAndroidBinding
-import com.ggb.nirvanahappyclub.databinding.FragmentCommunityBinding
-import com.ggb.nirvanahappyclub.module.community.CommunityViewModel
+import com.ggb.nirvanahappyclub.module.community.android.adapter.CommunityAndroidAdapter
 import java.util.ArrayList
 
 class CommunityAndroidFragment : BaseFragment<CommunityAndroidViewModel, FragmentCommunityAndroidBinding>(),OnItemSingleClickListener{
+
+    private var mAdapter : CommunityAndroidAdapter?=null
 
     override fun initView() {
 
     }
 
     override fun initFragmentData() {
+        mAdapter = CommunityAndroidAdapter()
+        mBindingView.rvCommunityAndroid.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        mBindingView.rvCommunityAndroid.adapter = mAdapter
 
+        mViewModel.getCommunityAndroid(0)
     }
 
     override fun initLiveData() {
         super.initLiveData()
-        mViewModel.getCommunityTitleLiveData().observe(this) { resource ->
+        mViewModel.getCommunityAndroidListLiveData().observe(this) { resource ->
             when (resource.loadingStatus) {
                 Resource.LOADING -> showLoadingDialog()
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
 
+                    mAdapter?.notifyAddListItem(resource.data)
+                    LogUtils.xswShowLog(resource.data.size.toString())
                 }
                 Resource.ERROR -> dismissLoadingDialog()
             }
@@ -40,7 +50,10 @@ class CommunityAndroidFragment : BaseFragment<CommunityAndroidViewModel, Fragmen
 
     override fun initListener() {
         super.initListener()
-
+        ClickUtils.register(this)
+            .addOnClickListener()
+            .submit()
+        mAdapter?.setOnItemClickListener(this)
     }
 
     override fun onItemClick(view: View?, groupPosition: Int, subPosition: Int) {

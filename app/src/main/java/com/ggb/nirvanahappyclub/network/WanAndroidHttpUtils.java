@@ -5,15 +5,16 @@ import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.network.okhttp.OkHttpUtils;
 import com.ggb.nirvanahappyclub.network.result.HttpResult;
-import com.ggb.nirvanahappyclub.network.result.HttpResultFunc;
-import com.ggb.nirvanahappyclub.network.result.HttpResultNullableFunc;
+import com.ggb.nirvanahappyclub.network.result.WanAndroidHttpResultFunc;
+import com.ggb.nirvanahappyclub.network.result.WanAndroidHttpResultNullableFunc;
+import com.ggb.nirvanahappyclub.network.result.WanAndroidHttpResult;
 import com.ggb.nirvanahappyclub.utils.ConstantUtil;
 
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class HttpUtils {
+public class WanAndroidHttpUtils {
 
     // 文件的url
     private static final String FILE_URL_RELEASE = "https://file.jgwcjm.com/";
@@ -23,11 +24,6 @@ public class HttpUtils {
     private static final String BASE_GATEWAY_URL_RELEASE = "https://nirvana1234.xyz/";
     // 网关测试域名
     private static final String BASE_GATEWAY_URL_TEST = "https://nirvana1234.xyz/";
-
-    //玩安卓 网关域名
-    private static final String WAN_ANDROID_GATEWAY_URL_TEST = "https://www.wanandroid.com/";
-
-
     //开发环境域名(不稳定,和后台联调处理后再使用)
     private static final String BASE_GATEWAY_URL_DEBUG = "https://dev-api-gateway.cjm3.kf315.net/";
 
@@ -57,26 +53,6 @@ public class HttpUtils {
                 return BASE_GATEWAY_URL_RELEASE;
             default:
                 return BASE_GATEWAY_URL_RELEASE;
-        }
-    }
-
-    @SuppressWarnings("DuplicateBranchesInSwitch")
-    public static String getWanAndroidGatewayUrl() {
-        if (testRelease) {
-            return WAN_ANDROID_GATEWAY_URL_TEST;
-        }
-        switch (buildType) {
-            case "debug":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            case "customtest":
-                int current = MMKVUtils.getInt(ConstantUtil.HTTP_TYPE);
-                return current == ConstantUtil.TYPE_PRERELEASE ? WAN_ANDROID_GATEWAY_URL_TEST : WAN_ANDROID_GATEWAY_URL_TEST;
-            case "prerelease":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            case "release":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            default:
-                return WAN_ANDROID_GATEWAY_URL_TEST;
         }
     }
 
@@ -127,10 +103,6 @@ public class HttpUtils {
         return HttpClient.getApi(clz, getGatewayUrl(), OkHttpUtils.getOkHttpClient());
     }
 
-    public static <T> T getWanAndroidGatewayApi(Class<T> clz) {
-        return HttpClient.getApi(clz, getWanAndroidGatewayUrl(), OkHttpUtils.getOkHttpClient());
-    }
-
     public static <T> T getGatewayApiBigFile(Class<T> clz) {
         return HttpClient.getApi(clz, getGatewayUrl(), OkHttpUtils.getLongTimeOkHttpClient());
     }
@@ -148,14 +120,14 @@ public class HttpUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyMainSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersTransformer;
+    public static <K> ObservableTransformer<WanAndroidHttpResult<K>, K> applyMainSchedulers() {
+        return (ObservableTransformer<WanAndroidHttpResult<K>, K>) schedulersTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultFunc())
+        return upstream.map(new WanAndroidHttpResultFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
@@ -163,41 +135,41 @@ public class HttpUtils {
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyResultNullableMainSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersResultNullableTransformer;
+    public static <K> ObservableTransformer<WanAndroidHttpResult<K>, K> applyResultNullableMainSchedulers() {
+        return (ObservableTransformer<WanAndroidHttpResult<K>, K>) schedulersResultNullableTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersResultNullableTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultNullableFunc())
+        return upstream.map(new WanAndroidHttpResultNullableFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyResultNullableIOSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersResultNullableIOTransformer;
+    public static <K> ObservableTransformer<WanAndroidHttpResult<K>, K> applyResultNullableIOSchedulers() {
+        return (ObservableTransformer<WanAndroidHttpResult<K>, K>) schedulersResultNullableIOTransformer;
     }
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersResultNullableIOTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultNullableFunc())
+        return upstream.map(new WanAndroidHttpResultNullableFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io());
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyIOSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersIOTransformer;
+    public static <K> ObservableTransformer<WanAndroidHttpResult<K>, K> applyIOSchedulers() {
+        return (ObservableTransformer<WanAndroidHttpResult<K>, K>) schedulersIOTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersIOTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultFunc())
+        return upstream.map(new WanAndroidHttpResultFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io());
