@@ -25,6 +25,9 @@ public class AppConfig {
     //文件根目录
     public final static String FILE_DOWNLOAD_PATH = FILE_SAVE_PATH + "download/";
 
+    //牛蛙呐博客地址 用于webview的前缀
+    public final static String NIRVANA_BLOG_PATH =  "https://nirvana1234.xyz/v2/blog/";
+
     public static String getFullWidthImage(){
         return "?imageView/2/w/"+ BaseActivity.mPhoneWidth +"/";
     }

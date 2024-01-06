@@ -12,7 +12,10 @@ import com.ggb.common_library.http.Resource
 import com.ggb.common_library.utils.LogUtils
 import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.FragmentCommunityAndroidBinding
+import com.ggb.nirvanahappyclub.module.article.ArticleActivity
+import com.ggb.nirvanahappyclub.module.community.CommunityWebContentActivity
 import com.ggb.nirvanahappyclub.module.community.android.adapter.CommunityAndroidAdapter
 import java.util.ArrayList
 
@@ -56,9 +59,18 @@ class CommunityAndroidFragment : BaseFragment<CommunityAndroidViewModel, Fragmen
         mAdapter?.setOnItemClickListener(this)
     }
 
-    override fun onItemClick(view: View?, groupPosition: Int, subPosition: Int) {
-        super.onItemClick(view, groupPosition, subPosition)
+    override fun onClick(view: View) {
+        super.onClick(view)
+        val id = view.id
 
+    }
+
+    override fun onItemClick(view: View, position: Int) {
+        val articleInfoBean = mAdapter!!.dataList[position]
+        val id = view.id
+        if (id == R.id.cv_community_content) {
+            CommunityWebContentActivity.start(activity,articleInfoBean.id.toString(),articleInfoBean.title,articleInfoBean.link)
+        }
     }
 
     companion object {

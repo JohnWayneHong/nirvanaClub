@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class IndexArticleInfoBean extends BaseObservable {
 
+    private String nirvanaURl;
     private String id;
     private String authId;
     private int readCount;

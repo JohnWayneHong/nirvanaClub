@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
+import com.ggb.common_library.utils.LogUtils
 import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
 import com.ggb.nirvanahappyclub.R
+import com.ggb.nirvanahappyclub.common.AppConfig
 import com.ggb.nirvanahappyclub.databinding.FragmentArticleInfoBinding
 import com.ggb.nirvanahappyclub.module.article.adapter.IndexArticleInfoPagingAdapter
+import com.ggb.nirvanahappyclub.module.community.CommunityWebContentActivity
 
 class ArticleInfoFragment : BaseFragment<ArticleInfoViewModel, FragmentArticleInfoBinding>(), OnItemSingleClickListener {
 
@@ -77,7 +80,10 @@ class ArticleInfoFragment : BaseFragment<ArticleInfoViewModel, FragmentArticleIn
         val articleInfoBean = mAdapter!!.dataList[position]
         val id = view.id
         if (id == R.id.ll_article_info) {
-            ArticleActivity.start(context,articleInfoBean.id)
+            //这个ID随便穿了，反正分享也用不上
+            CommunityWebContentActivity.start(activity,articleInfoBean.id,articleInfoBean.title,AppConfig.NIRVANA_BLOG_PATH + articleInfoBean.id)
+            LogUtils.xswShowLog(AppConfig.NIRVANA_BLOG_PATH + articleInfoBean.id)
+        //            ArticleActivity.start(context,articleInfoBean.id)
         }
     }
 

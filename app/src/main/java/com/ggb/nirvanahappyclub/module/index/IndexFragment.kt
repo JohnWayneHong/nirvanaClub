@@ -15,6 +15,7 @@ import com.ggb.nirvanahappyclub.databinding.FragmentIndexBinding
 import com.ggb.nirvanahappyclub.module.article.ArticleInfoFragment
 import com.ggb.nirvanahappyclub.module.index.adapter.IndexTagAdapter
 import com.ggb.nirvanahappyclub.module.index.dialog.DownloadProgressDialog
+import com.gyf.immersionbar.ImmersionBar
 
 class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnItemSingleClickListener{
 
@@ -37,6 +38,8 @@ class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnIte
 
 
     override fun initView() {
+        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).navigationBarColor(R.color.white).titleBar(mBindingView.llIndexSearch).init()
+
     }
 
     override fun initFragmentData() {

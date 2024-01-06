@@ -152,4 +152,12 @@
         <attr name="bottomLeft" format="dimension" />
     </declare-styleable>
 
+    <!-- WebContent的Toolbar   -->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- 设置Toolbar标题字体的大小 -->
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_18</item>
+    </style>
+
 </resources>
