@@ -56,7 +56,7 @@ class CommunityWebContentActivity : BaseActivity<ArticleInfoViewModel, ActivityW
     }
 
     override fun initView() {
-        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).navigationBarColor(R.color.white).titleBar(mBindingView.communityToolbar.tbCommunityBar).init()
+//        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(false).init()
         intent.extras?.let {
             shareId = it.getInt("id", -1)
             shareTitle = it.getString("title", "")

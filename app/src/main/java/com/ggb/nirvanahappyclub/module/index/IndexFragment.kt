@@ -38,8 +38,7 @@ class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnIte
 
 
     override fun initView() {
-        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).navigationBarColor(R.color.white).titleBar(mBindingView.llIndexSearch).init()
-
+        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).navigationBarColor(R.color.white).init()
     }
 
     override fun initFragmentData() {

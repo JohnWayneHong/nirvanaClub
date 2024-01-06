@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.FragmentCommunityBinding
 import com.ggb.nirvanahappyclub.module.community.android.CommunityAndroidFragment
 import com.ggb.nirvanahappyclub.module.community.daily.CommunityDailyFragment
@@ -16,6 +17,7 @@ import com.ggb.nirvanahappyclub.module.community.navigation.CommunityNavigationF
 import com.ggb.nirvanahappyclub.module.community.picture.CommunityPictureFragment
 import com.ggb.nirvanahappyclub.module.community.square.CommunitySquareFragment
 import com.ggb.nirvanahappyclub.module.community.text.CommunityTextFragment
+import com.gyf.immersionbar.ImmersionBar
 import java.util.ArrayList
 
 class CommunityFragment : BaseFragment<CommunityViewModel, FragmentCommunityBinding>(),OnItemSingleClickListener{
@@ -25,6 +27,7 @@ class CommunityFragment : BaseFragment<CommunityViewModel, FragmentCommunityBind
 
 
     override fun initView() {
+        ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).titleBar(mBindingView.rxToolCommunityTitle).navigationBarColor(R.color.white).init()
 
     }
 
