@@ -25,6 +25,7 @@ import com.ggb.nirvanahappyclub.module.index.IndexFragment
 import com.ggb.nirvanahappyclub.module.message.MessageFragment
 import com.ggb.nirvanahappyclub.module.mine.MineFragment
 import com.ggb.nirvanahappyclub.module.subscribe.SubscribeFragment
+import com.ggb.nirvanahappyclub.utils.CheckUpdateUtils
 import com.ggb.nirvanahappyclub.utils.ConstantUtil
 import java.util.Date
 

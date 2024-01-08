@@ -7,6 +7,7 @@ import com.ggb.common_library.http.rxjava.CustomObserver
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.common_library.utils.json.JsonUtils
 import com.ggb.nirvanahappyclub.bean.CommunityAndroidBean
+import com.ggb.nirvanahappyclub.common.AppConfig
 import com.ggb.nirvanahappyclub.network.HttpUtils
 import com.ggb.nirvanahappyclub.network.WanAndroidHttpUtils
 import com.ggb.nirvanahappyclub.network.api.ApiService
@@ -16,10 +17,10 @@ class CommunityAndroidModel {
 
     private val getCommunityTitleLiveData: MutableLiveData<Resource<List<CommunityAndroidBean.CommunityAndroidListBean>>> = ValueKeeperLiveData()
 
-    fun getCommunityAndroidList(pager:Int): LiveData<Resource<List<CommunityAndroidBean.CommunityAndroidListBean>>> {
+    fun getCommunityAndroidList(pager: Int): LiveData<Resource<List<CommunityAndroidBean.CommunityAndroidListBean>>> {
 
         HttpUtils.getWanAndroidGatewayApi(ApiService::class.java)
-            .getCommunityAndroid(pager)
+            .getCommunityAndroid(pager,AppConfig.ITEM_PAGE_SIZE)
             .compose(WanAndroidHttpUtils.applyMainSchedulers())
             .map {
                 JsonUtils.parseObject(it)?.getJsonArray("datas")?.toJavaList(CommunityAndroidBean.CommunityAndroidListBean::class.java)

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import com.ggb.common_library.base.ui.BaseActivity;
@@ -22,6 +23,7 @@ import com.ggb.common_library.http.rxjava.CustomObserver;
 import com.ggb.common_library.provider.CameraFileProvider;
 import com.ggb.common_library.utils.BuildConfigUtils;
 import com.ggb.common_library.utils.CommonDialogUtil;
+import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.common_library.utils.NetUtils;
 import com.ggb.common_library.utils.ToastUtils;
@@ -32,6 +34,7 @@ import com.ggb.nirvanahappyclub.bean.VersionBean;
 import com.ggb.nirvanahappyclub.common.AppConfig;
 import com.ggb.nirvanahappyclub.network.HttpUtils;
 import com.ggb.nirvanahappyclub.network.api.ApiService;
+import com.ggb.nirvanahappyclub.view.dialog.ApkUpdateDialog;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
@@ -42,13 +45,13 @@ import java.util.List;
 import io.reactivex.disposables.Disposable;
 
 /**
- * Created by XiongShaoWu
- * on 2019/10/23
+ * Created by hwj
+ * on 2024-1-8 15:00:15
  * 检测升级工具类
  */
 public class CheckUpdateUtils implements View.OnClickListener {
 
-    private Dialog dialog;
+    private ApkUpdateDialog dialog;
     private String mApkUrl;
     private ProgressBar mProgress;
     private CustomObserver<SaveFileBean> subscriber;
@@ -60,29 +63,44 @@ public class CheckUpdateUtils implements View.OnClickListener {
     private Activity mActivity;
 
 
-    public void showUpdateDialog(FragmentActivity activity, boolean type, String apkUrl) {
+    public void showUpdateDialog(FragmentActivity activity, boolean type, String apkUrl,VersionBean dialogBean) {
         mActivity = activity;
         mApkUrl = apkUrl;
         if (BaseActivity.isActivityNotFinished(activity)) {
-            dialog = new Dialog(activity, R.style.CustomDialog);
+            //这里传的style是根据接口返回样式进行修改
+            int style = 300;
+            int layoutResouce = -1;
+            dialog = new ApkUpdateDialog(activity, style);
             dialog.setOwnerActivity(activity);
-            View rootView = View.inflate(activity, R.layout.dialog_app_update, null);
-            mProgress = rootView.findViewById(R.id.pb_update_progress);
-            tv_title = rootView.findViewById(R.id.tv_update_title);
-            tv_content = rootView.findViewById(R.id.tv_update_content);
-            tv_confirm = rootView.findViewById(R.id.tv_update_confirm);
-            tv_cancel = rootView.findViewById(R.id.tv_update_cancel);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
-            dialog.addContentView(rootView, layoutParams);
+
+
+            switch (style) {
+                case 300:
+                    layoutResouce = R.layout.dialog_new_apk_update;
+                    break;
+                case 301:
+                    layoutResouce = R.layout.dialog_new_apk_update_1;
+                    break;
+            }
+
+
+//            View rootView = View.inflate(activity, layoutResouce, null);
+//            mProgress = rootView.findViewById(R.id.pb_update_progress);
+//            tv_title = rootView.findViewById(R.id.tv_update_title);
+//            tv_content = rootView.findViewById(R.id.tv_update_content);
+//            tv_confirm = rootView.findViewById(R.id.tv_update_confirm);
+//            tv_cancel = rootView.findViewById(R.id.tv_update_cancel);
+//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+//                    ViewGroup.LayoutParams.WRAP_CONTENT);
+//            dialog.addContentView(rootView, layoutParams);
             dialog.setCancelable(false);
 
-            tv_confirm.setOnClickListener(this);
-            if (type) {
-                tv_cancel.setVisibility(View.GONE);
-            } else {
-                tv_cancel.setOnClickListener(this);
-            }
+//            tv_confirm.setOnClickListener(this);
+//            if (type) {
+//                tv_cancel.setVisibility(View.GONE);
+//            } else {
+//                tv_cancel.setOnClickListener(this);
+//            }
 
             subscriber = new CustomObserver<SaveFileBean>() {
                 @Override
@@ -94,11 +112,11 @@ public class CheckUpdateUtils implements View.OnClickListener {
                 public void onNext(SaveFileBean saveFileBean) {
                     if (saveFileBean.code == 1) {
                         dispose();
-                        tv_content.setText("下载完成");
-                        mProgress.setVisibility(View.GONE);
-                        tv_confirm.setText("安装");
-                        tv_confirm.setEnabled(true);
-                        mProgress.setVisibility(View.GONE);
+//                        tv_content.setText("下载完成");
+//                        mProgress.setVisibility(View.GONE);
+//                        tv_confirm.setText("安装");
+//                        tv_confirm.setEnabled(true);
+//                        mProgress.setVisibility(View.GONE);
 
                         if (type) {
                             dismissDialog();
@@ -110,45 +128,49 @@ public class CheckUpdateUtils implements View.OnClickListener {
                             });
                         }
                     } else if (saveFileBean.code == -1) {
-                        tv_content.setText("下载进度:" + saveFileBean.progress + "%");
-                        mProgress.setProgress(saveFileBean.progress);
+//                        tv_content.setText("下载进度:" + saveFileBean.progress + "%");
+//                        mProgress.setProgress(saveFileBean.progress);
                     } else if (saveFileBean.code == 0) {
                         ToastUtils.showToast(saveFileBean.msg);
                         dismissDialog();
                     }
                 }
             };
-            dialog.show();
+            dialog.showUpdate(dialogBean);
+            dialog.setOnApkDownloadConfirmListener(new ApkUpdateDialog.OnApkDownloadConfirmListener() {
+                @Override
+                public void onConfirmDownload(@NonNull VersionBean info) {
+                    XXPermissions.with(dialog.getContext())
+                            .permission(Permission.REQUEST_INSTALL_PACKAGES)
+                            .request(new OnPermissionCallback() {
+                                @Override
+                                public void onGranted(List<String> permissions, boolean all) {
+                                    if (!all) {
+                                        return;
+                                    }
+                                    startUpdate();
+                                }
+
+                                @Override
+                                public void onDenied(List<String> permissions, boolean never) {
+                                    CommonDialogUtil.showSelectDialog(dialog.getContext(), "权限不足", "系统权限不足,无法正常使用,是否前往系统设置?",
+                                            "取消", "设置", new CommonDialog.OnButtonClickListener() {
+                                                @Override
+                                                public void onRightClick() {
+                                                    XXPermissions.startPermissionActivity(dialog.getContext(), permissions);
+                                                }
+                                            });
+                                }
+                            });
+                }
+            });
         }
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.tv_update_confirm) {
-            XXPermissions.with(dialog.getContext())
-                    .permission(Permission.REQUEST_INSTALL_PACKAGES)
-                    .request(new OnPermissionCallback() {
-                        @Override
-                        public void onGranted(List<String> permissions, boolean all) {
-                            if (!all) {
-                                return;
-                            }
-                            startUpdate();
-                        }
-
-                        @Override
-                        public void onDenied(List<String> permissions, boolean never) {
-                            CommonDialogUtil.showSelectDialog(dialog.getContext(), "权限不足", "系统权限不足,无法正常使用,是否前往系统设置?",
-                                    "取消", "设置", new CommonDialog.OnButtonClickListener() {
-                                        @Override
-                                        public void onRightClick() {
-                                            XXPermissions.startPermissionActivity(dialog.getContext(), permissions);
-                                        }
-                                    });
-                        }
-                    });
-        } else if (id == R.id.tv_update_cancel) {
+        if (id == R.id.tv_update_cancel) {
             dismissDialog();
         }
     }
@@ -160,9 +182,9 @@ public class CheckUpdateUtils implements View.OnClickListener {
     private void realStartUpdate() {
         String localFilePath = FileUtils.getFileDirPath() + "app_upgrade.apk";
         FileUtils.saveFileFromNet(localFilePath, mApkUrl, true, subscriber);
-        mProgress.setVisibility(View.VISIBLE);
-        tv_confirm.setText("下载中");
-        tv_confirm.setEnabled(false);
+//        mProgress.setVisibility(View.VISIBLE);
+//        tv_confirm.setText("下载中");
+//        tv_confirm.setEnabled(false);
     }
 
     private void dismissDialog() {
@@ -229,33 +251,31 @@ public class CheckUpdateUtils implements View.OnClickListener {
             //Activity finished
             return;
         }
-       HttpUtils.getCJMGatewayApi(ApiService.class)
-                        .getVersion(AppConfig.CURRENT_VERSION)
+       HttpUtils.getGatewayApi(ApiService.class)
+                        .getVersion()
                         .compose(HttpUtils.applyMainSchedulers())
                 .subscribe(new CustomObserver<VersionBean>() {
                     @Override
                     public void onNext(VersionBean versionBean) {
-                        if (BuildConfigUtils.getVersionCode() >= versionBean.lastestVersionCode) {
+                        LogUtils.xswShowLog("当前版本是===》"+BuildConfigUtils.getVersionCode());
+                        LogUtils.xswShowLog("最新版本是===》"+versionBean.versionCode);
+                        if (BuildConfigUtils.getVersionCode() >= versionBean.versionCode) {
                             if (showDialog) {
                                 ToastUtils.showToast("当前已经是最新版");
                             }
                             MMKVUtils.save(ConstantUtil.NUMBER_OF_REMINDERS, 0);
                             return;
                         }
-                        if (versionBean.lastForcedVersion > BuildConfigUtils.getVersionCode()) {
-                            //当前版本小于最近一次强更的版本时强制更新
-                            showUpdateDialog(true, versionBean.upgradeUrl, activity);
-                            return;
-                        }
-                        if (showDialog || versionBean.forceUpdate == 1) {
-                            showUpdateDialog(versionBean.forceUpdate == 1, versionBean.upgradeUrl, activity);
+                        //牛蛙呐定制修改 改为增加标记是否强更判断
+                        if (showDialog || versionBean.isForce == 1) {
+                            showUpdateDialog(versionBean.forceUpdate == 1, versionBean.downloadUrl, activity,versionBean);
                             return;
                         }
                         //版本有变化开启提醒
                         int last_version_code = MMKVUtils.getInt(ConstantUtil.LAST_CHECK_VERSION_CODE);
-                        if (last_version_code != versionBean.lastestVersionCode) {
-                            showUpdateDialog(false, versionBean.upgradeUrl, activity);
-                            MMKVUtils.save(ConstantUtil.LAST_CHECK_VERSION_CODE, versionBean.lastestVersionCode);
+                        if (last_version_code != versionBean.versionCode) {
+                            showUpdateDialog(false, versionBean.downloadUrl, activity,versionBean);
+                            MMKVUtils.save(ConstantUtil.LAST_CHECK_VERSION_CODE, versionBean.versionCode);
                             return;
                         }
                         //超过24小时继续开启提醒
@@ -271,7 +291,7 @@ public class CheckUpdateUtils implements View.OnClickListener {
                         }
                         MMKVUtils.save(ConstantUtil.LAST_CHECK_VERSION_TIME, currentTime);
                         MMKVUtils.save(ConstantUtil.NUMBER_OF_REMINDERS, ++number_of_reminders);
-                        showUpdateDialog(false, versionBean.upgradeUrl, activity);
+                        showUpdateDialog(false, versionBean.downloadUrl, activity,versionBean);
                     }
 
                     @Override
@@ -284,7 +304,8 @@ public class CheckUpdateUtils implements View.OnClickListener {
                 });
     }
 
-    private static void showUpdateDialog(boolean type, String resourceUrl, FragmentActivity activity) {
-        new CheckUpdateUtils().showUpdateDialog(activity, type, resourceUrl);
+    private static void showUpdateDialog(boolean type, String resourceUrl, FragmentActivity activity,VersionBean dialogBean) {
+        new CheckUpdateUtils().showUpdateDialog(activity, type, resourceUrl,dialogBean);
     }
+
 }

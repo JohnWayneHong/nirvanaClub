@@ -28,8 +28,8 @@ public interface ApiService {
     /**
      *牛蛙吶原生 ----自帶接口地址
      */
-    @GET("hydra-mobile-terminal/api/v1/common/version/last")
-    Observable<HttpResult<VersionBean>> getVersion(@Query("type") int type);
+    @GET("v2/api/android/apk/latest/")
+    Observable<HttpResult<VersionBean>> getVersion();
 
     @Streaming
     @GET
@@ -59,5 +59,8 @@ public interface ApiService {
 
     //获取主页的推荐关注数据
     @GET("article/list/{pager}/json")
-    Observable<WanAndroidHttpResult<String>> getCommunityAndroid(@Path("pager") int pager);
+    Observable<WanAndroidHttpResult<String>> getCommunityAndroid(@Path("pager") int pager,@Query("page_size") int page_size);
+
+    @GET("user_article/list/{pager}/json")
+    Observable<WanAndroidHttpResult<String>> getCommunitySquare(@Path("pager") int pager,@Query("page_size") int page_size);
 }

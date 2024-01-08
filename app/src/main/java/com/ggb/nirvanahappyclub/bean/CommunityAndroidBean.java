@@ -115,6 +115,7 @@ public class CommunityAndroidBean {
         private int userId;
         private int visible;
         private int zan;
+        private String top;
 
         public boolean isAdminAdd() {
             return adminAdd;
@@ -242,6 +243,10 @@ public class CommunityAndroidBean {
 
         public void setFresh(boolean fresh) {
             this.fresh = fresh;
+        }
+
+        public int isShowFresh() {
+            return fresh? View.VISIBLE : View.GONE;
         }
 
         public String getHost() {
@@ -423,6 +428,33 @@ public class CommunityAndroidBean {
 
         public void setZan(int zan) {
             this.zan = zan;
+        }
+
+        public String getTop() {
+            return top;
+        }
+
+        public void setTop(String top) {
+            this.top = top;
+        }
+
+        public int isShowTop() {
+            return TextUtils.equals(top,"1") ? View.VISIBLE : View.GONE;
+        }
+
+        public int isShowTag() {
+            if (tags.size() > 0) {
+                return View.VISIBLE;
+            }else {
+                return View.GONE;
+            }
+        }
+
+        public String getTagsName() {
+            if (tags.size() > 0) {
+                return tags.get(0).name;
+            }
+            return "";
         }
 
         public static class CommunityAndroidListTagBean {

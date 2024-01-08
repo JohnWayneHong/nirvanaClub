@@ -15,8 +15,7 @@
             android:layout_height="match_parent"
             app:srlPrimaryColor="@color/white"
             app:srlAccentColor="@color/text_main_color"
-            app:srlEnablePreviewInEditMode="true"
-            android:paddingBottom="@dimen/dimen_15">
+            app:srlEnablePreviewInEditMode="true">
 
             <com.scwang.smart.refresh.header.MaterialHeader
                 android:id="@+id/mh_article_header"

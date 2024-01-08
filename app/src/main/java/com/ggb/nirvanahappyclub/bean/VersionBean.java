@@ -15,10 +15,11 @@ public class VersionBean {
      */
 
     public String lastestVersion;
-    public int lastestVersionCode;
+    public int versionCode;
     public int forceUpdate;
-    public String updateDescription;
-    public String upgradeUrl;
+    public String message;
+    public String downloadUrl;
+    public int isForce;
     public int lastForcedVersion;//最近需要强更版本
     public boolean isCurrentVersion;//最近需要强更版本
 }

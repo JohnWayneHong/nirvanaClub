@@ -28,6 +28,10 @@ public class AppConfig {
     //牛蛙呐博客地址 用于webview的前缀
     public final static String NIRVANA_BLOG_PATH =  "https://nirvana1234.xyz/v2/blog/";
 
+
+    //分页数据个数
+    public static final int ITEM_PAGE_SIZE = 10;
+
     public static String getFullWidthImage(){
         return "?imageView/2/w/"+ BaseActivity.mPhoneWidth +"/";
     }
@@ -36,7 +40,7 @@ public class AppConfig {
         return "?imageView/2/w/"+ width +"/";
     }
 
-    //当前版本 德令哈
+    //当前版本
     public final static int CURRENT_VERSION = 35;
 
     //发布时使用上次线上提交产生default.json文件 然后切换至最新提交覆盖json 生成差分文件 版本号+1
