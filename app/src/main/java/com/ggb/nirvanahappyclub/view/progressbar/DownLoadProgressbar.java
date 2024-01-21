@@ -84,13 +84,15 @@ public class DownLoadProgressbar extends ProgressBar{
         float realWidth = getWidth() - getPaddingLeft() - getPaddingRight() - textWidth - HorizontalProgresTextOffset;//实际宽度减去文字宽度
         float progressX  = radio * realWidth ;
         //绘制走完的进度线
-        mPaint.setColor(getContext().getResources().getColor(R.color.main_color));
+        mPaint.setColor(HorizontalProgresReachColor);
+//        mPaint.setColor(getContext().getResources().getColor(R.color.main_color));
         mPaint.setStrokeWidth(HorizontalProgresReachHeight);
         //canvas.drawLine(getPaddingLeft(),getPaddingTop(),progressX,getPaddingTop(),mPaint);//直角 垂直在同一高度 float startY, float stopY 一样
         RectF mRectF = new RectF(getPaddingLeft(),getPaddingTop()-HorizontalProgresReachHeight/2,(int)progressX,HorizontalProgresReachHeight/2);//圆角 int left, int top, int right, int bottom
         canvas.drawRoundRect(mRectF,15,15,mPaint);//圆角矩形
         //绘制进度
-        mPaint.setColor(getContext().getResources().getColor(R.color.main_color));
+        mPaint.setColor(HorizontalProgresReachColor);
+//        mPaint.setColor(getContext().getResources().getColor(R.color.main_color_1));
         mPaint.setTextSize(HorizontalProgresTextSize);
         int y = (int) -((mPaint.descent() + mPaint.ascent())/2);//文字居中
         canvas.drawText(getProgress()+"%",progressX + HorizontalProgresTextOffset/2,getPaddingTop() + y,mPaint);

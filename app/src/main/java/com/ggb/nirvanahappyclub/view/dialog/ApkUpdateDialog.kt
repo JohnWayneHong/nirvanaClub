@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.ggb.common_library.utils.json.JsonUtils
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.bean.VersionBean
@@ -20,7 +21,7 @@ class ApkUpdateDialog : Dialog {
 
     private lateinit var info : VersionBean
 
-    private var viewDataBinding: DialogNewApkUpdateBinding? = null
+    public var viewDataBinding: DialogNewApkUpdateBinding? = null
     private var viewData1Binding: DialogNewApkUpdate1Binding? = null
 
     private var uiStyle = 300
@@ -131,8 +132,19 @@ class ApkUpdateDialog : Dialog {
 
     }
 
+    fun getDialogStyle(): Int {
+        return uiStyle
+    }
 
-    fun  getUpdateBinding(): DialogNewApkUpdateBinding?{
+    fun getUpdateDialogBinding(): ViewDataBinding? {
+        when(uiStyle) {
+            300 -> {
+                return viewDataBinding
+            }
+            301 -> {
+                return viewData1Binding
+            }
+        }
         return viewDataBinding
     }
 

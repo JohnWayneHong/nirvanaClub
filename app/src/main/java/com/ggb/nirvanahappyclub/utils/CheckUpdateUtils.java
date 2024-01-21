@@ -60,15 +60,22 @@ public class CheckUpdateUtils implements View.OnClickListener {
     private TextView tv_confirm;
 
     private TextView tv_cancel;
+
+    private TextView tv_dialog_confirm;
+    private TextView tv_dialog_cancel;
+    private ProgressBar pb_update_progress;
     private Activity mActivity;
 
 
     public void showUpdateDialog(FragmentActivity activity, boolean type, String apkUrl,VersionBean dialogBean) {
         mActivity = activity;
         mApkUrl = apkUrl;
+        if (dialog !=null && dialog.isShowing()){
+            return;
+        }
         if (BaseActivity.isActivityNotFinished(activity)) {
             //这里传的style是根据接口返回样式进行修改
-            int style = 300;
+            int style = 301;
             int layoutResouce = -1;
             dialog = new ApkUpdateDialog(activity, style);
             dialog.setOwnerActivity(activity);
@@ -112,6 +119,10 @@ public class CheckUpdateUtils implements View.OnClickListener {
                 public void onNext(SaveFileBean saveFileBean) {
                     if (saveFileBean.code == 1) {
                         dispose();
+                        pb_update_progress.setVisibility(View.GONE);
+                        tv_dialog_confirm.setText("立即安装");
+                        tv_dialog_cancel.setText("下载完成");
+
 //                        tv_content.setText("下载完成");
 //                        mProgress.setVisibility(View.GONE);
 //                        tv_confirm.setText("安装");
@@ -122,14 +133,18 @@ public class CheckUpdateUtils implements View.OnClickListener {
                             dismissDialog();
                             installApk(activity, saveFileBean.savePath);
                         } else {
-                            tv_confirm.setOnClickListener(v -> {
+                            tv_dialog_confirm.setOnClickListener(v -> {
                                 dismissDialog();
                                 installApk(activity, saveFileBean.savePath);
                             });
                         }
                     } else if (saveFileBean.code == -1) {
-//                        tv_content.setText("下载进度:" + saveFileBean.progress + "%");
-//                        mProgress.setProgress(saveFileBean.progress);
+                        tv_dialog_confirm = dialog.getUpdateDialogBinding().getRoot().findViewById(R.id.tv_update_new_confirm);
+                        tv_dialog_cancel = dialog.getUpdateDialogBinding().getRoot().findViewById(R.id.tv_update_new_cancel);
+                        pb_update_progress = dialog.getUpdateDialogBinding().getRoot().findViewById(R.id.pb_update_progress);
+                        tv_dialog_confirm.setText("下载进度:" + saveFileBean.progress + "%");
+                        pb_update_progress.setVisibility(View.VISIBLE);
+                        pb_update_progress.setProgress(saveFileBean.progress);
                     } else if (saveFileBean.code == 0) {
                         ToastUtils.showToast(saveFileBean.msg);
                         dismissDialog();
@@ -286,7 +301,7 @@ public class CheckUpdateUtils implements View.OnClickListener {
                         }
                         //记录上次提醒时间 24小时内提醒不超过3次
                         long number_of_reminders = MMKVUtils.getLong(ConstantUtil.NUMBER_OF_REMINDERS);
-                        if (number_of_reminders >= 3) {
+                        if (number_of_reminders >= 100) {
                             return;
                         }
                         MMKVUtils.save(ConstantUtil.LAST_CHECK_VERSION_TIME, currentTime);

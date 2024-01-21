@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -71,6 +72,17 @@
                     android:textColor="@color/text_second_color"
                     android:textSize="@dimen/text_14"
                     tools:text="【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门" />
+
+                <com.ggb.nirvanahappyclub.view.progressbar.DownLoadProgressbar
+                    android:id="@+id/pb_update_progress"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_40"
+                    android:layout_marginRight="@dimen/dimen_40"
+                    app:HorizontalProgresReachColor="#40AC02"
+                    app:HorizontalProgresUnReachColor="#7ec059"/>
+
             </LinearLayout>
 
             <LinearLayout

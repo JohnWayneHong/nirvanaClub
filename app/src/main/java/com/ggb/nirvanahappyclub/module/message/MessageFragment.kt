@@ -17,7 +17,6 @@ class MessageFragment : BaseFragment<MessageViewModel, FragmentMessageBinding>()
 
     override fun initView() {
         ImmersionBar.with(this).transparentStatusBar().statusBarDarkFont(true).titleBar(mBindingView.tbMessageMain).navigationBarColor(R.color.white).init()
-
     }
 
     override fun initFragmentData() {
