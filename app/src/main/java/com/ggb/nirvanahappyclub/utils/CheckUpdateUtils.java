@@ -53,7 +53,7 @@ import io.reactivex.disposables.Disposable;
  */
 public class CheckUpdateUtils implements View.OnClickListener {
 
-    private ApkUpdateDialog dialog;
+    private static ApkUpdateDialog dialog;
     private String mApkUrl;
     private CustomObserver<SaveFileBean> subscriber;
     private TextView tv_dialog_confirm;
@@ -283,6 +283,10 @@ public class CheckUpdateUtils implements View.OnClickListener {
 
     private static void showUpdateDialog(boolean type, String resourceUrl, FragmentActivity activity,VersionBean dialogBean) {
         new CheckUpdateUtils().showUpdateDialog(activity, type, resourceUrl,dialogBean);
+    }
+
+    public static boolean isShowDialog() {
+        return dialog != null && dialog.isShowing();
     }
 
 }

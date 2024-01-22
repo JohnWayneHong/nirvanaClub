@@ -127,7 +127,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun onResume() {
         super.onResume()
-//        CheckUpdateUtils.getVersionType(false, this)
+        if (CheckUpdateUtils.isShowDialog()) {
+            return
+        }
+        CheckUpdateUtils.getVersionType(false, this)
     }
 
     private fun checkNeedChangePassword() {
