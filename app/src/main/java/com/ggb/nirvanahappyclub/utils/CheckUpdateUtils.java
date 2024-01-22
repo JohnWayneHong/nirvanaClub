@@ -27,6 +27,7 @@ import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.common_library.utils.NetUtils;
 import com.ggb.common_library.utils.ToastUtils;
+import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.R;
 import com.ggb.nirvanahappyclub.bean.SaveFileBean;
@@ -41,6 +42,7 @@ import com.hjq.permissions.XXPermissions;
 
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.disposables.Disposable;
 
@@ -53,14 +55,7 @@ public class CheckUpdateUtils implements View.OnClickListener {
 
     private ApkUpdateDialog dialog;
     private String mApkUrl;
-    private ProgressBar mProgress;
     private CustomObserver<SaveFileBean> subscriber;
-    private TextView tv_content;
-    private TextView tv_title;
-    private TextView tv_confirm;
-
-    private TextView tv_cancel;
-
     private TextView tv_dialog_confirm;
     private TextView tv_dialog_cancel;
     private ProgressBar pb_update_progress;
@@ -75,39 +70,11 @@ public class CheckUpdateUtils implements View.OnClickListener {
         }
         if (BaseActivity.isActivityNotFinished(activity)) {
             //这里传的style是根据接口返回样式进行修改
-            int style = 301;
-            int layoutResouce = -1;
+            String tempVersion = JsonUtils.parseObject(dialogBean.message).getString("updateStyle");
+            int style = Integer.parseInt(tempVersion);
+
             dialog = new ApkUpdateDialog(activity, style);
             dialog.setOwnerActivity(activity);
-
-
-            switch (style) {
-                case 300:
-                    layoutResouce = R.layout.dialog_new_apk_update;
-                    break;
-                case 301:
-                    layoutResouce = R.layout.dialog_new_apk_update_1;
-                    break;
-            }
-
-
-//            View rootView = View.inflate(activity, layoutResouce, null);
-//            mProgress = rootView.findViewById(R.id.pb_update_progress);
-//            tv_title = rootView.findViewById(R.id.tv_update_title);
-//            tv_content = rootView.findViewById(R.id.tv_update_content);
-//            tv_confirm = rootView.findViewById(R.id.tv_update_confirm);
-//            tv_cancel = rootView.findViewById(R.id.tv_update_cancel);
-//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-//                    ViewGroup.LayoutParams.WRAP_CONTENT);
-//            dialog.addContentView(rootView, layoutParams);
-            dialog.setCancelable(false);
-
-//            tv_confirm.setOnClickListener(this);
-//            if (type) {
-//                tv_cancel.setVisibility(View.GONE);
-//            } else {
-//                tv_cancel.setOnClickListener(this);
-//            }
 
             subscriber = new CustomObserver<SaveFileBean>() {
                 @Override
@@ -119,17 +86,12 @@ public class CheckUpdateUtils implements View.OnClickListener {
                 public void onNext(SaveFileBean saveFileBean) {
                     if (saveFileBean.code == 1) {
                         dispose();
+                        tv_dialog_confirm.setEnabled(true);
                         pb_update_progress.setVisibility(View.GONE);
                         tv_dialog_confirm.setText("立即安装");
                         tv_dialog_cancel.setText("下载完成");
 
-//                        tv_content.setText("下载完成");
-//                        mProgress.setVisibility(View.GONE);
-//                        tv_confirm.setText("安装");
-//                        tv_confirm.setEnabled(true);
-//                        mProgress.setVisibility(View.GONE);
-
-                        if (type) {
+                        if (type || !dialog.isShowing()) {
                             dismissDialog();
                             installApk(activity, saveFileBean.savePath);
                         } else {
@@ -145,8 +107,10 @@ public class CheckUpdateUtils implements View.OnClickListener {
                         tv_dialog_confirm.setText("下载进度:" + saveFileBean.progress + "%");
                         pb_update_progress.setVisibility(View.VISIBLE);
                         pb_update_progress.setProgress(saveFileBean.progress);
+                        LogUtils.xswShowLog("下载进度:" + saveFileBean.progress + "%");
                     } else if (saveFileBean.code == 0) {
                         ToastUtils.showToast(saveFileBean.msg);
+                        tv_dialog_confirm.setEnabled(true);
                         dismissDialog();
                     }
                 }
@@ -185,9 +149,9 @@ public class CheckUpdateUtils implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.tv_update_cancel) {
-            dismissDialog();
-        }
+//        if (id == R.id.tv_update_cancel) {
+//            dismissDialog();
+//        }
     }
 
     public void startUpdate() {
@@ -197,9 +161,7 @@ public class CheckUpdateUtils implements View.OnClickListener {
     private void realStartUpdate() {
         String localFilePath = FileUtils.getFileDirPath() + "app_upgrade.apk";
         FileUtils.saveFileFromNet(localFilePath, mApkUrl, true, subscriber);
-//        mProgress.setVisibility(View.VISIBLE);
-//        tv_confirm.setText("下载中");
-//        tv_confirm.setEnabled(false);
+        tv_dialog_confirm.setEnabled(false);
     }
 
     private void dismissDialog() {

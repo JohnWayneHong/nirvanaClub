@@ -51,4 +51,7 @@ public class AppConfig {
     //        operationType 01pc 02pda 03app 04产线
     public final static String OPERATION_TYPE = "030002";
 
+
+    public final static String APP_NAME = "牛蛙呐Nirvana";
+
 }

@@ -107,6 +107,9 @@ dependencies {
     implementation 'com.github.Justson:Downloader:v5.0.4-androidx' // (可选)
 
 
+    //测试工程所用-自动发布工具类
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20231013'
 }
 apply plugin: 'io.objectbox'
 

@@ -1,5 +1,7 @@
 package com.ggb.nirvanahappyclub.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by XiongShaoWu
  * on 2019/10/28
@@ -22,4 +24,5 @@ public class VersionBean {
     public int isForce;
     public int lastForcedVersion;//最近需要强更版本
     public boolean isCurrentVersion;//最近需要强更版本
+
 }
