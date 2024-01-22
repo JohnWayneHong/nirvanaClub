@@ -9,20 +9,17 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.os.HandlerCompat.postDelayed
 import com.ggb.common_library.base.ui.BaseActivity
+import com.ggb.common_library.utils.LogUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.ActivityWebContentBinding
 import com.ggb.nirvanahappyclub.module.article.ArticleInfoViewModel
 import com.ggb.nirvanahappyclub.webclient.WebClientFactory
-
 import com.google.android.material.appbar.AppBarLayout
-import com.gyf.immersionbar.ImmersionBar
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.AgentWebConfig
 import com.just.agentweb.NestedScrollAgentWebView
@@ -88,6 +85,11 @@ class CommunityWebContentActivity : BaseActivity<ArticleInfoViewModel, ActivityW
      */
     private fun initWebView() {
         AgentWebConfig.debug()
+        //给牛蛙呐网页注入Cookie，保持登录状态
+        AgentWebConfig.syncCookie("https://nirvana1234.xyz/v2/","BEAR_ID=aba6a0e5-bd34-471b-b48c-8a6821e73ae6")
+        val cookies = AgentWebConfig.getCookiesByUrl("https://nirvana1234.xyz/v2/")
+        LogUtils.xswShowLog(cookies)
+
         val webView = NestedScrollAgentWebView(this)
 
         val layoutParams = CoordinatorLayout.LayoutParams(-1, -1)
