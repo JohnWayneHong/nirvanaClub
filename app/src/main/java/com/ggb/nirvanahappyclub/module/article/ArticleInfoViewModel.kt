@@ -34,6 +34,11 @@ class ArticleInfoViewModel(application: Application) : BaseViewModel(application
         }
     }
 
+    fun refreshList() {
+        mPage = 1
+        mGetArticleByTagLiveData.value = mPage
+    }
+
     fun getArticleContentById(articleId:String) {
         mGetArticleContentByIdLiveData.value = articleId
     }

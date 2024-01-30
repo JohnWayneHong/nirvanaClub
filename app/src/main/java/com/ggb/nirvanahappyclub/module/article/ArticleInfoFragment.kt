@@ -60,6 +60,9 @@ class ArticleInfoFragment : BaseFragment<ArticleInfoViewModel, FragmentArticleIn
                 }
             }
         })
+        mBindingView.swipeRefreshLayout.setOnRefreshListener {
+            mViewModel.refreshList()
+        }
     }
 
     override fun onClick(view: View) {
@@ -94,6 +97,7 @@ class ArticleInfoFragment : BaseFragment<ArticleInfoViewModel, FragmentArticleIn
                 Resource.LOADING -> showLoadingDialog()
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
+                    mBindingView.swipeRefreshLayout.finishRefresh()
                     mAdapter?.notifyRefreshList(resource.data)
                 }
                 Resource.ERROR -> dismissLoadingDialog()

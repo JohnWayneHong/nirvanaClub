@@ -5,7 +5,6 @@ import com.ggb.common_library.base.view.CustomDialog;
 import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
-import com.ggb.nirvanahappyclub.sql.ObjectBoxUtils;
 import com.tamsiree.rxkit.RxTool;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -25,8 +24,9 @@ public class MyApplication extends CustomApplication {
         super.onCreate();
 
         checkDatabaseVersion();
-        ObjectBoxUtils.init(this);
-        initUMeng();
+        //ObjectBox数据库初始化
+//        ObjectBoxUtils.init(this);
+//        initUMeng();
         RxTool.init(this);
         CustomDialog.globalShowStatusBar = true;
         RxJavaPlugins.setErrorHandler(e -> {
