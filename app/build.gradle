@@ -98,16 +98,19 @@ dependencies {
     implementation 'com.github.tamsiree.RxTool:RxUI:2.6.3'
     implementation 'com.github.tamsiree.RxTool:RxKit:2.6.3'
     implementation 'com.github.tamsiree.RxTool:RxFeature:2.6.3'
-    //下拉刷新
-    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'
-    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'
-    implementation 'com.scwang.smart:refresh-header-material:2.0.1'
-    implementation 'com.scwang.smart:refresh-header-two-level:2.0.1'
+    //下拉刷新-和刘强东下拉刷新重复
+//    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'
+//    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'
+//    implementation 'com.scwang.smart:refresh-header-material:2.0.1'
+//    implementation 'com.scwang.smart:refresh-header-two-level:2.0.1'
     //基于WebView的库
     implementation 'io.github.justson:agentweb-core:v5.1.1-androidx'
     implementation 'io.github.justson:agentweb-filechooser:v5.1.1-androidx' // (可选)
     implementation 'com.github.Justson:Downloader:v5.0.4-androidx' // (可选)
-
+    //刘强东RecycleView加载框架
+    implementation 'com.github.liangjingkanji:BRV:1.5.8'
+    implementation 'com.github.liangjingkanji:Engine:0.0.74' // 刘强东快速开发基础库
+    implementation 'com.airbnb.android:lottie:5.1.1' // 动画库
 
     //测试工程所用-自动发布工具类
     testImplementation 'junit:junit:4.13.2'

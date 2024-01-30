@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ggb.nirvanahappyclub.module.subscribe.FullSpanModel" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:background="@drawable/bg_card"
+            android:layout_height="100dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="4dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                imageResId="@{data.picture}"
+                tools:src="@mipmap/carousel1"/>
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:background="@drawable/bg_card"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="4dp" >
+
+            <TextView
+                android:id="@+id/tv_simple"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{String.valueOf(data.picture)}" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+</layout>

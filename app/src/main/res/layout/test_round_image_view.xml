@@ -6,11 +6,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:paddingLeft="@dimen/dimen_20"
-        android:paddingTop="@dimen/dimen_20"
         android:orientation="vertical">
 
         <com.ggb.nirvanahappyclub.view.round_circle_image_view.RoundCircleImageView
+            android:visibility="gone"
             android:layout_width="@dimen/dimen_150"
             android:layout_height="@dimen/dimen_150"
             app:isCircle="false"
@@ -22,29 +21,20 @@
             app:bottomLeft="@dimen/dimen_40"
             app:bottomRight="@dimen/dimen_20" />
 
-        <com.ggb.nirvanahappyclub.view.round_circle_image_view.RoundCircleImageView
-            android:layout_width="@dimen/dimen_150"
-            android:layout_height="@dimen/dimen_150"
-            android:layout_marginTop="@dimen/dimen_20"
-            app:isCircle="false"
-            app:round_background_drawable="@drawable/icon_homepage_header_bg"
-            app:round_radius="@dimen/dimen_20"
-            app:topLeft="@dimen/dimen_20"
-            app:topRight="@dimen/dimen_40"
-            app:bottomLeft="@dimen/dimen_40"
-            app:bottomRight="@dimen/dimen_20" />
 
-        <com.ggb.nirvanahappyclub.view.round_circle_image_view.RoundCircleImageView
-            android:layout_width="@dimen/dimen_150"
-            android:layout_height="@dimen/dimen_150"
-            android:layout_marginTop="@dimen/dimen_20"
-            app:isCircle="false"
-            app:round_background_color="@color/blue"
-            app:round_radius="@dimen/dimen_20"
-            app:topLeft="@dimen/dimen_20"
-            app:topRight="@dimen/dimen_40"
-            app:bottomLeft="@dimen/dimen_40"
-            app:bottomRight="@dimen/dimen_20" />
+        <com.drake.brv.PageRefreshLayout
+            android:id="@+id/pr_subscribe_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loading_layout="@layout/layout_loading_skeleton">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_subscribe_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </com.drake.brv.PageRefreshLayout>
 
     </LinearLayout>
 
