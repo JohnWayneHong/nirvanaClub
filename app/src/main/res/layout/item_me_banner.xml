@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<!--        com.ggb.nirvanahappyclub.bean.IndexTagBean-->
+        <variable
+            name="data"
+            type="Integer" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dimen_10"
+        android:paddingVertical="@dimen/dimen_10">
+
+        <ImageView
+            android:id="@+id/iv_carousel_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            imageResId="@{data}"
+            android:scaleType="centerCrop"/>
+
+    </FrameLayout>
+
+</layout>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="ImageView">
         <attr name="imageResId" format="reference" />
     </declare-styleable>
+
     <declare-styleable name="MarqueeViewStyle">
         <attr name="mvInterval" format="integer|reference"/>
         <attr name="mvAnimDuration" format="integer|reference"/>
@@ -22,4 +24,16 @@
             <enum name="left_to_right" value="3"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="MeBanner">
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="startPic" format="reference" />
+        <attr name="startPicSize" format="dimension" />
+        <attr name="endPic" format="reference" />
+        <attr name="endPicSize" format="dimension" />
+        <attr name="picPaddingHor" format="dimension" />
+        <attr name="actionBarHeight" format="dimension" />
+    </declare-styleable>
+
 </resources>

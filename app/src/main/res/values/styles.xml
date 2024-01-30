@@ -152,6 +152,13 @@
         <attr name="bottomLeft" format="dimension" />
     </declare-styleable>
 
+    <!--轮播图的点-->
+    <declare-styleable name="CarouselDots">
+        <attr name="dotRadius" format="dimension" />
+        <attr name="dotSelectedColor" format="color" />
+        <attr name="dotUnSelectedColor" format="color" />
+    </declare-styleable>
+
     <!-- WebContent的Toolbar   -->
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

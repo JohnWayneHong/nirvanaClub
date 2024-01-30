@@ -1,7 +1,6 @@
 package com.ggb.nirvanahappyclub.utils;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -10,8 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,7 +29,6 @@ import com.ggb.common_library.widget.commonDialog.CommonDialog;
 import com.ggb.nirvanahappyclub.R;
 import com.ggb.nirvanahappyclub.bean.SaveFileBean;
 import com.ggb.nirvanahappyclub.bean.VersionBean;
-import com.ggb.nirvanahappyclub.common.AppConfig;
 import com.ggb.nirvanahappyclub.network.HttpUtils;
 import com.ggb.nirvanahappyclub.network.api.ApiService;
 import com.ggb.nirvanahappyclub.view.dialog.ApkUpdateDialog;
@@ -42,7 +38,6 @@ import com.hjq.permissions.XXPermissions;
 
 import java.io.File;
 import java.util.List;
-import java.util.Objects;
 
 import io.reactivex.disposables.Disposable;
 
@@ -263,7 +258,7 @@ public class CheckUpdateUtils implements View.OnClickListener {
                         }
                         //记录上次提醒时间 24小时内提醒不超过3次
                         long number_of_reminders = MMKVUtils.getLong(ConstantUtil.NUMBER_OF_REMINDERS);
-                        if (number_of_reminders >= 100) {
+                        if (number_of_reminders >= 3) {
                             return;
                         }
                         MMKVUtils.save(ConstantUtil.LAST_CHECK_VERSION_TIME, currentTime);

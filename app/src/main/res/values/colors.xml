@@ -42,6 +42,7 @@
     <color name="yellow_b8">#FEEFB8</color>
     <color name="yellow_ff">#FF9C25</color>
     <color name="dark_gray">#9E9E9E</color>
+    <color name="black_text_color">#2F2F2F</color>
     <!-- Common -->
     <color name="common_button_disable">#3d26a2ff</color>
     <color name="common_button_pressed">#2496ED</color>
@@ -75,5 +76,26 @@
     <color name="index_article_info_auth">#555555</color>
     <!-- 文章顶部作者关注按钮颜色 -->
     <color name="article_subscribe_btn">#49BE39</color>
+
+    <!-- 我的页面横幅渐变色 -->
+    <color name="me_banner_start_color">#F9815C</color>
+    <color name="me_banner_end_color">#FC6457</color>
+    <!-- 轮播图下方小点的颜色-未选中颜色 -->
+    <color name="me_carousel_unselected_dot_color">#80000000</color>
+    <!-- 我的页面下方用户选项菜单 -->
+    <color name="me_user_options_subtitle_background">#FEF6F4</color>
+    <color name="me_user_options_subtitle_text_color">#E86E5A</color>
+    <!-- 登录界面 -->
+    <!-- 登录按钮下方选项文字颜色 -->
+    <color name="me_user_login_options_text_color">#49699C</color>
+    <!-- 行为验证通过颜色 -->
+    <color name="me_user_login_verify_pos_color">#77CC3B</color>
+    <!-- 登录界面必读未打勾的提示文字背景 -->
+    <color name="me_user_login_mustread_popup_text_bg">#80000000</color>
+    <!-- 登录加载条阴影颜色 -->
+    <color name="me_user_login_shadow_bg">#30000000</color>
+
+    <!-- 设置中，退出账号加载条阴影颜色 -->
+    <color name="me_settings_logout_shadow_bg">#30000000</color>
 
 </resources>
