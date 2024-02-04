@@ -55,7 +55,7 @@ class CommunityFragment : BaseFragment<CommunityViewModel, FragmentCommunityBind
                     mFragments.add(CommunityKnowledgeFragment.newInstance())
                     mFragments.add(CommunityNavigationFragment.newInstance())
                     mFragments.add(CommunityDailyFragment.newInstance())
-                    mFragments.add(CommunityTextFragment.newInstance())
+//                    mFragments.add(CommunityTextFragment.newInstance())
                     mFragments.add(CommunityPictureFragment.newInstance())
 //                    mFragments.add(CommunitySubscriptFragment.newInstance())
                     mAdapter = MyPagerAdapter(childFragmentManager)

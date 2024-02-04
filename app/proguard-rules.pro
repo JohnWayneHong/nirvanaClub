@@ -47,6 +47,7 @@
 -dontwarn com.alipay.sdk.app.PayTask
 -dontwarn com.download.library.DownloadTask$DownloadTaskStatus
 
+
 -keep public class com.ggb.nirvanahappyclub.R$*{
 public static final int *;
 }

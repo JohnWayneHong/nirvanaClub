@@ -112,6 +112,16 @@ dependencies {
     implementation 'com.github.liangjingkanji:Engine:0.0.74' // 刘强东快速开发基础库
     implementation 'com.airbnb.android:lottie:5.1.1' // 动画库
 
+
+    //九图框架 BGAPhotoPicker-Android
+    // -------------------- 以下4个库是必须依赖的 ----------------------------
+    implementation 'com.github.bingoogolapple:BGAPhotoPicker-Android:2.0.3'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.github.bingoogolapple:BGABaseAdapter-Android:2.0.1'
+
+
     //测试工程所用-自动发布工具类
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.json:json:20231013'
