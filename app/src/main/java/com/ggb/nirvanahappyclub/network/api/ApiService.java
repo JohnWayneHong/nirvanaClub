@@ -1,10 +1,12 @@
 package com.ggb.nirvanahappyclub.network.api;
 
 import com.ggb.nirvanahappyclub.bean.ArticleContentBean;
+import com.ggb.nirvanahappyclub.bean.DevelopJokesListBean;
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean;
 import com.ggb.nirvanahappyclub.bean.IndexTagBean;
 import com.ggb.nirvanahappyclub.bean.VersionBean;
 import com.ggb.nirvanahappyclub.network.result.HttpResult;
+import com.ggb.nirvanahappyclub.network.result.JokerAndroidHttpResult;
 import com.ggb.nirvanahappyclub.network.result.WanAndroidHttpResult;
 
 import java.util.List;
@@ -63,4 +65,12 @@ public interface ApiService {
 
     @GET("user_article/list/{pager}/json")
     Observable<WanAndroidHttpResult<String>> getCommunitySquare(@Path("pager") int pager,@Query("page_size") int page_size);
+
+
+    /**
+     * 段子乐----接口
+     */
+    //获取随机纯文字
+    @POST("home/text")
+    Observable<JokerAndroidHttpResult<List<DevelopJokesListBean>>> getCommunityTextJokerAndroid();
 }

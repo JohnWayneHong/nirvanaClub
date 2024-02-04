@@ -8,16 +8,28 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimen_16"
+            android:text="一旦刷新数据成功后下拉刷新不会再会显示错误页面"
+            android:textColor="@color/blue"
+            android:textSize="12dp" />
+
+        <!--  开启骨骼动画，关闭上拉加载      -->
         <com.drake.brv.PageRefreshLayout
             android:id="@+id/pr_community_text_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:loading_layout="@layout/layout_loading_skeleton">
+            app:loading_layout="@layout/layout_loading_skeleton"
+            app:stateEnabled="true">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_community_text_fragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:overScrollMode="never"/>
 
         </com.drake.brv.PageRefreshLayout>
 

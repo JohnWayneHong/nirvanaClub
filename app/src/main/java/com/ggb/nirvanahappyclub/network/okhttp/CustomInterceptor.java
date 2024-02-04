@@ -41,8 +41,15 @@ public class CustomInterceptor implements Interceptor {
         }
         int httpType = MMKVUtils.getInt("http_type");
         if (httpType == 3) {
-            builder.addHeader("Cookie", "__cjm3_release__=adv");
+            builder.addHeader("project_token", "806664062DCE4891B4C9650093DE5361");
+            builder.addHeader("channel", "cretin_open_api");
+            builder.addHeader("token", "cretin_open_api");
+            builder.addHeader("uk", "cretin_open_api");
+            builder.addHeader("app", "cretin_open_api");
+            builder.addHeader("device", "IPHONE 15 PRO MAX");
         }
+
+
 //        request = builder.addHeader("from", "pda").build();
         request = builder.addHeader("BEAR_ID", "581ce16d-ba89-45c0-9e15-073397d7a0b9").build();
         LogUtils.xswShowLog("token=" + token);

@@ -38,7 +38,7 @@ public class ConstantUtil {
     public static final String NEED_CHANGE_PASSWORD = "need_change_password";
     public static final String TODAY_CHECK_NEED_CHANGE_PASSWORD = "today_check_need_change_password";
 
-    public static final String HTTP_TYPE = "http_type"; //环境类型 用来切换测试和预发布
+    public static final String HTTP_TYPE = "http_type"; //环境类型 用来区分当前请求是否为段子乐请求，段子乐需要添加额外请求头
     public static final int TYPE_DEBUG = 1; //测试环境
     public static final int TYPE_TEST = 2;//预发布环境
     public static final int TYPE_PRERELEASE = 3;//预发布环境

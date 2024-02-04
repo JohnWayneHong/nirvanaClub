@@ -1,10 +1,22 @@
 package com.ggb.nirvanahappyclub.common;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+
 import com.ggb.common_library.base.CustomApplication;
 import com.ggb.common_library.base.view.CustomDialog;
 import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
+import com.scwang.smart.refresh.footer.ClassicsFooter;
+import com.scwang.smart.refresh.header.MaterialHeader;
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.api.RefreshFooter;
+import com.scwang.smart.refresh.layout.api.RefreshHeader;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.DefaultRefreshFooterCreator;
+import com.scwang.smart.refresh.layout.listener.DefaultRefreshHeaderCreator;
 import com.tamsiree.rxkit.RxTool;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
@@ -36,10 +48,30 @@ public class MyApplication extends CustomApplication {
         JsonUtils.addFilterClass(ToOne.class);
 
         initCustomRouter();
+        initQiangDongBRV();
     }
 
     private void initCustomRouter() {
 //        RegisterRouter.register(LoginPlugin.DOMAIN,LoginActivity.class);
+    }
+
+    private void initQiangDongBRV() {
+        SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
+            @NonNull
+            @Override
+            public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
+                return new MaterialHeader(context);
+            }
+        });
+        SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {
+            @NonNull
+            @Override
+            public RefreshFooter createRefreshFooter(@NonNull Context context, @NonNull RefreshLayout layout) {
+                return new ClassicsFooter(context);
+            }
+        });
+
+
     }
 
     private void checkDatabaseVersion() {

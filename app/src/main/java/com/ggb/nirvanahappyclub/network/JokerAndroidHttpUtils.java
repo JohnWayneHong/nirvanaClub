@@ -4,16 +4,16 @@ import com.ggb.common_library.http.HttpClient;
 import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.ggb.nirvanahappyclub.network.okhttp.OkHttpUtils;
-import com.ggb.nirvanahappyclub.network.result.HttpResult;
-import com.ggb.nirvanahappyclub.network.result.HttpResultFunc;
-import com.ggb.nirvanahappyclub.network.result.HttpResultNullableFunc;
+import com.ggb.nirvanahappyclub.network.result.JokerAndroidHttpResult;
+import com.ggb.nirvanahappyclub.network.result.JokerAndroidHttpResultFunc;
+import com.ggb.nirvanahappyclub.network.result.JokerAndroidHttpResultNullableFunc;
 import com.ggb.nirvanahappyclub.utils.ConstantUtil;
 
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class HttpUtils {
+public class JokerAndroidHttpUtils {
 
     // 文件的url
     private static final String FILE_URL_RELEASE = "https://file.jgwcjm.com/";
@@ -23,14 +23,6 @@ public class HttpUtils {
     private static final String BASE_GATEWAY_URL_RELEASE = "https://nirvana1234.xyz/";
     // 网关测试域名
     private static final String BASE_GATEWAY_URL_TEST = "https://nirvana1234.xyz/";
-
-    //玩安卓 网关域名
-    private static final String WAN_ANDROID_GATEWAY_URL_TEST = "https://www.wanandroid.com/";
-
-    //段子乐 网关域名
-    private static final String JOKER_ANDROID_GATEWAY_URL_TEST = "http://tools.cretinzp.com/jokes/";
-
-
     //开发环境域名(不稳定,和后台联调处理后再使用)
     private static final String BASE_GATEWAY_URL_DEBUG = "https://dev-api-gateway.cjm3.kf315.net/";
 
@@ -62,48 +54,6 @@ public class HttpUtils {
                 return BASE_GATEWAY_URL_RELEASE;
         }
     }
-
-    @SuppressWarnings("DuplicateBranchesInSwitch")
-    public static String getWanAndroidGatewayUrl() {
-        if (testRelease) {
-            return WAN_ANDROID_GATEWAY_URL_TEST;
-        }
-        switch (buildType) {
-            case "debug":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            case "customtest":
-                int current = MMKVUtils.getInt(ConstantUtil.HTTP_TYPE);
-                return current == ConstantUtil.TYPE_PRERELEASE ? WAN_ANDROID_GATEWAY_URL_TEST : WAN_ANDROID_GATEWAY_URL_TEST;
-            case "prerelease":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            case "release":
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-            default:
-                return WAN_ANDROID_GATEWAY_URL_TEST;
-        }
-    }
-
-    @SuppressWarnings("DuplicateBranchesInSwitch")
-    public static String getJokerAndroidGatewayUrl() {
-        if (testRelease) {
-            return JOKER_ANDROID_GATEWAY_URL_TEST;
-        }
-        switch (buildType) {
-            case "debug":
-                return JOKER_ANDROID_GATEWAY_URL_TEST;
-            case "customtest":
-                int current = MMKVUtils.getInt(ConstantUtil.HTTP_TYPE);
-                return current == ConstantUtil.TYPE_PRERELEASE ? JOKER_ANDROID_GATEWAY_URL_TEST : JOKER_ANDROID_GATEWAY_URL_TEST;
-            case "prerelease":
-                return JOKER_ANDROID_GATEWAY_URL_TEST;
-            case "release":
-                return JOKER_ANDROID_GATEWAY_URL_TEST;
-            default:
-                return JOKER_ANDROID_GATEWAY_URL_TEST;
-        }
-    }
-
-
 
     @SuppressWarnings("DuplicateBranchesInSwitch")
     public static String getCJMGatewayUrl() {
@@ -149,20 +99,8 @@ public class HttpUtils {
     }
 
     public static <T> T getGatewayApi(Class<T> clz) {
-        MMKVUtils.save("http_type",1);
         return HttpClient.getApi(clz, getGatewayUrl(), OkHttpUtils.getOkHttpClient());
     }
-
-    public static <T> T getWanAndroidGatewayApi(Class<T> clz) {
-        MMKVUtils.save("http_type",2);
-        return HttpClient.getApi(clz, getWanAndroidGatewayUrl(), OkHttpUtils.getOkHttpClient());
-    }
-
-    public static <T> T getJokerAndroidGatewayApi(Class<T> clz) {
-        MMKVUtils.save("http_type",3);
-        return HttpClient.getApi(clz, getJokerAndroidGatewayUrl(), OkHttpUtils.getOkHttpClient());
-    }
-
 
     public static <T> T getGatewayApiBigFile(Class<T> clz) {
         return HttpClient.getApi(clz, getGatewayUrl(), OkHttpUtils.getLongTimeOkHttpClient());
@@ -181,14 +119,14 @@ public class HttpUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyMainSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersTransformer;
+    public static <K> ObservableTransformer<JokerAndroidHttpResult<K>, K> applyMainSchedulers() {
+        return (ObservableTransformer<JokerAndroidHttpResult<K>, K>) schedulersTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultFunc())
+        return upstream.map(new JokerAndroidHttpResultFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
@@ -196,41 +134,41 @@ public class HttpUtils {
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyResultNullableMainSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersResultNullableTransformer;
+    public static <K> ObservableTransformer<JokerAndroidHttpResult<K>, K> applyResultNullableMainSchedulers() {
+        return (ObservableTransformer<JokerAndroidHttpResult<K>, K>) schedulersResultNullableTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersResultNullableTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultNullableFunc())
+        return upstream.map(new JokerAndroidHttpResultNullableFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyResultNullableIOSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersResultNullableIOTransformer;
+    public static <K> ObservableTransformer<JokerAndroidHttpResult<K>, K> applyResultNullableIOSchedulers() {
+        return (ObservableTransformer<JokerAndroidHttpResult<K>, K>) schedulersResultNullableIOTransformer;
     }
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersResultNullableIOTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultNullableFunc())
+        return upstream.map(new JokerAndroidHttpResultNullableFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io());
     };
 
     @SuppressWarnings("unchecked")
-    public static <K> ObservableTransformer<HttpResult<K>, K> applyIOSchedulers() {
-        return (ObservableTransformer<HttpResult<K>, K>) schedulersIOTransformer;
+    public static <K> ObservableTransformer<JokerAndroidHttpResult<K>, K> applyIOSchedulers() {
+        return (ObservableTransformer<JokerAndroidHttpResult<K>, K>) schedulersIOTransformer;
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private static final ObservableTransformer schedulersIOTransformer = upstream -> {
 //        List<String> objects = Collections.<String>emptyList();
-        return upstream.map(new HttpResultFunc())
+        return upstream.map(new JokerAndroidHttpResultFunc())
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io());

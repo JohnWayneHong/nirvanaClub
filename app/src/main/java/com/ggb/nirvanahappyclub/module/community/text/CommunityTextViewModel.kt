@@ -8,6 +8,7 @@ import com.ggb.common_library.base.viewmodel.BaseViewModel
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.CommunityTitleBean
+import com.ggb.nirvanahappyclub.bean.DevelopJokesListBean
 
 class CommunityTextViewModel(application: Application) : BaseViewModel(application) {
 
@@ -16,16 +17,16 @@ class CommunityTextViewModel(application: Application) : BaseViewModel(applicati
     var titleList = arrayListOf<String>()
 
 
-    private val mGetCommunityTitleLiveData: MutableLiveData<String> = ValueKeeperLiveData()
+    private val mGetCommunityTextLiveData: MutableLiveData<String> = ValueKeeperLiveData()
 
 
 
-    fun getCommunityTitle(titleType:String) {
-        mGetCommunityTitleLiveData.value = titleType
+    fun getCommunityText(titleType:String) {
+        mGetCommunityTextLiveData.value = titleType
     }
 
-    fun getCommunityTitleLiveData(): LiveData<Resource<List<CommunityTitleBean>>>{
-        return Transformations.switchMap(mGetCommunityTitleLiveData) {
+    fun getCommunityTextLiveData(): LiveData<Resource<List<DevelopJokesListBean>>>{
+        return Transformations.switchMap(mGetCommunityTextLiveData) {
             input:String -> model.getCommunityTitleListLiveData(input)
         }
     }

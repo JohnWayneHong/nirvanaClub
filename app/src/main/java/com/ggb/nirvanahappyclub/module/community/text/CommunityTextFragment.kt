@@ -28,6 +28,7 @@ class CommunityTextFragment : BaseFragment<CommunityTextViewModel, FragmentCommu
     BGANinePhotoLayout.Delegate{
 
     override fun initView() {
+
         mBindingView.rvCommunityTextFragment.linear().setup {
             addType<DevelopJokesListBean>(R.layout.item_community_text)
 
@@ -36,21 +37,21 @@ class CommunityTextFragment : BaseFragment<CommunityTextViewModel, FragmentCommu
                     R.layout.item_community_text -> {
                         getBinding<ItemCommunityTextBinding>().data = getModel<DevelopJokesListBean>()
 
-//                        if (getBinding<ItemCommunityTextBinding>().data!!.joke.type >= 2) {
-//                            getBinding<ItemCommunityTextBinding>().nplItemMomentPhotos.setDelegate(this@CommunityTextFragment)
-//                            //处理多图数据
-//
-//                            val formulaStr = getBinding<ItemCommunityTextBinding>().data!!.joke.imageUrl.split(",")
-//                            val decodeString = arrayListOf<String>()
-//                            formulaStr.forEach {
-//                                decodeString.add(
-//                                    EncryptionUtils.decrypt(
-//                                        "cretinzp**273846", RegularUtil.truncateHeadString(it,6)
-//                                    ))
-//                            }
-//
-//                            getBinding<ItemCommunityTextBinding>().nplItemMomentPhotos.data = decodeString
-//                        }
+                        if (getBinding<ItemCommunityTextBinding>().data!!.joke.type >= 2) {
+                            getBinding<ItemCommunityTextBinding>().nplItemMomentPhotos.setDelegate(this@CommunityTextFragment)
+                            //处理多图数据
+
+                            val formulaStr = getBinding<ItemCommunityTextBinding>().data!!.joke.imageUrl.split(",")
+                            val decodeString = arrayListOf<String>()
+                            formulaStr.forEach {
+                                decodeString.add(
+                                    EncryptionUtils.decrypt(
+                                        "cretinzp**273846", RegularUtil.truncateHeadString(it,6)
+                                    ))
+                            }
+
+                            getBinding<ItemCommunityTextBinding>().nplItemMomentPhotos.data = decodeString
+                        }
 
                     }
                 }
@@ -62,29 +63,27 @@ class CommunityTextFragment : BaseFragment<CommunityTextViewModel, FragmentCommu
         // 该处理者可以保证骨骼动图显示最短时间(避免网络请求过快导致骨骼动画快速消失屏幕闪烁), 如果不需要可以不配置
         // 推荐在Application中全局配置, 而不是每次都配置
         mBindingView.prCommunityTextFragment.stateChangedHandler = LeastAnimationStateChangedHandler()
-//        mBindingView.prCommunityTextFragment.onRefresh {
-//            val runnable = { // 模拟网络请求, 创建假的数据集
-//                val data = getData()
-//                addData(data) {
-//                    index < 3 // 判断是否有更多页
-//                }
-//            }
-//            postDelayed(runnable, 500)
-//
-//        }.showLoading()
+
     }
 
     override fun initFragmentData() {
+        mBindingView.prCommunityTextFragment.onRefresh {
+            mViewModel.getCommunityText("获取段子乐纯文")
 
+        }.autoRefresh()
+
+
+        mViewModel.getCommunityText("获取段子乐纯文")
     }
 
     override fun initLiveData() {
         super.initLiveData()
-        mViewModel.getCommunityTitleLiveData().observe(this) { resource ->
+        mViewModel.getCommunityTextLiveData().observe(this) { resource ->
             when (resource.loadingStatus) {
                 Resource.LOADING -> showLoadingDialog()
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
+                    mBindingView.prCommunityTextFragment.addData(resource.data)
 
                 }
                 Resource.ERROR -> dismissLoadingDialog()
