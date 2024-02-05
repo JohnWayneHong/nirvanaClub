@@ -3,83 +3,44 @@ package com.ggb.nirvanahappyclub.module.community.picture
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ggb.common_library.http.Resource
+import com.ggb.common_library.http.rxjava.CustomObserver
 import com.ggb.common_library.livedata.ValueKeeperLiveData
-import com.ggb.nirvanahappyclub.bean.CommunityTitleBean
+import com.ggb.nirvanahappyclub.bean.DevelopJokesListBean
+import com.ggb.nirvanahappyclub.network.HttpUtils
+import com.ggb.nirvanahappyclub.network.JokerAndroidHttpUtils
+import com.ggb.nirvanahappyclub.network.api.ApiService
+import io.reactivex.disposables.Disposable
 
 class CommunityPictureModel {
 
-    private val getCommunityTitleLiveData: MutableLiveData<Resource<List<CommunityTitleBean>>> = ValueKeeperLiveData()
+    private val getCommunityPictureLiveData: MutableLiveData<Resource<List<DevelopJokesListBean>>> = ValueKeeperLiveData()
 
-    fun getCommunityTitleListLiveData(tagId:String): LiveData<Resource<List<CommunityTitleBean>>> {
-
-        val selectItemSupports: ArrayList<CommunityTitleBean> = ArrayList<CommunityTitleBean>()
-        var p = CommunityTitleBean()
-        p.setTitle("Android")
-        p.setId(1)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("广场")
-        p.setId(2)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("体系")
-        p.setId(3)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("导航")
-        p.setId(4)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("日报")
-        p.setId(5)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("段子乐文")
-        p.setId(6)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("段子乐图")
-        p.setId(7)
-        selectItemSupports.add(p)
-
-        p = CommunityTitleBean()
-        p.setTitle("推荐的人")
-        p.setId(8)
-        selectItemSupports.add(p)
-
-        getCommunityTitleLiveData.value = Resource(Resource.SUCCESS, selectItemSupports, "")
-        return getCommunityTitleLiveData
+    fun getCommunityPictureListLiveData(tagId:String): LiveData<Resource<List<DevelopJokesListBean>>> {
 
 //        val map = HashMap<String, Any>()
 //        map["tagId"] = tagId
 //        map["page"] = current-1
 //        map["size"] = CustomRecyclerAdapter.ITEM_PAGE_SIZE
 //
-//        HttpUtils.getGatewayApi(ApiService::class.java)
-//            .searchArticleByTag(map)
-//            .compose(HttpUtils.applyMainSchedulers())
-//            .subscribe(object : CustomObserver<List<CommunityTitleBean>>() {
-//
-//                override fun onSubscribe(d: Disposable) {
-//                    super.onSubscribe(d)
-//                    getCommunityTitleLiveData.value = Resource(Resource.LOADING, null, "")
-//                }
-//
-//                override fun onNext(s: List<CommunityTitleBean>) {
-//                    getCommunityTitleLiveData.value = Resource(Resource.SUCCESS, s, "")
-//                }
-//
-//                override fun onError(e: Throwable) {
-//                    super.onError(e)
-//                    getCommunityTitleLiveData.value = Resource(Resource.ERROR, null, e.message)
-//                }
-//            })
-//        return getCommunityTitleLiveData
+        HttpUtils.getJokerAndroidGatewayApi(ApiService::class.java)
+            .communityPictureJokerAndroid
+            .compose(JokerAndroidHttpUtils.applyMainSchedulers())
+            .subscribe(object : CustomObserver<List<DevelopJokesListBean>>() {
+
+                override fun onSubscribe(d: Disposable) {
+                    super.onSubscribe(d)
+                    getCommunityPictureLiveData.value = Resource(Resource.LOADING, null, "")
+                }
+
+                override fun onNext(s: List<DevelopJokesListBean>) {
+                    getCommunityPictureLiveData.value = Resource(Resource.SUCCESS, s, "")
+                }
+
+                override fun onError(e: Throwable) {
+                    super.onError(e)
+                    getCommunityPictureLiveData.value = Resource(Resource.ERROR, null, e.message)
+                }
+            })
+        return getCommunityPictureLiveData
     }
 }

@@ -73,4 +73,8 @@ public interface ApiService {
     //获取随机纯文字
     @POST("home/text")
     Observable<JokerAndroidHttpResult<List<DevelopJokesListBean>>> getCommunityTextJokerAndroid();
+
+    //获取随机图文
+    @POST("home/pic")
+    Observable<JokerAndroidHttpResult<List<DevelopJokesListBean>>> getCommunityPictureJokerAndroid();
 }

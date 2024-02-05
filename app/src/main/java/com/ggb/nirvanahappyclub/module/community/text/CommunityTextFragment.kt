@@ -59,7 +59,6 @@ class CommunityTextFragment : BaseFragment<CommunityTextViewModel, FragmentCommu
         }
 
 
-
         // 该处理者可以保证骨骼动图显示最短时间(避免网络请求过快导致骨骼动画快速消失屏幕闪烁), 如果不需要可以不配置
         // 推荐在Application中全局配置, 而不是每次都配置
         mBindingView.prCommunityTextFragment.stateChangedHandler = LeastAnimationStateChangedHandler()
@@ -72,21 +71,19 @@ class CommunityTextFragment : BaseFragment<CommunityTextViewModel, FragmentCommu
 
         }.autoRefresh()
 
-
-        mViewModel.getCommunityText("获取段子乐纯文")
     }
 
     override fun initLiveData() {
         super.initLiveData()
         mViewModel.getCommunityTextLiveData().observe(this) { resource ->
             when (resource.loadingStatus) {
-                Resource.LOADING -> showLoadingDialog()
+                Resource.LOADING -> {}
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
                     mBindingView.prCommunityTextFragment.addData(resource.data)
 
                 }
-                Resource.ERROR -> dismissLoadingDialog()
+                Resource.ERROR -> {}
             }
         }
     }

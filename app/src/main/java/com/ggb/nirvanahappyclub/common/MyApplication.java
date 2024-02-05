@@ -10,7 +10,7 @@ import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
-import com.scwang.smart.refresh.header.MaterialHeader;
+import com.scwang.smart.refresh.header.BezierRadarHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshFooter;
 import com.scwang.smart.refresh.layout.api.RefreshHeader;
@@ -60,7 +60,7 @@ public class MyApplication extends CustomApplication {
             @NonNull
             @Override
             public RefreshHeader createRefreshHeader(@NonNull Context context, @NonNull RefreshLayout layout) {
-                return new MaterialHeader(context);
+                return new BezierRadarHeader(context);
             }
         });
         SmartRefreshLayout.setDefaultRefreshFooterCreator(new DefaultRefreshFooterCreator() {

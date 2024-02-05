@@ -103,6 +103,7 @@ dependencies {
 //    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'
 //    implementation 'com.scwang.smart:refresh-header-material:2.0.1'
 //    implementation 'com.scwang.smart:refresh-header-two-level:2.0.1'
+    implementation  'io.github.scwang90:refresh-header-radar:2.0.5'       //雷达刷新头
     //基于WebView的库
     implementation 'io.github.justson:agentweb-core:v5.1.1-androidx'
     implementation 'io.github.justson:agentweb-filechooser:v5.1.1-androidx' // (可选)
