@@ -98,4 +98,11 @@
     <!-- 设置中，退出账号加载条阴影颜色 -->
     <color name="me_settings_logout_shadow_bg">#30000000</color>
 
+    <!--登录的相关样式    -->
+    <color name="gray_text_color">#989898</color>
+    <color name="text_highlight_color">#80EC6F5A</color>
+    <color name="primary">#FFEC6F5A</color>
+    <color name="transparent">#00000000</color>
+    <color name="primaryVariant">#FC6457</color>
+
 </resources>

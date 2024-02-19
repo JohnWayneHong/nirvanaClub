@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
+import androidx.core.view.get
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -12,9 +13,11 @@ import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.utils.LogUtils
 import com.ggb.common_library.utils.ToastUtils
+import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.FragmentMeBinding
+import com.ggb.nirvanahappyclub.module.login.LoginActivity
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeBannerAdapter
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeFunctionAdapter
 import com.gyf.immersionbar.ImmersionBar
@@ -87,8 +90,20 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
 
     override fun initListener() {
         super.initListener()
-
+        ClickUtils.register(this)
+            .addOnClickListener()
+            .addView(mBindingView.meLoginClickable)
+            .submit()
         aAdapter?.setOnItemClickListener(this)
+    }
+
+    override fun onClick(view: View) {
+        super.onClick(view)
+        val id = view.id
+        if (id == mBindingView.meLoginClickable.id) {
+
+            LoginActivity.start(context,"MineFragment")
+        }
     }
 
     private fun initFunctionList() {

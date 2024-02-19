@@ -171,4 +171,9 @@
         <item name="android:textSize">@dimen/text_18</item>
     </style>
 
+    <!--登录按钮    -->
+    <style name="CircleCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check_box</item>
+    </style>
+
 </resources>

@@ -15,6 +15,7 @@ import java.util.Map;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -51,6 +52,13 @@ public interface ApiService {
     @GET("/v2/api/blog/details/{id}")
     Observable<HttpResult<ArticleContentBean>> getArticleContentById(@Path("id") String id);
 
+    //用户登录
+    @POST("/v2/api/user/login")
+    Observable<HttpResult<String>> login(@Body Map<String, Object> map);
+
+    //用户登出
+    @POST("/v2/api/user/logout")
+    Observable<HttpResult<String>> loginOut(@Body Map<String, Object> map);
 
 
 

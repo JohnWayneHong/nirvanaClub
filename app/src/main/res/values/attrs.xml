@@ -36,4 +36,10 @@
         <attr name="actionBarHeight" format="dimension" />
     </declare-styleable>
 
+    <!--登录验证滑动    -->
+    <declare-styleable name="VerifySeekBar">
+        <attr name="vsb_textSize" format="dimension" />
+        <attr name="vsb_shadowWidth" format="dimension" />
+    </declare-styleable>
+
 </resources>
