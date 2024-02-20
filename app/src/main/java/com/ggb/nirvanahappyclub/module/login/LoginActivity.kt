@@ -66,6 +66,17 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), OnIt
                 Resource.LOADING -> showLoadingDialog()
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
+                    //登录成功 获取用户信息
+                    mViewModel.getUserInfo()
+                }
+                Resource.ERROR -> dismissLoadingDialog()
+            }
+        }
+        mViewModel.getUserInfoLiveData().observe(this) { resource ->
+            when (resource.loadingStatus) {
+                Resource.LOADING -> showLoadingDialog()
+                Resource.SUCCESS -> {
+                    dismissLoadingDialog()
 
                 }
                 Resource.ERROR -> dismissLoadingDialog()

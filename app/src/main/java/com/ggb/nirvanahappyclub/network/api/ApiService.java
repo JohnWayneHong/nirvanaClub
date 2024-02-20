@@ -60,6 +60,10 @@ public interface ApiService {
     @POST("/v2/api/user/logout")
     Observable<HttpResult<String>> loginOut(@Body Map<String, Object> map);
 
+    //用户基础信息
+    @GET("/v2/api/user/myinfo")
+    Observable<HttpResult<String>> getUserInfo();
+
 
 
 

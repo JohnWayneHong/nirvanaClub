@@ -40,4 +40,30 @@ class LoginModel {
         return userLoginByPwdLiveData
     }
 
+    private val userInfoLiveData: MutableLiveData<Resource<String>> = ValueKeeperLiveData()
+
+    fun getUserInfoLiveData(xx:String): LiveData<Resource<String>> {
+
+        HttpUtils.getGatewayApi(ApiService::class.java)
+            .userInfo
+            .compose(HttpUtils.applyMainSchedulers())
+            .subscribe(object : CustomObserver<String>() {
+
+                override fun onSubscribe(d: Disposable) {
+                    super.onSubscribe(d)
+                    userInfoLiveData.value = Resource(Resource.LOADING, null, "")
+                }
+
+                override fun onNext(s: String) {
+                    userInfoLiveData.value = Resource(Resource.SUCCESS, s, "")
+                }
+
+                override fun onError(e: Throwable) {
+                    super.onError(e)
+                    userInfoLiveData.value = Resource(Resource.ERROR, null, e.message)
+                }
+            })
+        return userInfoLiveData
+    }
+
 }

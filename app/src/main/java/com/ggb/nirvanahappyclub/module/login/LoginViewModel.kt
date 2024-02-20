@@ -17,6 +17,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     private var mModel: LoginModel = LoginModel()
 
     private val mGetUserLoginByPwdLiveData: MutableLiveData<HashMap<String,Any>> = ValueKeeperLiveData()
+    private val mGetUserInfoLiveData: MutableLiveData<String> = ValueKeeperLiveData()
 
 
     fun loginByPwd(account: String, password :String) {
@@ -32,5 +33,16 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
             mModel.getUserLoginByPwdLiveData(input)
         }
     }
+
+    fun getUserInfo() {
+        mGetUserInfoLiveData.value = ""
+    }
+
+    fun getUserInfoLiveData(): LiveData<Resource<String>> {
+        return Transformations.switchMap(mGetUserInfoLiveData) { input->
+            mModel.getUserInfoLiveData(input)
+        }
+    }
+
 
 }
