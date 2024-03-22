@@ -8,6 +8,7 @@ import com.ggb.common_library.http.rxjava.CustomObserver
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.ArticleContentBean
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean
+import com.ggb.nirvanahappyclub.bean.SimpleUserInfo
 import com.ggb.nirvanahappyclub.network.HttpUtils
 import com.ggb.nirvanahappyclub.network.api.ApiService
 import io.reactivex.disposables.Disposable
@@ -40,22 +41,22 @@ class LoginModel {
         return userLoginByPwdLiveData
     }
 
-    private val userInfoLiveData: MutableLiveData<Resource<String>> = ValueKeeperLiveData()
+    private val userInfoLiveData: MutableLiveData<Resource<SimpleUserInfo>> = ValueKeeperLiveData()
 
-    fun getUserInfoLiveData(xx:String): LiveData<Resource<String>> {
+    fun getUserInfoLiveData(xx:String): LiveData<Resource<SimpleUserInfo>> {
 
         HttpUtils.getGatewayApi(ApiService::class.java)
             .userInfo
             .compose(HttpUtils.applyMainSchedulers())
-            .subscribe(object : CustomObserver<String>() {
+            .subscribe(object : CustomObserver<SimpleUserInfo>() {
 
                 override fun onSubscribe(d: Disposable) {
                     super.onSubscribe(d)
                     userInfoLiveData.value = Resource(Resource.LOADING, null, "")
                 }
 
-                override fun onNext(s: String) {
-                    userInfoLiveData.value = Resource(Resource.SUCCESS, s, "")
+                override fun onNext(info: SimpleUserInfo) {
+                    userInfoLiveData.value = Resource(Resource.SUCCESS, info, "")
                 }
 
                 override fun onError(e: Throwable) {

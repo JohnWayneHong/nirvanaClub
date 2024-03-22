@@ -1,26 +1,34 @@
 package com.ggb.nirvanahappyclub.module.mine
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
-import androidx.core.view.get
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.utils.LogUtils
+import com.ggb.common_library.utils.MMKVUtils
 import com.ggb.common_library.utils.ToastUtils
 import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.common_library.utils.json.JsonObject
+import com.ggb.common_library.utils.json.JsonUtils
 import com.ggb.nirvanahappyclub.R
+import com.ggb.nirvanahappyclub.bean.SimpleUserInfo
 import com.ggb.nirvanahappyclub.databinding.FragmentMeBinding
 import com.ggb.nirvanahappyclub.module.login.LoginActivity
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeBannerAdapter
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeFunctionAdapter
+import com.ggb.nirvanahappyclub.utils.ConstantUtil
+import com.ggb.nirvanahappyclub.utils.ImageLoaderUtil
 import com.gyf.immersionbar.ImmersionBar
+import com.tencent.mmkv.MMKV
 import java.util.Timer
 import java.util.TimerTask
 
@@ -61,7 +69,6 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
     }
 
     override fun initFragmentData() {
-
         setCarousel()
         initFunctionList()
         mBindingView.meScrollView.apply {
@@ -71,6 +78,7 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
                 mBindingView.meToolbar.alpha = if (alpha > 1) 1f else alpha
             })
         }
+        initUserInfoData()
     }
 
     override fun initLiveData() {
@@ -102,12 +110,24 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
         val id = view.id
         if (id == mBindingView.meLoginClickable.id) {
 
-            LoginActivity.start(context,"MineFragment")
+            if (MMKVUtils.getString(ConstantUtil.USER_TOKEN).isEmpty()) {
+                LoginActivity.start(1001,this,"MineFragment")
+            }
+
         }
     }
 
     private fun initFunctionList() {
         mViewModel.searchMeFunctionLiveData()
+    }
+
+    /**
+     * 初始化用户信息
+     */
+    private fun initUserInfoData() {
+        mBindingView.tvMeUserNickname.text = MMKVUtils.getString(ConstantUtil.USER_NAME)
+        ImageLoaderUtil().displayHeadImage(context,MMKVUtils.getString(ConstantUtil.USER_PHOTO),mBindingView.ivMeUserAvatar)
+
     }
 
     override fun onItemClick(view: View, position: Int) {
@@ -193,6 +213,27 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
             carouselHandler.sendEmptyMessage(0)
         }
     }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != Activity.RESULT_OK) {
+            return
+        }
+        val json: String?
+        val jb: JsonObject
+        when (requestCode) {
+            1001 -> {
+                //账号密码登录返回
+                val userInfo = JsonUtils.parseObject(data?.getStringExtra("user_info_data"), SimpleUserInfo::class.java)
+
+                mBindingView.tvMeUserNickname.text = userInfo?.nickName
+                ImageLoaderUtil().displayHeadImage(context,userInfo?.photo,mBindingView.ivMeUserAvatar)
+            }
+
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()

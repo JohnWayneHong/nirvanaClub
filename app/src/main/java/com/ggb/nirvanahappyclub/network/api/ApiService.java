@@ -4,6 +4,7 @@ import com.ggb.nirvanahappyclub.bean.ArticleContentBean;
 import com.ggb.nirvanahappyclub.bean.DevelopJokesListBean;
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean;
 import com.ggb.nirvanahappyclub.bean.IndexTagBean;
+import com.ggb.nirvanahappyclub.bean.SimpleUserInfo;
 import com.ggb.nirvanahappyclub.bean.VersionBean;
 import com.ggb.nirvanahappyclub.network.result.HttpResult;
 import com.ggb.nirvanahappyclub.network.result.JokerAndroidHttpResult;
@@ -62,7 +63,7 @@ public interface ApiService {
 
     //用户基础信息
     @GET("/v2/api/user/myinfo")
-    Observable<HttpResult<String>> getUserInfo();
+    Observable<HttpResult<SimpleUserInfo>> getUserInfo();
 
 
 

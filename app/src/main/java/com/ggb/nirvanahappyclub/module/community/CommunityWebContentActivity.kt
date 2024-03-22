@@ -14,10 +14,12 @@ import android.webkit.WebView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.ggb.common_library.base.ui.BaseActivity
 import com.ggb.common_library.utils.LogUtils
+import com.ggb.common_library.utils.MMKVUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.databinding.ActivityWebContentBinding
 import com.ggb.nirvanahappyclub.module.article.ArticleInfoViewModel
+import com.ggb.nirvanahappyclub.utils.ConstantUtil
 import com.ggb.nirvanahappyclub.webclient.WebClientFactory
 import com.google.android.material.appbar.AppBarLayout
 import com.just.agentweb.AgentWeb
@@ -86,7 +88,7 @@ class CommunityWebContentActivity : BaseActivity<ArticleInfoViewModel, ActivityW
     private fun initWebView() {
         AgentWebConfig.debug()
         //给牛蛙呐网页注入Cookie，保持登录状态
-        AgentWebConfig.syncCookie("https://nirvana1234.xyz/v2/","BEAR_ID=aba6a0e5-bd34-471b-b48c-8a6821e73ae6")
+        AgentWebConfig.syncCookie("https://nirvana1234.xyz/v2/",MMKVUtils.getString(ConstantUtil.USER_TOKEN))
         val cookies = AgentWebConfig.getCookiesByUrl("https://nirvana1234.xyz/v2/")
         LogUtils.xswShowLog(cookies)
 

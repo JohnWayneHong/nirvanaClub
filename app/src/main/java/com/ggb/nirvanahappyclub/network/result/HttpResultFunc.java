@@ -16,8 +16,8 @@ public class HttpResultFunc<T> implements Function<HttpResult<T>, T> {
         switch (httpResult.state) {
             case 0:
             case 200:
-                if (httpResult.data ==null){
-                    throw new CustomHttpApiException(200,httpResult.message);
+                if (httpResult.data ==null || httpResult.code != 0){
+                    throw new CustomHttpApiException(500,httpResult.message);
                 }
                 break;
             case 401:

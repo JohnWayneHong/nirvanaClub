@@ -4,11 +4,11 @@ package com.ggb.nirvanahappyclub.common;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 
 import com.ggb.common_library.base.ui.BaseActivity;
 import com.ggb.common_library.utils.CommonDialogUtil;
-import com.ggb.common_library.utils.DevicesUtils;
 import com.ggb.common_library.utils.MMKVUtils;
 import com.ggb.common_library.utils.ToastUtils;
 import com.ggb.common_library.widget.commonDialog.CommonDialog;
@@ -90,6 +90,7 @@ public class SplashActivity extends BaseActivity<SplashViewModel, ActivitySplash
         String string = MMKVUtils.getString(ConstantUtil.USER_TOKEN);
         if (!TextUtils.isEmpty(string)) {
 //            LoginActivity.start(this);
+            MainActivity.Companion.start(this, MMKVUtils.getInt("index"));
         } else {
             MainActivity.Companion.start(this, MMKVUtils.getInt("index"));
         }

@@ -12,10 +12,28 @@ public class ConstantUtil {
     public static String CONFIG_ID = "configId";
 
 
+    /**
+     * 用户信息
+     */
     public static final String USER_REMEMBER_ME = "user_remember_me";
     public static final String USER_MOBILE = "user_mobile";
     public static final String USER_PASSWORD = "user_password";
+    public static final String USER_ID = "user_id";
+    public static final String USER_NAME = "user_name";
+    public static final String USER_CREATE_TIME = "user_create_time";
+    public static final String USER_ACCOUNT = "user_account";
+    public static final String USER_PHOTO = "user_photo";
+    public static final String USER_SIGN = "user_sign";
+    public static final String USER_BIRTH = "user_birth";
+    public static final String USER_UN_READ_COUNT = "user_un_read_count";
+    public static final String USER_STATUS = "user_status";
+    public static final String USER_LOGIN_TYPE = "user_login_type";
+    public static final String USER_IS_ADMIN = "user_is_admin";
+
+    //也就是BEAR_ID 需要保存 BEAR_ID 的值, 此后每次请求需要携带上这个 cookie, 否则视为未登录
     public static final String USER_TOKEN = "user_token";
+
+
 
     public static final String ORGANIZATION_ID = "organization_id";
     public static final String ORGANIZATION_NAME = "organization_name";
@@ -43,8 +61,6 @@ public class ConstantUtil {
     public static final int TYPE_TEST = 2;//预发布环境
     public static final int TYPE_PRERELEASE = 3;//预发布环境
 
-    public static final String USER_NAME = "user_name";
-    public static final String USER_ID = "user_id";
 
     /**
      * 数据库相关信息

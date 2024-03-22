@@ -1,6 +1,5 @@
 package com.ggb.nirvanahappyclub.module.login
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.text.Spannable
@@ -9,16 +8,18 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.widget.NestedScrollView
+import androidx.fragment.app.Fragment
 import com.ggb.common_library.base.ui.BaseActivity
 import com.ggb.common_library.http.Resource
+import com.ggb.common_library.utils.MMKVUtils
 import com.ggb.common_library.utils.ToastUtils
 import com.ggb.common_library.utils.click_utils.ClickUtils
 import com.ggb.common_library.utils.click_utils.listener.OnItemSingleClickListener
+import com.ggb.common_library.utils.json.JsonUtils
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.common.MyApplication
-import com.ggb.nirvanahappyclub.databinding.ActivityArticleBinding
 import com.ggb.nirvanahappyclub.databinding.ActivityLoginBinding
+import com.ggb.nirvanahappyclub.utils.ConstantUtil
 import com.ggb.nirvanahappyclub.utils.RegularUtil
 import com.gyf.immersionbar.ImmersionBar
 import com.tamsiree.rxkit.view.RxToast
@@ -63,7 +64,9 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), OnIt
         super.initLiveData()
         mViewModel.getLoginByPwdLiveData().observe(this) { resource ->
             when (resource.loadingStatus) {
-                Resource.LOADING -> showLoadingDialog()
+                Resource.LOADING -> {
+                    showLoadingDialog()
+                }
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
                     //登录成功 获取用户信息
@@ -74,9 +77,34 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), OnIt
         }
         mViewModel.getUserInfoLiveData().observe(this) { resource ->
             when (resource.loadingStatus) {
-                Resource.LOADING -> showLoadingDialog()
+                Resource.LOADING -> {
+                    showLoadingDialog()
+                }
                 Resource.SUCCESS -> {
                     dismissLoadingDialog()
+                    val userData = resource.data
+                    MMKVUtils.save(ConstantUtil.USER_ID,userData.id)
+                    MMKVUtils.save(ConstantUtil.USER_NAME,userData.nickName)
+                    MMKVUtils.save(ConstantUtil.USER_CREATE_TIME,userData.createTime)
+                    MMKVUtils.save(ConstantUtil.USER_ACCOUNT,userData.account)
+                    MMKVUtils.save(ConstantUtil.USER_PHOTO,userData.photo)
+                    MMKVUtils.save(ConstantUtil.USER_SIGN,userData.sign)
+                    MMKVUtils.save(ConstantUtil.USER_BIRTH,userData.birth)
+                    MMKVUtils.save(ConstantUtil.USER_UN_READ_COUNT,userData.unReadCount)
+                    MMKVUtils.save(ConstantUtil.USER_STATUS,userData.status)
+                    MMKVUtils.save(ConstantUtil.USER_IS_ADMIN,userData.isIsAdmin)
+
+                    //登录方式
+                    MMKVUtils.save(ConstantUtil.USER_LOGIN_TYPE,3)
+                    val intent = Intent()
+                    intent.putExtra("user_info_data", JsonUtils.toJsonString(resource.data))
+                    setResult(RESULT_OK, intent)
+                    finish()
+                    RxToast.success("登录成功！")
+
+
+                    //初始化IM模块的登录
+
 
                 }
                 Resource.ERROR -> dismissLoadingDialog()
@@ -285,11 +313,11 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>(), OnIt
     }
 
     companion object {
-        fun start(context: Context, beforeFragment: String) {
-            if (isActivityNotFinished(context)) {
-                val intent = Intent(context, LoginActivity::class.java)
+        fun start(requestCode: Int, fragment: Fragment, beforeFragment: String) {
+            if (isActivityNotFinished(fragment.activity)) {
+                val intent = Intent(fragment.activity, LoginActivity::class.java)
                 intent.putExtra("beforeFragment", beforeFragment)
-                context.startActivity(intent)
+                fragment.startActivityForResult(intent,requestCode)
             }
         }
     }

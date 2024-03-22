@@ -31,7 +31,7 @@ public class CustomInterceptor implements Interceptor {
         String token = MMKVUtils.getString(ConstantUtil.USER_TOKEN);
         if (!TextUtils.isEmpty(token)) {
             String versionName = BuildConfigUtils.getVersionName();
-            builder.header("super-token", token)
+            builder.header("Cookie", token)
                     .addHeader("service-auth-key", "b8379aa226f415c7fd71dc6281a1b7ba45eb6b42710cea6092c0a4d108f5088e")
                     .addHeader("versionType", MMKVUtils.getInt("version_type", -1) + "")
                     .addHeader("username", MMKVUtils.getString("user_mobile"))
@@ -51,7 +51,10 @@ public class CustomInterceptor implements Interceptor {
 
 
 //        request = builder.addHeader("from", "pda").build();
-        request = builder.addHeader("BEAR_ID", "581ce16d-ba89-45c0-9e15-073397d7a0b9").build();
+        if (!TextUtils.isEmpty(MMKVUtils.getString(ConstantUtil.USER_TOKEN))) {
+            request = builder.addHeader("BEAR_ID", MMKVUtils.getString(ConstantUtil.USER_TOKEN)).build();
+        }
+
         LogUtils.xswShowLog("token=" + token);
         Response response = chain.proceed(request);
         return response;

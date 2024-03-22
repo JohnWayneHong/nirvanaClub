@@ -1,7 +1,6 @@
 package com.ggb.nirvanahappyclub.network.okhttp;
 
 
-
 import androidx.annotation.NonNull;
 
 import com.ggb.common_library.http.okhttp.CommonInterceptor;
@@ -55,6 +54,7 @@ public class OkHttpUtils {
                             cookieBean.setCookie(list.get(i).toString());
                             cookieBean.setCookieName(list.get(i).name());
                             cookieBeanList.add(cookieBean);
+                            MMKVUtils.save(ConstantUtil.USER_TOKEN,list.get(i).toString());
                         }
                         MMKVUtils.saveTempData(cookieBeanList);
                     }

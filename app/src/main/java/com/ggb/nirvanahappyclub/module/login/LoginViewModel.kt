@@ -10,6 +10,7 @@ import com.ggb.common_library.http.Resource
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.ArticleContentBean
 import com.ggb.nirvanahappyclub.bean.IndexArticleInfoBean
+import com.ggb.nirvanahappyclub.bean.SimpleUserInfo
 import com.ggb.nirvanahappyclub.utils.RsaEncryptionUtils
 
 class LoginViewModel(application: Application) : BaseViewModel(application) {
@@ -38,7 +39,7 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
         mGetUserInfoLiveData.value = ""
     }
 
-    fun getUserInfoLiveData(): LiveData<Resource<String>> {
+    fun getUserInfoLiveData(): LiveData<Resource<SimpleUserInfo>> {
         return Transformations.switchMap(mGetUserInfoLiveData) { input->
             mModel.getUserInfoLiveData(input)
         }
