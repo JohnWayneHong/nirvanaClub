@@ -78,7 +78,8 @@ class IndexFragment : BaseFragment<IndexViewModel, FragmentIndexBinding>(),OnIte
         super.onClick(view)
         val id = view.id
         if (id == R.id.ll_index_search) {
-            mViewModel.searchIndexTag()
+            //TODO 进入搜索功能页面
+
         }
     }
 
