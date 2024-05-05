@@ -9,6 +9,7 @@ import com.ggb.common_library.base.view.CustomDialog;
 import com.ggb.common_library.utils.LogUtils;
 import com.ggb.common_library.utils.json.JsonUtils;
 import com.ggb.nirvanahappyclub.BuildConfig;
+import com.ggb.nirvanahappyclub.sql.ObjectBoxUtils;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.BezierRadarHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -37,7 +38,7 @@ public class MyApplication extends CustomApplication {
 
         checkDatabaseVersion();
         //ObjectBox数据库初始化
-//        ObjectBoxUtils.init(this);
+        ObjectBoxUtils.init(this);
 //        initUMeng();
         RxTool.init(this);
         CustomDialog.globalShowStatusBar = true;

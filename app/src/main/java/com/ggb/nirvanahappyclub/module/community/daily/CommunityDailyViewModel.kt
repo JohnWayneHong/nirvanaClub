@@ -8,6 +8,7 @@ import com.ggb.common_library.base.viewmodel.BaseViewModel
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.livedata.ValueKeeperLiveData
 import com.ggb.nirvanahappyclub.bean.CommunityTitleBean
+import com.ggb.nirvanahappyclub.sql.entity.UserEntity
 
 class CommunityDailyViewModel(application: Application) : BaseViewModel(application) {
 
@@ -16,17 +17,28 @@ class CommunityDailyViewModel(application: Application) : BaseViewModel(applicat
     var titleList = arrayListOf<String>()
 
 
-    private val mGetCommunityTitleLiveData: MutableLiveData<String> = ValueKeeperLiveData()
+    private val mGetCommunityDailyDataLiveData: MutableLiveData<UserEntity> = ValueKeeperLiveData()
+    private val mGetCommunityDailyDataInfoLiveData: MutableLiveData<Long> = ValueKeeperLiveData()
 
 
 
-    fun getCommunityTitle(titleType:String) {
-        mGetCommunityTitleLiveData.value = titleType
+    fun getCommunityDailyData(userEntity: UserEntity) {
+        mGetCommunityDailyDataLiveData.value = userEntity
     }
 
-    fun getCommunityTitleLiveData(): LiveData<Resource<List<CommunityTitleBean>>>{
-        return Transformations.switchMap(mGetCommunityTitleLiveData) {
-            input:String -> model.getCommunityTitleListLiveData(input)
+    fun getCommunityDailyDataLiveData(): LiveData<Resource<Long>>{
+        return Transformations.switchMap(mGetCommunityDailyDataLiveData) {
+            input:UserEntity -> model.getCommunityDailyDataLiveData(input)
+        }
+    }
+
+    fun getCommunityDailyDataInfo(id: Long) {
+        mGetCommunityDailyDataInfoLiveData.value = id
+    }
+
+    fun getCommunityDailyDataInfoLiveData(): LiveData<Resource<UserEntity>>{
+        return Transformations.switchMap(mGetCommunityDailyDataInfoLiveData) {
+                input:Long -> model.getCommunityDailyDataInfoLiveData(input)
         }
     }
 
