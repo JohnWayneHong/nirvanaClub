@@ -88,6 +88,7 @@ dependencies {
 //    releaseImplementation("io.objectbox:objectbox-android:"+rootProject.ext.objectbox_version)
     releaseImplementation("io.objectbox:objectbox-android:"+rootProject.ext.objectbox_version)
     coexistImplementation("io.objectbox:objectbox-android-objectbrowser:"+rootProject.ext.objectbox_version)
+//    implementation 'io.objectbox:objectbox-java:3.3.0'
     implementation 'top.zibin:Luban:1.1.8'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10"

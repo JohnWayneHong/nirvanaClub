@@ -3,6 +3,7 @@ package com.ggb.nirvanahappyclub.module.main
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.DisplayMetrics
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import com.ggb.common_library.base.ui.BaseActivity
+import com.ggb.common_library.utils.BuildConfigUtils
 import com.ggb.common_library.utils.CommonDialogUtil
 import com.ggb.common_library.utils.FormatUtils
 import com.ggb.common_library.utils.MMKVUtils
@@ -127,10 +129,11 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     override fun onResume() {
         super.onResume()
-        if (CheckUpdateUtils.isShowDialog()) {
-            return
-        }
-        CheckUpdateUtils.getVersionType(false, this)
+
+//        if (CheckUpdateUtils.isShowDialog()) {
+//            return
+//        }
+//        CheckUpdateUtils.getVersionType(false, this)
     }
 
     private fun checkNeedChangePassword() {

@@ -8,6 +8,10 @@
         <variable
             name="data"
             type="com.ggb.nirvanahappyclub.bean.UserShowBean" />
+
+        <variable
+            name="wordLoaderBean"
+            type="com.ggb.nirvanahappyclub.bean.WordLoaderBean" />
     </data>
 
     <LinearLayout
@@ -37,6 +41,61 @@
             android:text="@{data.showUserInfo}"
             android:textSize="@dimen/sp_32"/>
 
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_insert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="英文单词插入数据"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查询英文单词"
+            android:textSize="@dimen/sp_32"/>
+
+        <EditText
+            android:id="@+id/et_community_daily_word_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入英文单词"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="测试查找所有词组表"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_input_json"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="插入资源目录下的json文件"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_delete_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="删除单词表所有数据"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_daily_word_delete_process"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="正在插入中..."
+            android:text="@{wordLoaderBean.showProcessText}"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
 
     </LinearLayout>
 
