@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ggb.nirvanahappyclub.sql.entity.BasicWordTranslationEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="翻译："
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/main_color"
+                android:layout_marginRight="@dimen/dimen_7"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{data.translation}"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/main_color"
+                android:layout_marginRight="@dimen/dimen_7"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_8"
+                tools:text="Word"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="词性："
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/main_color"
+                android:layout_marginRight="@dimen/dimen_7"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_8"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.type}"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/main_color"
+                android:layout_marginRight="@dimen/dimen_7"
+                android:paddingLeft="@dimen/dimen_8"
+                android:paddingRight="@dimen/dimen_8"
+                tools:text="Word"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_cc" />
+
+    </LinearLayout>
+
+</layout>
+

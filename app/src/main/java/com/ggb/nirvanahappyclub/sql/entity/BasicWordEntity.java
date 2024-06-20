@@ -1,13 +1,9 @@
 package com.ggb.nirvanahappyclub.sql.entity;
 
-import java.util.List;
-
 import io.objectbox.annotation.Backlink;
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
-import io.objectbox.annotation.Transient;
 import io.objectbox.relation.ToMany;
-import io.objectbox.relation.ToOne;
 
 /**
  * author : hwj
@@ -60,6 +56,7 @@ public class BasicWordEntity extends BaseEntity {
     public void setPhrases(ToMany<BasicWordPhraseEntity> phrases) {
         this.phrases = phrases;
     }
+
 
     @Override
     public long getId() {

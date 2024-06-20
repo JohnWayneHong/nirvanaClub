@@ -1,12 +1,8 @@
 package com.ggb.nirvanahappyclub.module.community.daily
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ProgressBar
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ggb.common_library.base.ui.BaseFragment
 import com.ggb.common_library.http.Resource
 import com.ggb.common_library.http.rxjava.CustomObserver
@@ -18,6 +14,8 @@ import com.ggb.nirvanahappyclub.bean.BasicWordBean
 import com.ggb.nirvanahappyclub.bean.UserShowBean
 import com.ggb.nirvanahappyclub.bean.WordLoaderBean
 import com.ggb.nirvanahappyclub.databinding.FragmentCommunityDailyBinding
+import com.ggb.nirvanahappyclub.module.community.daily.adapter.WordSearchDataAdapter
+import com.ggb.nirvanahappyclub.module.index.adapter.IndexTagAdapter
 import com.ggb.nirvanahappyclub.sql.entity.BasicWordEntity
 import com.ggb.nirvanahappyclub.sql.entity.BasicWordPhraseEntity
 import com.ggb.nirvanahappyclub.sql.entity.BasicWordTranslationEntity
@@ -25,20 +23,25 @@ import com.ggb.nirvanahappyclub.sql.entity.UserEntity
 import com.ggb.nirvanahappyclub.sql.operator.BasicPhraseOperator
 import com.ggb.nirvanahappyclub.sql.operator.BasicTranslationOperator
 import com.ggb.nirvanahappyclub.sql.operator.BasicWordOperator
+import com.ggb.nirvanahappyclub.utils.ConvertJsonFileUtils
 import com.tamsiree.rxkit.view.RxToast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import kotlin.random.Random
 
 
 class CommunityDailyFragment : BaseFragment<CommunityDailyViewModel, FragmentCommunityDailyBinding>(),OnItemSingleClickListener{
+
+    private var wAdapter : WordSearchDataAdapter?=null
 
     private var tempId : Long = -1
 
     private var insertProcess = 0
 
     private var subscriber: CustomObserver<WordLoaderBean>? = null
+
+    private var searchWordList: MutableList<Any> = ArrayList()
+
 
     override fun initView() {
         val userShowBean = UserShowBean()
@@ -48,6 +51,10 @@ class CommunityDailyFragment : BaseFragment<CommunityDailyViewModel, FragmentCom
     }
 
     override fun initFragmentData() {
+        wAdapter = WordSearchDataAdapter()
+        mBindingView.rvCommunityDailyWordData.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        mBindingView.rvCommunityDailyWordData.adapter = wAdapter
+//        mBindingView.rvcCommunityDailyWordData.setEmptyLayout(R.layout.load_data_empty)
 
         val userEntity = UserEntity(0, "119", "乖乖帮")
         mViewModel.getCommunityDailyData(userEntity)
@@ -92,9 +99,7 @@ class CommunityDailyFragment : BaseFragment<CommunityDailyViewModel, FragmentCom
         super.initListener()
         ClickUtils.register(this)
             .addOnClickListener()
-            .addView(mBindingView.tvCommunityDailySearch)
-            .addView(mBindingView.tvCommunityDailyInsert)
-            .addView(mBindingView.tvCommunityDailyWordInsert)
+
             .addView(mBindingView.tvCommunityDailyWordDeleteAll)
             .addView(mBindingView.tvCommunityDailyWordInputJson)
             .addView(mBindingView.tvCommunityDailyWordSearch)
@@ -105,46 +110,28 @@ class CommunityDailyFragment : BaseFragment<CommunityDailyViewModel, FragmentCom
     override fun onClick(view: View) {
         super.onClick(view)
         val id = view.id
-        if (id == R.id.tv_community_daily_search) {
-            mViewModel.getCommunityDailyDataInfo(tempId)
-        }else if (id == R.id.tv_community_daily_insert) {
-            val userEntity = generateRandomUserEntity()
-            mViewModel.getCommunityDailyData(userEntity)
-        }else if (id == R.id.tv_community_daily_word_test) {
-            var queryAllBasicWordPhraseEntity = mBasicPhraseOperator.queryAllBasicWordPhraseEntity()
+        if (id == R.id.tv_community_daily_word_test) {
+            val queryAllBasicWordPhraseEntity = mBasicPhraseOperator.queryAllBasicWordPhraseEntity()
             LogUtils.xswShowLog("当前词组表共有"+queryAllBasicWordPhraseEntity.size)
-        }
-
-        else if (id == R.id.tv_community_daily_word_search) {
-
+        } else if (id == R.id.tv_community_daily_word_search) {
             if (mBindingView.etCommunityDailyWordInput.text.isNotEmpty()) {
-                val queryBasicWordData =
-                    mBasicWordOperator.queryBasicWordData(mBindingView.etCommunityDailyWordInput.text.toString())
+                val queryBasicWordData = mBasicWordOperator.queryBasicWordData(mBindingView.etCommunityDailyWordInput.text.toString())
+
+                searchWordList.clear()
+                for (wordEntity in queryBasicWordData) {
+                    searchWordList.add(wordEntity)
+                    searchWordList.addAll(wordEntity.translations)
+                    searchWordList.addAll(wordEntity.phrases)
+                }
+
+                wAdapter?.notifyRefreshList(searchWordList)
 
                 LogUtils.xswShowLog("一共找到单词是--》"+queryBasicWordData.size)
 
-                queryBasicWordData.forEach {
-                    LogUtils.xswShowLog("单词是--》"+it.word)
-
-                    for (translationEntity in it.translations) {
-                        LogUtils.xswShowLog("翻译是--》"+translationEntity.translation)
-                        LogUtils.xswShowLog("词组词性--》"+translationEntity.type)
-                    }
-
-                    for (phraseEntity in it.phrases) {
-                        LogUtils.xswShowLog("词组是--》"+phraseEntity.phrase)
-                        LogUtils.xswShowLog("词组翻译--》"+phraseEntity.translation)
-
-                    }
-                }
-
             }
-        } else if (id == R.id.tv_community_daily_word_insert) {
-
-
         }else if (id == R.id.tv_community_daily_word_input_json) {
 
-            val jsonArray = com.ggb.nirvanahappyclub.utils.JsonUtils.readJsonFromAssets(context,"cet4.json")
+            val jsonArray = ConvertJsonFileUtils.readJsonFromAssets(context,"cet4.json")
             LogUtils.xswShowLog("当前解析后的数组为--"+jsonArray.size())
             mBindingView.wordLoaderBean?.totalProcess = jsonArray.size().toString()
 

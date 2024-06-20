@@ -2,6 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+
+    </data>
 
 
     <LinearLayout
@@ -11,10 +15,50 @@
         android:background="@color/main_background">
 
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_community_nav_word_data"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Navigation"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            tools:listitem="@layout/item_word_search_data"/>
+
+        <TextView
+            android:id="@+id/tv_community_nav_word_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查询英文单词"
+            android:textSize="@dimen/sp_32"/>
+
+        <EditText
+            android:id="@+id/et_community_nav_word_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入英文单词"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_nav_word_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="测试查找所有词组表"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_nav_word_input_json"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="插入资源目录下的json文件"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/sp_32"/>
+
+        <TextView
+            android:id="@+id/tv_community_nav_word_delete_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="删除单词表所有数据"
+            android:textColor="@color/main_color"
             android:textSize="@dimen/sp_32"/>
 
 
