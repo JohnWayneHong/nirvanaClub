@@ -22,9 +22,11 @@ import com.ggb.common_library.utils.json.JsonUtils
 import com.ggb.nirvanahappyclub.R
 import com.ggb.nirvanahappyclub.bean.SimpleUserInfo
 import com.ggb.nirvanahappyclub.databinding.FragmentMeBinding
+import com.ggb.nirvanahappyclub.module.article.ArticleActivity
 import com.ggb.nirvanahappyclub.module.login.LoginActivity
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeBannerAdapter
 import com.ggb.nirvanahappyclub.module.mine.adapter.MeFunctionAdapter
+import com.ggb.nirvanahappyclub.module.mine.function.setting.MineSettingActivity
 import com.ggb.nirvanahappyclub.utils.ConstantUtil
 import com.ggb.nirvanahappyclub.utils.ImageLoaderUtil
 import com.gyf.immersionbar.ImmersionBar
@@ -135,6 +137,22 @@ class MineFragment : BaseFragment<MineViewModel, FragmentMeBinding>(),OnItemSing
 
         val id = view.id
         if (id == R.id.ll_me_option) {
+
+            when(aAdapter?.dataList?.get(position)?.title) {
+                "设置" -> {
+                    val intent = Intent(context, MineSettingActivity::class.java)
+                    intent.putExtra("setting", "setting")
+                    context.startActivity(intent)
+                }
+
+                "清除缓存" -> {
+
+                }
+                else -> {
+
+                }
+            }
+
             ToastUtils.showToast(aAdapter?.dataList?.get(position)?.title)
         }
     }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:overScrollMode="never">
+
+        <include
+            android:id="@+id/ll_me_toolbar"
+            layout="@layout/title_public_view"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/me_setting_options_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_login_out_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dimen_20"
+                android:layout_marginBottom="@dimen/dimen_60"
+                app:borderWidth="0dp"
+                android:backgroundTint="@color/main_color"
+                app:srcCompat="@drawable/ic_login_out" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</layout>

@@ -72,10 +72,11 @@ public class ConstantUtil {
 
     public static final String DATABASE_VERSION = "database_version";
 
-
-
-
     public static final String HTTP_COOKIE = "http_cookie";
 
+
+
+    //我的-设置
+    public static final String MINE_SETTING_GUIDE = "KEY_SETTING_GUIDE";
 
 }

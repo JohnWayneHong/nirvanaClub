@@ -105,4 +105,7 @@
     <color name="transparent">#00000000</color>
     <color name="primaryVariant">#FC6457</color>
 
+    <!-- 我的 设置 相关 -->
+    <color name="color_dialog_background">#aa000000</color>
+
 </resources>

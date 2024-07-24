@@ -123,6 +123,9 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.github.bingoogolapple:BGABaseAdapter-Android:2.0.1'
 
+    //浮层框架
+    implementation "com.github.goweii:AnyLayer:4.1.7-support"
+
 
     //测试工程所用-自动发布工具类
     testImplementation 'junit:junit:4.13.2'

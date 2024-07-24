@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ggb.nirvanahappyclub.bean.MineSettingBean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_settings_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:textColor="@color/primary"
+            android:textSize="@dimen/text_12"
+            android:text="@{data.title}"
+            tools:text="@string/input_normal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1"
+            android:background="@color/light_gray" />
+
+    </LinearLayout>
+
+</layout>
