@@ -24,7 +24,7 @@
     },
     {
       "id": "2:1956011436550516352",
-      "lastPropertyId": "4:7771859825487724308",
+      "lastPropertyId": "5:8531869974560943243",
       "name": "BasicWordPhraseEntity",
       "properties": [
         {
@@ -42,13 +42,21 @@
           "id": "3:826789211644712967",
           "name": "translation",
           "type": 9
+        },
+        {
+          "id": "5:8531869974560943243",
+          "name": "wordEntityId",
+          "indexId": "3:8108750278755235938",
+          "type": 11,
+          "flags": 520,
+          "relationTarget": "BasicWordEntity"
         }
       ],
       "relations": []
     },
     {
       "id": "3:1875140286313679931",
-      "lastPropertyId": "4:4051894055772739685",
+      "lastPropertyId": "5:2145029592322616445",
       "name": "BasicWordTranslationEntity",
       "properties": [
         {
@@ -66,6 +74,14 @@
           "id": "3:3670850980321796373",
           "name": "type",
           "type": 9
+        },
+        {
+          "id": "5:2145029592322616445",
+          "name": "wordEntityId",
+          "indexId": "4:6485505394625143157",
+          "type": 11,
+          "flags": 520,
+          "relationTarget": "BasicWordEntity"
         }
       ],
       "relations": []
@@ -96,7 +112,7 @@
     }
   ],
   "lastEntityId": "4:1900814221189153325",
-  "lastIndexId": "2:9024183899040794617",
+  "lastIndexId": "4:6485505394625143157",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
