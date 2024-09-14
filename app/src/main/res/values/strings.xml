@@ -204,4 +204,7 @@
         <item>注册完成</item>
     </string-array>
 
+    <!-- GPT相关   -->
+    <string name="text_input_hint">长按输入语音或清除文本</string>
+
 </resources>
