@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
 }
+
 apply from: "../default.gradle"
 android {
     resourcePrefix "app_main"
@@ -125,6 +128,26 @@ dependencies {
 
     //浮层框架
     implementation "com.github.goweii:AnyLayer:4.1.7-support"
+
+    //GPT OpenAI API的Java封装
+    implementation group: 'com.unfbx', name: 'chatgpt-java', version: '1.1.5'
+
+    //用于Android端的解析markdown
+    final def markwon_version = "4.6.2"
+    implementation "io.noties.markwon:core:$markwon_version"
+    implementation "io.noties.markwon:ext-latex:$markwon_version"
+    implementation "io.noties.markwon:ext-tables:$markwon_version"
+    implementation "io.noties.markwon:linkify:$markwon_version"
+    implementation "io.noties.markwon:image:$markwon_version"
+    implementation("io.noties.markwon:syntax-highlight:$markwon_version") {
+        // 排除 prism4j 里的依赖冲突
+        exclude group: "org.jetbrains" , module:"annotations-java5"
+    }
+//    annotationProcessor 'io.noties:prism4j-bundler:2.0.0'
+    kapt ("io.noties:prism4j-bundler:2.0.0") {
+        // 排除 prism4j 里的依赖冲突
+        exclude group: "org.jetbrains" , module:"annotations-java5"
+    }
 
 
     //测试工程所用-自动发布工具类

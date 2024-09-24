@@ -78,14 +78,40 @@
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp" />
 
-
         </RelativeLayout>
 
+        <ScrollView
+            android:id="@+id/sv_chat_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_gpt_title"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/ll_chat_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_chat_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
+                    android:text="@string/default_greeting"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerInParent="true"
+            android:visibility="gone"
             android:foreground="@mipmap/logo_round"
             app:cardBackgroundColor="#00DADADA"
             app:cardCornerRadius="20dp"
