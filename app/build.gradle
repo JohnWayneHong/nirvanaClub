@@ -74,6 +74,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.test:monitor:1.5.0'
     def dep = rootProject.ext.dep
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':shadowLibrary')
@@ -130,6 +131,7 @@ dependencies {
     //测试工程所用-自动发布工具类
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.json:json:20231013'
+
 }
 apply plugin: 'io.objectbox'
 
